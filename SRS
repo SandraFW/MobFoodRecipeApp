@@ -65,7 +65,7 @@ Many similar mobile applications provide a food recommendation while the most re
 \subsection{ User Characteristics}
 There are two main users in the system.
 
-Admin: The main role of the admin is controlling the whole project. He is able to view the recipes before posting it after that he can accept or reject the post. 
+Admin: The main role of the admin is controlling the whole project. He is able to view the shared recipes and delete the unwanted posts or comments. Moreover the admin can ban any user after being reported for his unacceptable behavior. 
 
 Casual users: Users can post a various recipes. They can search for a desired recipe, rate it and  save it.
 
