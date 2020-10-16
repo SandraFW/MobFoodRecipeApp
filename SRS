@@ -32,7 +32,7 @@ The scope of this document is to show the basic outlines of our system requireme
 
 \subsection{Overview}
 
-The project clinic management is developed to facilitate the communication process between the doctor, the receptionist, the assistant and the patient. The software would be managed by two admins one is doctor and the other is receptionist. The doctor can view patient details and after checking up the patient, the recommended medicines for the patient are fed into the database by the doctor and are sent to receptionist. The patient can book an appointment and state the medical history .Receptionist would be responsible for viewing appointments and save it in the database along with their details .The receptionist can then generate bill and feed into the database. The system also maintains patient’s history so that doctor or assistant can view them anytime .The assistant would be responsible for booking an operation and follow up with the patient after the surgery .The system can thus reduce complexity in maintaining patient’s records.
+The Food recommendation system is developed to predict the preferences of users to certain items and recipes. We will design a  recommendation system based on a novel model that captures correlations between hidden aspects in reviews and numeric ratings. It is motivated by observing the user’s preference against an item is affected by different aspects discussed in reviews. Profiles are created for users and restaurants separately.The software would be managed by two the admins  and the users. The admin can view all user's details and will be in charge to control everything in the system including banning any user for any misbehave comment or any problem in the system . The user can post a new recipe,like any new post and comment on them.The system also offers the user to save their beloved recommendation posts to their favourite panel.
 
 \subsection{Business Context}
 
@@ -44,36 +44,19 @@ The main goal of the project is to build a well-developed mobile application for
 
 \begin{enumerate}
   \item The system must be fully dynamic,in which the admin is fully controlling the system
-  \item The users(patients,doctor,receptionists,assistants) must be able to control their information 
-  \item The patient must be able to reserve his/her appointment online and choose either paying online or cash.
-  \item The system should be able to send automatic emails and SMS to the patients.
-  \item The admin should have full authority to control all staff permissions.
-  \item The doctor must be able to see full information of the patient.
-  \item The doctor should has the ability to write a report to the patient's case with all details.
-  \item The doctor must be able to reserve operation for the patient if needed.
-  \item The assistant must organize the doctor's schedule and add,edit or delete operations to it.
-  \item The assistant should perform a broadcast en-forming patients of any cancellation in the doctor's schedule.
-  \item The patients must have the authority to edit their appointment details.
-  \item The receptionist must view patients' reservations and should deal with financial staff.
+  \item The users must be able to control their information 
+  \item The user must be able to post the recipe he/she want to share on his/her profile.
+  \item The user must be able to like,comment and save any post.
+  \item The system should be able to send automatic emails to the users about the new pins that are selected for them based on their history searches and interaction.
+  \item The user should be able to hide any post or report it.
+  \item The admin must be able to view any reports that are added by users against certain comment or post for safety.
+ 
+  \item The system must observe a statistics that shows the most trending food recommendations to all the users.
+  
+  
 \end{enumerate}
 \newpage
-\subsection{Product context}
-\subsubsection{Context Diagram}
-\FloatBarrier
-\begin{figure}[h]
-\centering
-\includegraphics[width=10.0cm, height=10.0cm]{./context diagram-2.png}
-\label{label1}
-\end{figure}
-\FloatBarrier
-\newpage
-\subsubsection{Block Diagram}
-\begin{figure}[h]
-\centering
-\includegraphics[width=15.0cm, height=10.0cm]{./clinic block diagram.png}
-\label{label1}
-\end{figure}
-\FloatBarrier
+
 
 \subsection{Similar System Information}
 Many similar mobile applications provide a food recommendation while the most relevant application is Kitchenbowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
@@ -1120,17 +1103,15 @@ the system database                                                             
 \label{label1}
 \end{figure}
 \FloatBarrier
-\subsubsection { CLI}
-N/A
 
-\subsection {API}
-N/A
 
 
 \section{Design Constraints}
 The system should be adaptable to be vied from different kinds of devices
 either tablets, laptops... etc. Also we had a constrain with which is the
 internet speed it varies from one user to another. 
+
+
 \section{Other non-functional attributes}
 \bigskip
 \subsection {Security}
@@ -1151,46 +1132,14 @@ This system can be installed in any personal computers supporting windows operat
 \subsection {Flexibility}
 The system keeps on updating the data according to the transactions that takes place.
 \newpage
-\section{Preliminary Object-Oriented Domain Analysis}
-
-\subsection{Class diagram}
-\FloatBarrier
-\begin{figure}[h]
-\centering
-\includegraphics[width=15.5cm, height=11.5cm]{./clinic system-9.png}
-\label{label1}
-\end{figure}
-\FloatBarrier
-\newpage
 
 
-\subsection{ER diagram}
-\FloatBarrier
-\begin{figure}[h]
-\centering
-\includegraphics[width=10.5cm, height=12.5cm]{./ER CLINIC System.png}
-\label{label1}
-\end{figure}
-\FloatBarrier
-\newpage 
-\FloatBarrier
-\begin{figure}[h]
-\centering
-\includegraphics[width=15cm, height=15.5cm]{./Database.png}
-\label{label1}
-\end{figure}
-\FloatBarrier
-\newpage
+
+
 
 
 \section{Operational Scenarios}
-\FloatBarrier
-\begin{figure}[h]
-\centering
-\includegraphics[width=10.5cm, height=10.5cm]{./Use case diagram.png}
-\label{label1}
-\end{figure}
-\FloatBarrier
+
 \newpage 
 The following is a brief explanation for some of the scenarios that present in our system:
 
