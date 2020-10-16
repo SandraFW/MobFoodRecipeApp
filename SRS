@@ -46,12 +46,12 @@ The main goal of the project is to build a well-developed mobile application for
   \item The system must be fully dynamic,in which the admin is fully controlling the system
   \item The users must be able to control their information 
   \item The user must be able to post the recipe he/she want to share on his/her profile.
-  \item The user must be able to like,comment and save any post.
+  \item The user must be able to like,comment,rate and save any post.
   \item The system should be able to send automatic emails to the users about the new pins that are selected for them based on their history searches and interaction.
   \item The user should be able to hide any post or report it.
   \item The admin must be able to view any reports that are added by users against certain comment or post for safety.
  
-  \item The system must observe a statistics that shows the most trending food recommendations to all the users.
+  \item The system must observe a statistics that is based on the ratings that shows the most trending food recommendations to all the users.
   
   
 \end{enumerate}
