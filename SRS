@@ -1,0 +1,113 @@
+\documentclass[]{article}
+\usepackage{placeins}
+%Image-related packages
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+%opening
+
+\title{Software Requirement Specification Document
+
+
+\author{ Mariam Hesham,Nour Ahmed ,Samiha Hesham,Sandra Fares}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\subsection{Purpose of this document}
+
+
+\subsection{ Scope of this document}
+
+
+
+\subsection{Overview}
+
+.
+
+\subsection{Business Context}
+
+
+
+\section{General description}
+
+\subsection{Product Functions}
+
+
+\subsection{Similar System Information}
+
+
+\subsection{ User Characteristics}
+
+
+\subsection{ User Problem Statement}
+
+
+\section{Functional Requirements}
+
+\newpage
+
+
+
+\section{Design Constraints}
+ 
+\section{Other non-functional attributes}
+\bigskip
+\subsection {Security}
+This system is provided with authentication without which no user can pass. So only the legitimate users are allowed to use the application. If the legitimate user’s share the authentication information then the system is open to outsiders.
+\bigskip
+
+\subsection {Reliability}
+Good validations of user inputs will be done to avoid incorrect storage of records.
+\bigskip
+
+\subsection {Maintainability}
+The software system should be designed to be easily to maintain and improved by software developers through the implementation of MCV 
+design patterns so that helps a lot in maintaining the software system, and minimize the amount of changes that will be done in the code
+\bigskip
+\subsection {Portability}
+This system can be installed in any personal computers supporting windows operating system platform.
+\bigskip
+\subsection {Flexibility}
+The system keeps on updating the data according to the transactions that takes place.
+\newpage
+\section{Preliminary Object-Oriented Domain Analysis}
+
+
+
+
+\section{Project Plan}
+\FloatBarrier
+\begin{table}[h]
+\caption{}
+\label{tab:my-table}
+\begin{tabular}
+{|p{0.5\textwidth}|p{0.5\textwidth}|}
+\hline
+\textbf{Task} & \textbf{End Date}
+
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\section{ Abbreviations}
+\begin{itemize}
+
+
+
+\end{itemize}
+
+
+\FloatBarrier
+\section {References}
+
+\end{document}
