@@ -77,7 +77,7 @@ The project aims to build an application program to reduce the manual work for m
 \FloatBarrier
 
 \subsection{Similar System Information}
-This software is similar to various generic products. However, MedDNA \cite{meddna} , myhCue \cite{myhcue}, and Adroit's eClinic \cite{eclinic} are the most similar to our system (Adriot Infosystems is a Healthcare IT company which produced various products, including eClinic). These systems are stand-alone clinic management systems that are available for installation by any customer in need. Their purpose is to help in managing appointments, viewing patients' history, and offering effortless communication between the Doctors and their Patients, just like our system is intended to do.
+Many similar mobile applications provide a food recommendation while the most relevant application is Kitchenbowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
 
 
 \subsection{ User Characteristics}
