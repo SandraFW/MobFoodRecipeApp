@@ -36,8 +36,7 @@ The project clinic management is developed to facilitate the communication proce
 
 \subsection{Business Context}
 
-The project aims to build an application program to reduce the manual work for managing the clinic. According to Cheah Ming Lay's article on Clinic management systems \cite{lay2010clinic}, Clinic management systems help to end the complexities involved in accounting along with detailed profit and loss reports. The system can provide convenient access to information and making it less likely that mistakes would be made due to illegible writing. The internet-based access improves the ability to remotely access the data and making it easier to maintain and quicker to search through for relevant. The system also saves time for medical staff to focus on more important tasks at hand and reduces wait times which is otherwise spent filling out forms in and reduces the waiting time for patients at the clinics.
-
+The main goal of the project is to build a well-developed mobile application for managing and organizing food recipe recommendations system. The system aim to reduce time and complexities for the users, by making it much easier to find and save a desired recipe. Moreover the system saves user time by making him able to view the reviews and rates for each recipe to choose a well-cooked food.
 
 \section{General description}
 
@@ -81,32 +80,11 @@ Many similar mobile applications provide a food recommendation while the most re
 
 
 \subsection{ User Characteristics}
-According to a Software Requirements
-Specification document written by Shiva Prasad \cite{srs} , there are four main users in the clinic management system. The admin, doctor, receptionists, and patients. However, in our system, we will have an additional user who is the doctor's assistant. The system is also designed to be user-friendly. 
+There are two main users in the system.
 
-\begin{itemize}
-  \item Admin
-  \item Receptionists
-  \item Doctor
-  \item Assistants
-  \item Patients
-  
-  
-\end{itemize}
+Admin: The main role of the admin is controlling the whole project. He is able to view the recipes before posting it after that he can accept or reject the post. 
 
-Admin: Admin should have prior knowledge of the system. Admin is able to control the whole system. He/she can add, delete, update and modify the system.
-
-
-Receptionists: in order view the details of the patients come for the treatment and accordingly provides identity to them also, schedule the appointments of the day and deals with payment methods. 
-
-
-Doctor: Doctor should fairly know about the usage of the system. Doctor are able to see the respective appointments taken. And also, can view patient’s details and records and set for them operations if needed.
-
-
-Assistants: they are mainly managing the chatting system for the clinic with patients and they must  view, edit ,delete and add operations in the doctor’s schedule.
-
-
-Casual users: Anyone can view the information of the polyclinic. Patients can view their own records and doctor’s details and timings to take appointment online.
+Casual users: Users can post a various recipes. They can search for a desired recipe, rate it and  save it.
 
 
 \subsection{ User Problem Statement}
