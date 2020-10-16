@@ -24,7 +24,7 @@
 \section{Introduction}
 
 \subsection{Purpose of this document}
-The main purpose of this document is to clarify and demonstrate the requirements of a Clinic System. These requirements include booking appointments, contacting Doctors or Physician assistants, and viewing patients' medical information. Our aim is to assist patients' to reserve appointments and reach out to healthcare professionals easily. Moreover, our system shall make it easier for Doctors to view patients' medical information, in order to provide accurate diagnosis. This documentation shall provide an explanation of each phase, along with an illustration on how this system is going to function. 
+The purpose of this document is to elucidate the requirements to build a food recommendations system. These requirements include adding food recipes, viewing them, and rating them based on their quality. The aim of this project is to offer an easier and more organized way for people to share a variety of food recipes with each other. Depending on the reviews given to each recipe, the application will keep the user updated with the finest recipes and the latest food trends. Moreover, the user can view a dish of his choice and choose his desired recipe based on the reviews shown.
 
 \subsection{ Scope of this document}
 The scope of this document is to show the basic outlines of our system requirements in order to understand our system and the issues we may face . Requirements outlined in this document are subject to change and do not appear in order of priority. 
@@ -110,7 +110,7 @@ Casual users: Anyone can view the information of the polyclinic. Patients can vi
 
 
 \subsection{ User Problem Statement}
-Our client needs to replace all the manual operations done daily in his clinic into automated ones.Starting from patient's booking their appointments,saving their history to be easier to retrieve on the follow up day to booking surgeries too .Also they need a chatting system in order to facilitate patients contact with our client or his assistant .All of which should be easy to use , without any complexities to provide fast interactions without consuming time while dealing with our software.
+In various social media platforms, the user finds it difficult to determine if a recipe is worth trying, as there are a lot of recipes placed upon him. Moreover, the recipes and the information relevant to the user are sometimes unclear due to the disorganization of the system. To solve this problem, this application is user friendly and offers the information desired by the user in an effortless and more organized way.
 
 \section{Functional Requirements}
 
