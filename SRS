@@ -10,7 +10,7 @@
 %opening
 
 \title{Software Requirement Specification Document
-\newline V1.1 Dr. Ahmed Ghoniem Clinic}
+\newline V1.0 Food Recommendation Application }
 
 \author{ Mariam Hesham,Nour Ahmed ,Samiha Hesham,Sandra Fares}
 
@@ -27,7 +27,7 @@
 The main purpose of this document is to clarify and demonstrate the requirements of a Clinic System. These requirements include booking appointments, contacting Doctors or Physician assistants, and viewing patients' medical information. Our aim is to assist patients' to reserve appointments and reach out to healthcare professionals easily. Moreover, our system shall make it easier for Doctors to view patients' medical information, in order to provide accurate diagnosis. This documentation shall provide an explanation of each phase, along with an illustration on how this system is going to function. 
 
 \subsection{ Scope of this document}
-The scope of this document is to break down our client's problems into chunks that can be solved more readily.It also helps to increase understanding of issues and makes them easier to be tackled through our system and tested properly to fulfil the optimum solutions. 
+The scope of this document is to show the basic outlines of our system requirements in order to understand our system and the issues we may face . Requirements outlined in this document are subject to change and do not appear in order of priority. 
 
 
 \subsection{Overview}
