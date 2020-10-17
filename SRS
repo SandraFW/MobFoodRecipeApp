@@ -84,10 +84,10 @@ In various social media platforms, the user finds it difficult to determine if a
 \hline
 \textbf{Function:} & Check email validation.
 \\ \hline
-\textbf{ID}  &      FR00      
+\textbf{ID}  &      FR00     
 
 \\ \hline
-\textbf{Description}    &    This Function is to check if the email is valid before inserting it in the database.                                                                 
+\textbf{Description}    &    This Function checks if an email address is valid.                                                                 
 \\ \hline
 \textbf{Type}    &         Boolean
 
@@ -96,7 +96,7 @@ In various social media platforms, the user finds it difficult to determine if a
 
 
 \\ \hline
-\textbf{Action}            & Checks if the email entered in the text field  is in the proper format and  if the email is valid  it returns true means that the email is valid to be stored if exists in the database.
+\textbf{Action}            & Checks if the email entered by the user is in the proper format. if it is, the function returns true.
 
 \\ \hline
 \textbf{Output}            & Boolean if email is valid
@@ -109,7 +109,7 @@ In various social media platforms, the user finds it difficult to determine if a
 
 
 \\ \hline
-\textbf{Dependencies}           & return to login function (FR03).
+\textbf{Dependencies}           & FR03.
 \\ \hline
 \end{tabular}
 \end{table}
@@ -125,7 +125,7 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{ID}  &     FR01       
 
 \\ \hline
-\textbf{Description}    &      This Function is to check if the password is valid before inserting it in the database.                                                              
+\textbf{Description}    &      This function checks if the password is valid before inserting it in the database.                                                              
 \\ \hline
 \textbf{Type}    &         Boolean
 
@@ -134,7 +134,7 @@ In various social media platforms, the user finds it difficult to determine if a
 
 
 \\ \hline
-\textbf{Action}            & Checks if the password is valid in format. If yes it returns true means that the password is valid to be stored if exist in the database with its email.
+\textbf{Action}            & Checks if the password is in a valid format. If yes, it returns true.
 
 \\ \hline
 \textbf{Output}            & Boolean if password valid
@@ -152,42 +152,6 @@ In various social media platforms, the user finds it difficult to determine if a
 \end{tabular}
 \end{table}
 
-\begin{table}[h]
-\caption{ }
-\label{tab:my-table}
-\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-\hline
-\textbf{Function:} & Check phone Number validation
-\\ \hline
-\textbf{ID}  &            FR02
-
-\\ \hline
-\textbf{Description}    &     This Function is to check if the phone number is valid before storing it in the database.                                                                
-\\ \hline
-\textbf{Type}    &       Boolean  
-
-\\ \hline
-\textbf{Input}        & Phone number
-
-
-\\ \hline
-\textbf{Action}            & Checks if the phone number entered in the  field  is in the proper format and  if it is valid in it's format it returns true means that it is valid to be stored in the database.
-
-\\ \hline
-\textbf{Output}            & Boolean if phone number is valid.
-
-\\ \hline
-\textbf{Precondition}           &   User enter the phone number into the required text field.
-
-\\ \hline
-\textbf{Post-condition}           & Return to login function (FR03)
-
-
-\\ \hline
-\textbf{Dependencies}           & FR03
-\\ \hline
-\end{tabular}
-\end{table}
 
 \begin{table}[h]
 \caption{ }
@@ -208,13 +172,13 @@ In various social media platforms, the user finds it difficult to determine if a
 
 
 \\ \hline
-\textbf{Action}            & Checks if the data are filled and compare the record that was entered before to the record in the database, The function returns true otherwise returns false.
+\textbf{Action}            & Checks if the data are filled correctly. If yes, the function returns true. otherwise, it returns false.
 
 \\ \hline
 \textbf{Output}            & Boolean acceptance login.
 
 \\ \hline
-\textbf{Precondition}           &   The user needs to into his email and password into the Text fields and that the inputs are verified (FR00, FR01)
+\textbf{Precondition}           &   The user needs to input his email and password into the Text fields. (FR00, FR01)
 
 \\ \hline
 \textbf{Post-condition}           & Redirect to the home page
@@ -225,6 +189,8 @@ In various social media platforms, the user finds it difficult to determine if a
 \\ \hline
 \end{tabular}
 \end{table}
+
+
 
 \FloatBarrier
 \begin{table}[h]
@@ -237,7 +203,7 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{ID}  &            FR04
 
 \\ \hline
-\textbf{Description}    &       This Function exists if the user forgets the password, it generates a new password and sends email with it to help him login successfully again.                                                               
+\textbf{Description}    &        If the user forgets his password, this function gets generated. It helps the user to insert a new password so that he login successfully again.                                                               
 \\ \hline
 \textbf{Type}    &       Boolean  
 
@@ -246,10 +212,10 @@ In various social media platforms, the user finds it difficult to determine if a
 
 
 \\ \hline
-\textbf{Action}            & Firstly the email is checked using FR00 then if the email exists in the database, the function sends email FR14 with the new password generated.
+\textbf{Action}            & First, the email is checked using FR00 then if the email exists in the database, the function sends email FR14 with the new password generated.
 
 \\ \hline
-\textbf{Output}            & Record updated
+\textbf{Output}            & password updated
 
 \\ \hline
 \textbf{Precondition}           &   The user enters his email in the Text field.
@@ -264,7 +230,6 @@ In various social media platforms, the user finds it difficult to determine if a
 \end{tabular}
 \end{table}
 
-
 \FloatBarrier
 \begin{table}[h]
 \caption{}
@@ -275,20 +240,19 @@ In various social media platforms, the user finds it difficult to determine if a
 \\ \hline
 \textbf{ID}  & FR05          
 \\ \hline
-\textbf{Description}    &  The functions get the user type ID according from which page the inserting process whether the patient's registration page or from the administrator is happening, then it
-uses the input data to insert a new row in users table in
-the system database                                                              \\ \hline
+\textbf{Description}    &  The function
+uses the input data to insert a new row in users table in the system database                                                              \\ \hline
 \textbf{Type}    & void     
 \\ \hline
-\textbf{Input}  & user type id and user data
+\textbf{Input}  &  user data
 \\ \hline
-\textbf{Action} &  checks if the user's email,password and phone number are validated, if so it enters the user record in the database and returns true else it returns false and an error message will appear 
+\textbf{Action} &  checks if the user's email and password are validated. if so, it enters the user record in the database and returns true. else, it returns false and an error message will appear 
 \\ \hline
-\textbf{Output} & New User Record in Database
+\textbf{Output} & new user record in database
 \\ \hline
 \textbf{Precondition}  & User's information is right and validated     
 \\ \hline
-\textbf{Post-condition} & Creating a new row in database table with new ID for the user
+\textbf{Post-condition} & Creating a new row in database table with for a new user.
 \\ \hline
 \textbf{Dependencies} & FR00 , FR01 , FR02  
 \\ \hline
@@ -329,25 +293,25 @@ the system database                                                             
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Search User.
+\textbf{Function:} & Search Recipe.
 \\ \hline
 \textbf{ID}  & FR07           
 \\ \hline
-\textbf{Description} & The Function returns the user with the same id or name that being searched for by one of our staff users                                              
+\textbf{Description} & The Function returns the recipe searched for by the user                                              
 \\ \hline
 \textbf{Type}  & Return Function        
 
 \\ \hline
-\textbf{Input}  & Id or Name of the desired user 
+\textbf{Input}  &  Name of the recipe 
 
 \\ \hline
-\textbf{Action} & check if user id or name matches any of records in database , if there is a user show it else returns null
+\textbf{Action} & check if recipe name matches any of records in database. if a recipe exists it shows it to the user. else, returns null
 \\ \hline
-\textbf{Output} & if Users details exists
+\textbf{Output} & if recipe exists
 \\ \hline
-\textbf{Precondition}   &   One of staff users enters users id or name needed to be found
+\textbf{Precondition}   &   user enters recipe name
 \\ \hline
-\textbf{Post-condition} & user record is retrieved from database if is found 
+\textbf{Post-condition} & recipe is retrieved from database if it is found.
 \\ \hline
 \textbf{Dependencies} & -- 
 \\ \hline
