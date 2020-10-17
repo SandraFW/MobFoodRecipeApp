@@ -27,7 +27,7 @@
 The purpose of this document is to elucidate the requirements to build a food recommendations system. These requirements include adding food recipes, viewing them, and rating them based on their quality. The aim of this project is to offer an easier and more organized way for people to share a variety of food recipes with each other. Depending on the reviews given to each recipe, the application will keep the user updated with the finest recipes and the latest food trends. Moreover, the user can view a dish of his choice and choose his desired recipe based on the reviews shown.
 
 \subsection{ Scope of this document}
-The scope of this document is to show the basic outlines of our system requirements in order to understand our system and the issues we may face . Requirements outlined in this document are subject to change and do not appear in order of priority. 
+The scope of this document is to show the basic outlines of our system requirements in order to understand our system and the issues we may face . Requirements outlined in this document are subject to change. 
 
 
 \subsection{Overview}
@@ -57,7 +57,7 @@ The main goal of the project is to build a well-developed mobile application for
 
 
 \subsection{Similar System Information}
-Many similar mobile applications provide a food recommendation while the most relevant application is Kitchenbowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
+There are many similar mobile applications that provide  food recommendation as \cite{Cookmate} ,\cite{Cookpad} while the most relevant application is\cite{KitchenBowl} Kitchen bowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
 
 
 \subsection{ User Characteristics}
@@ -893,6 +893,6 @@ The system keeps on updating the data according to the transactions that takes p
 
 \bibliographystyle{IEEEtranS}
 
-\bibliography{b12.bib}
+\bibliography{b2.bib}
 
 \end{document}
