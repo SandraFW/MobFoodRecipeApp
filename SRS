@@ -349,36 +349,37 @@ uses the input data to insert a new row in users table in the system database   
 \end{tabular}
 \end{table}
 
+
 \FloatBarrier
 \begin{table}[h]
 \caption{}
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Create Usertype
+\textbf{Function:} & Comment or review
 \\ \hline
 \textbf{ID}  & FR09           
 
 \\ \hline
-\textbf{Description}  & this function is to add new user type to the system in the database                                                                     
+\textbf{Description}  & this function is to add a new comment on a certain post to the system in the database                                                                     
 \\ \hline
 \textbf{Type}   & Boolean     
 
 \\ \hline
-\textbf{Input}  & User Type name
+\textbf{Input}  & User's comment
 
 \\ \hline
-\textbf{Action}  & Check if the user type name is not duplicated in the database , if so it enters the user type record in the database and returns true else return false
+\textbf{Action}  &  If the user's comment is created successfully,it gets recorded in the database else,it returns an error message.
 
 \\ \hline
-\textbf{Output}  & Success Message if user type is created 
+\textbf{Output}  & comment created successfully.
 
 \\ \hline
-\textbf{Precondition}  & Check if user type doesn't exist   
+\textbf{Precondition}  & Check if user's comment is. not empty. 
 \\ \hline
-\textbf{Post-condition}  & Creating a new database record with a new ID and add the new user type name in it 
+\textbf{Post-condition}  & The comment has been added successfully.
 \\ \hline
-\textbf{Dependencies} & ---
+\textbf{Dependencies} & FR03-FR05
 \\ \hline
 \end{tabular}
 \end{table}
@@ -388,26 +389,28 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & List Usertype
+\textbf{Function:} & Rate
 \\ \hline
 \textbf{ID}  & FR10          
 
 \\ \hline
-\textbf{Description} & this function is to List all existing user type in database according to the user type ID \\ \hline
-\textbf{Type}    &  Returns array      
+\textbf{Description} & This function is to store the rating every user will give to a any post that are ranged from one to five stars and according to this stars the trending statistics will be generated.
+
 \\ \hline
-\textbf{Input}   & ---
+\textbf{Type}    &  Boolean   
 \\ \hline
-\textbf{Action}  & Retrieving all user types in database
+\textbf{Input}   & number of the stars selected.
 \\ \hline
-\textbf{Output}  & Array by each user type
+\textbf{Action}  & Storing the rating number to the database.
 \\ \hline
-\textbf{Precondition}  & Check if user type exists    
+\textbf{Output}  & New rating is added to the database
+\\ \hline
+\textbf{Precondition}  & --   
 
 \\ \hline
 \textbf{Post-condition} & --  
 \\ \hline
-\textbf{Dependencies}  & FR09
+\textbf{Dependencies}  & FR03-FR05
 \\ \hline
 \end{tabular}
 \end{table}
@@ -417,32 +420,32 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Delete UserType 
+\textbf{Function:} & save
 \\ \hline
 \textbf{ID}  & FR11          
 
 \\ \hline
-\textbf{Description}  & This function is to delete the selected user type row from user type in database                                                                     
+\textbf{Description}  & This function is save a certain post to the favourite panel for every user.                                                                    
 \\ \hline
-\textbf{Type}   & Boolean         
+\textbf{Type}   & Returns array         
 
 \\ \hline
-\textbf{Input}  & ID of which user type to be deleted 
+\textbf{Input}  & --
 
 \\ \hline
-\textbf{Action} & Check if user Type id exists in the database to delete it 
+\textbf{Action} & if the post is added successfully it gets recorded in the favorites database table. 
 
 \\ \hline
-\textbf{Output}  & Message if user type deleted  
+\textbf{Output}  & new post is added to the favourites.
 
 \\ \hline
-\textbf{Precondition}   & The selected user type needed to be deleted   
+\textbf{Precondition}   & --
 
 \\ \hline
-\textbf{Post-condition}  & Updating the database by removing the user type id row from table 
+\textbf{Post-condition}  & check the existence of the saved posts.
 
 \\ \hline
-\textbf{Dependencies}    & ---- 
+\textbf{Dependencies}    & FR03-FR05
 \\ \hline
 \end{tabular}
 \end{table}
@@ -453,31 +456,31 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Update UserType.
+\textbf{Function:} & Report.
 \\ \hline
 \textbf{ID}  & FR12           
 
 \\ \hline
-\textbf{Description}    & Admin can update the type of the user if there were any changes according to user ID                                                               
+\textbf{Description}    & User can report any post or misbehaved comment in any post.                                                       
 \\ \hline
 \textbf{Type}    & Boolean  
 
 \\ \hline
-\textbf{Input}   & User Type ID
+\textbf{Input}   & report Type ID
 
 
 \\ \hline
-\textbf{Action}  & If User Type is updated return true, else return false and show error message
+\textbf{Action}  & If report is updated return true, else return false and show error message.
 
 \\ \hline
-\textbf{Output} & if User Type update, success message 
+\textbf{Output} & The report is successfully sent to the admin.
 \\ \hline
-\textbf{Precondition}   & There must be at least one User Type added to the storage and action must be made by the admin 
+\textbf{Precondition}   & There must be at least one comment Type added to the storage and action must be made by the admin. 
 
 \\ \hline
 \textbf{Post-condition} & The record of the user is updated in the database
 \\ \hline
-\textbf{Dependencies}   & FR09
+\textbf{Dependencies}   & FR03-FR05
 \\ \hline
 \end{tabular}
 \end{table}
@@ -488,34 +491,34 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & View Profile.
+\textbf{Function:} & view notification.
 \\ \hline
-\textbf{ID}  & FR13         
+\textbf{ID}  & FR18           
 
 \\ \hline
-\textbf{Description} & User can view his/her profile, admin can also view the profile                                                                  
+\textbf{Description}    & viewing all the notification in the database                                                                    
 \\ \hline
-\textbf{Type}    &  Return array       
+\textbf{Type}    & return array       
 
 \\ \hline
-\textbf{Input}        & User ID
-
-
-\\ \hline
-\textbf{Action}     & Admin views user profile
-
-\\ \hline
-\textbf{Output}            & Array filled by each user’s data
-
-\\ \hline
-\textbf{Precondition}           & Check if the user exists  
-
-\\ \hline
-\textbf{Post-condition}           &  The certain profile
+\textbf{Input}        & 
 
 
 \\ \hline
-\textbf{Dependencies}           & FR03,FR05,FR09
+\textbf{Action}            & fetching all the notifications in the database
+
+\\ \hline
+\textbf{Output}            & array of notifications
+
+\\ \hline
+\textbf{Pre condition}           & check the existence of notifications 
+
+\\ \hline
+\textbf{Post condition}           & 
+
+
+\\ \hline
+\textbf{Dependencies}           & FR03
 \\ \hline
 \end{tabular}
 \end{table}
