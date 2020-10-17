@@ -489,7 +489,7 @@ uses the input data to insert a new row in users table in the system database   
 \hline
 \textbf{Function:} & view notification.
 \\ \hline
-\textbf{ID}  & FR18           
+\textbf{ID}  & FR13          
 
 \\ \hline
 \textbf{Description}    & viewing all the notification in the database                                                                    
