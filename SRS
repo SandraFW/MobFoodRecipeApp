@@ -47,12 +47,10 @@ The main goal of the project is to build a well-developed mobile application for
   \item The users must be able to control their information 
   \item The user must be able to post the recipe he/she want to share on his/her profile.
   \item The user must be able to comment,rate and save any post.
-  \item The system should be able to send automatic emails to the users about the new pins that are selected for them based on their history searches and interaction.
   \item The user should be able to report any post.
   \item The user must be able to search for any recipe.
   \item The admin must be able to view any reports that are added by users against certain comment or post for safety.
- 
-  \item The system must observe a statistics that is based on the ratings that shows the most trending food recommendations to all the users.
+ \item The system must observe a statistics that is based on the ratings that shows the most trending food recommendations to all the users.
   
   
 \end{enumerate}
@@ -752,9 +750,8 @@ uses the input data to insert a new row in users table in the system database   
 \\ \hline
 \end{tabular}
 \end{table}
-
-
-
+\FloatBarrier
+\newpage
 
 \FloatBarrier
 \section{Interface Requirements}
@@ -767,28 +764,43 @@ uses the input data to insert a new row in users table in the system database   
  \newpage
 
 \subsubsection{Main page}
-\vfill
+
 \begin{figure}[h]
-\centering
-\includegraphics[width=15.0cm, height=11.0cm]{./Home.png}
-\caption{Main Page of website the patient use it}
-\label{label1}
+  \centering
+  \begin{minipage}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{1.jpg}
+    \caption{main one.}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{2.jpg}
+    \caption{main two.}
+     
+      \end{minipage}
+  \begin{minipage}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{3.jpg}
+    \caption{main three.}
+  \end{minipage}
 \end{figure}
 \newpage
 \FloatBarrier
-\subsubsection{Login pages}
+\subsubsection{Login and sign up pages}
 \FloatBarrier
 \begin{figure}[h]
 \centering
-\includegraphics[width=15.0cm, height=11.0cm]{./2.jpeg}
-\caption{Staff's Login}
+  \begin{minipage}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{4.jpg}
+    \caption{main sign in.}
+  \end{minipage}
+    \begin{minipage}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{6.jpg}
+    \caption{Login in.}
+  \end{minipage}
+      \begin{minipage}[b]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{5.jpg}
+    \caption{Sign up.}
+  \end{minipage}
 \label{label1}
-\end{figure}
-\begin{figure}[h]
-\centering
-\includegraphics[width=15.0cm, height=12.0cm]{./3.jpeg}
-\caption{Patient's login}
-\label{label2}
 \end{figure}
 \FloatBarrier
 \newpage
@@ -796,60 +808,18 @@ uses the input data to insert a new row in users table in the system database   
 
 \vfill
  \begin{figure}[h]
- \subsubsection{Registration page}
+ \subsubsection{Profile page}
  \begin{minipage}{.5\textwidth}
-  \includegraphics[width=15.0cm, height=10.0cm]{./reg1.png}
-  \caption{Patient's page}
+  \includegraphics[width=5.0cm, height=10.0cm]{./7.jpg}
+  \caption{feed page}
  \end{minipage}
   \begin{minipage}{.5\textwidth}
-  \includegraphics[width=15.0cm, height=10.0cm]{./reg2.png}
-  \caption{Staff's page}
+  \includegraphics[width=5.0cm, height=10.0cm]{./8.jpg}
+  \caption{User's profile}
  \end{minipage}
 \end{figure}
 \FloatBarrier
-\FloatBarrier
-\subsubsection{Doctor's Dashboard}
-\begin{figure}[h]
-\centering
-\includegraphics[width=15.0cm, height=12.0cm]{./Dr.png}
-\caption{Doctor's dashboard}
-\label{label1}
-\end{figure}
-\FloatBarrier
 \newpage
-\FloatBarrier
-\subsubsection{Booking Page}
-\begin{figure}[h]
-\centering
-\includegraphics[width=15.5cm, height=10.0cm]{./b1.jpeg}
-\caption{Booking Page}
-\label{label1}
-\end{figure}
-\FloatBarrier
-\newpage
-\FloatBarrier
-\subsubsection{Appointment's Time Table Page}
-\begin{figure}[h]
-\centering
-\includegraphics[width=15.5cm, height=10.0cm]{./time.jpeg}
-\caption{Appointment Page}
-\label{label1}
-\end{figure}
-\FloatBarrier
-\FloatBarrier
-\newpage
-\FloatBarrier
-\subsubsection{Admin's  Page}
-\begin{figure}[h]
-\centering
-\includegraphics[width=15.5cm, height=10.0cm]{./admin.png}
-\caption{Admin Page}
-\label{label1}
-\end{figure}
-\FloatBarrier
-
-
-
 \section{Design Constraints}
 The system should be adaptable to be vied from different kinds of devices
 either tablets, laptops... etc. Also we had a constrain with which is the
@@ -884,7 +854,6 @@ The system keeps on updating the data according to the transactions that takes p
 
 \section{Operational Scenarios}
 
-\newpage 
 The following is a brief explanation for some of the scenarios that present in our system:
 
 \subsection{Login and Registration System}
@@ -935,27 +904,16 @@ The following is a brief explanation for some of the scenarios that present in o
 \hline
 \textbf{Task} & \textbf{End Date}
 \\ \hline
-\textbf{Html templates}  & 17/3/2020            
+\textbf{first implementation}  & 22/10/2020            
 
 \\ \hline
-\textbf{UserInterface }  &  17/3/2020                          
+\textbf{phase 1 }  &  7/11/2020                          
 \\ \hline
-\textbf{Booking Interface}  & 17/3/2020
+\textbf{phase 2}  &    14/11/2020
 \\ \hline
-\textbf{User Full Control}  &  4/4/2020  
+\textbf{Final}  &  24/11/2020  
 \\ \hline
-\textbf{Staff Full Control}  &  10/4/2020  
 
-\\ \hline
-\textbf{Booking Full Control} & 10/4/2020
-
-\\ \hline
-\textbf{Messaging}   & 15/4/2020
-
-\\ \hline
-\textbf{Project Full Control} & 5/5/2020
-
-\\ \hline
 \end{tabular}
 \end{table}
 
@@ -968,18 +926,7 @@ The following is a brief explanation for some of the scenarios that present in o
 
 \end{itemize}
 
-\section{Collected material}
-\begin{figure}[h]
-\centering
-\includegraphics[width=10.0cm, height=10.0cm]{./ref1.jpeg}
-\label{label1}
-\end{figure}
-\begin{figure}[h]
-\centering
-\includegraphics[width=10.0cm, height=10.0cm]{./ref2.jpeg}
 
-\label{label2}
-\end{figure}
 \FloatBarrier
 \section {References}
 
