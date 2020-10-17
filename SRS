@@ -566,34 +566,34 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Add Appointment
+\textbf{Function:} & Create post
 \\ \hline
 \textbf{ID}  &   FR15         
 
 \\ \hline
-\textbf{Description}    & This function adds a new record to the appointment table in the database                                                                    
+\textbf{Description}    & This function is for the user to post a recipe on the application and share it with the other users.                                                                  
 \\ \hline
 \textbf{Type}    &   Boolean      
 
 \\ \hline
-\textbf{Input}        & Appointment data to be recorded. Including the ID, Patient's ID, appointment number, type, and date.
+\textbf{Input}        & User ID. Recipe ingredients and steps to be added to the post
 
 
 \\ \hline
-\textbf{Action}            & If the appointment is added successfully, it gets recorded in the database. else, it returns an error message.
+\textbf{Action}            & If the post is added successfully ,it gets recorded in the database. else, it returns an error message.
 
 \\ \hline
-\textbf{Output}            & New appointment is added in the database
+\textbf{Output}            & New post is added. 
 
 \\ \hline
-\textbf{Precondition}           &  Patient books an appointment and fills up all the information needed to book an appointment. 
+\textbf{Precondition}           &  Users must login first and create a new post to add the recipe.
 
 \\ \hline
-\textbf{Post-condition}           & The appointment has been booked successfully and the patient is expected to meet his Doctor at the time he specified.
+\textbf{Post-condition}           & Creating a new record in the database table with a new post ID. 
 
 
 \\ \hline
-\textbf{Dependencies}           & FR03, FR05 
+\textbf{Dependencies}           & FR03 
 \\ \hline
 \end{tabular}
 \end{table}
@@ -605,34 +605,35 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Edit Appointment
+\textbf{Function:} & Update post
 \\ \hline
 \textbf{ID}  & FR16    
 
 \\ \hline
-\textbf{Description}    &  This function updates the appointment data in the database according to the appointment ID.                                                                   
+\textbf{Description}    & This function is for the user to modify the recipe and save the new post 
+                                                                  
 \\ \hline
 \textbf{Type}    &  Boolean       
 
 \\ \hline
-\textbf{Input}        & Appointment ID to the appointment to be updated
+\textbf{Input}        & Post ID. New recipe to be updated.
 
 
 \\ \hline
-\textbf{Action}            & Checks if the appointment data has been updated. If yes, it returns true. else, it returns an error message.
+\textbf{Action}            & Check if the recipe data has been updated. If yes, it returns true. else, it returns an error message.
 
 \\ \hline
-\textbf{Output}            & Appointment's data updated.
+\textbf{Output}            & Updated post is added.
 
 \\ \hline
-\textbf{Precondition}           &   Checks if the appointment exists.
+\textbf{Precondition}           &   Check if the post exists in database.
 
 \\ \hline
-\textbf{Post-condition}           & Update in the appointment table the selected appointment.
+\textbf{Post-condition}           & Record in the database is updated.
 
 
 \\ \hline
-\textbf{Dependencies}           &FR15 
+\textbf{Dependencies}           &FR03,FR15 
 \\ \hline
 \end{tabular}
 \end{table}
@@ -643,33 +644,33 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Delete Appointment
+\textbf{Function:} & Delete post.
 \\ \hline
 \textbf{ID}  &   FR17    
 
 \\ \hline
-\textbf{Description}    &   This function selects a specific row from the appointment table and removes it.                                                               
+\textbf{Description}    &   This function is for deleting a specific post whether by the admin or the user.                                                               
 \\ \hline
 \textbf{Type}    &     Boolean    
 
 \\ \hline
-\textbf{Input}        & ID for the desired appointment to be deleted.
+\textbf{Input}        & Post ID to be deleted.
 
 
 \\ \hline
-\textbf{Action}            & Checks if the appointment exists in the database. If yes, removes it. else, returns an error message.
+\textbf{Action}            & Check if the post exists in the database. If yes, removes it. else, returns an error message.
 
 \\ \hline
-\textbf{Output}            & Appointment deleted successfully.
+\textbf{Output}            & The post is deleted successfully.
 
 \\ \hline
-\textbf{Precondition}           &   Checks if the appointment exists and select it.
+\textbf{Precondition}           &   The post needed to be selected from the list.
 
 \\ \hline
-\textbf{Post-condition}           & Updating the database by removing the appointment row from the appointment table.
+\textbf{Post-condition}           & Record is deleted from database.
 
 \\ \hline
-\textbf{Dependencies}           & FR15
+\textbf{Dependencies}           & FR03,FR15
 \\ \hline
 \end{tabular}
 \end{table}
@@ -680,34 +681,35 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & view notification.
+\textbf{Function:} & Delete comment.
 \\ \hline
 \textbf{ID}  & FR18           
 
-\\ \hline
-\textbf{Description}    & viewing all the notification in the database                                                                    
-\\ \hline
-\textbf{Type}    & return array       
 
 \\ \hline
-\textbf{Input}        & 
-
+\textbf{Description}    & This function is for deleting a specific comment whether by the admin or the user.                                                                    
+\\ \hline
+\textbf{Type}    & Boolean      
 
 \\ \hline
-\textbf{Action}            & fetching all the notifications in the database
-
-\\ \hline
-\textbf{Output}            & array of notifications
-
-\\ \hline
-\textbf{Pre condition}           & check the existence of notifications 
-
-\\ \hline
-\textbf{Post condition}           & 
+\textbf{Input}        & Comment ID to be deleted.
 
 
 \\ \hline
-\textbf{Dependncies}           & FR09
+\textbf{Action}            & Check if the comment exists in the database. If yes, removes it. else, returns an error message.
+
+\\ \hline
+\textbf{Output}            & The comment is deleted successfully.
+
+\\ \hline
+\textbf{Pre condition}           & The comment needed to be selected from the list. 
+
+\\ \hline
+\textbf{Post condition}           & Record is deleted from database.
+
+
+\\ \hline
+\textbf{Dependncies}           & FR03,FR09,FR15
 \\ \hline
 \end{tabular}
 \end{table}
@@ -718,268 +720,43 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & Delete notification.
+\textbf{Function:} & Logout.
 \\ \hline
 \textbf{ID}  & FR19
 
-\\ \hline
-\textbf{Description}    & The admin can delete the notifications from the database                                                                     
-\\ \hline
-\textbf{Type}    &  Boolean       
 
 \\ \hline
-\textbf{Input}        & Notification object
-
+\textbf{Description}    & This function is for all users to logout from their accounts                                                                    
+\\ \hline
+\textbf{Type}    &  void       
 
 \\ \hline
-\textbf{Action}            & Check for the existence of the notification and delete it 
-
-\\ \hline
-\textbf{Output}            & Confirmation message if true otherwise there will be an error message 
-
-\\ \hline
-\textbf{Pre condition}           & Select the desired notification that will be deleted  
-
-\\ \hline
-\textbf{Post condition}           & The desired notification record is deleted
+\textbf{Input}        & User ID
 
 
 \\ \hline
-\textbf{Dependncies}           & FR18,FR20
+\textbf{Action}            & A user logs out from the application.
+
+\\ \hline
+\textbf{Output}            & Logout from the account is done successfully. 
+
+\\ \hline
+\textbf{Pre condition}           & The user must login first. 
+
+\\ \hline
+\textbf{Post condition}           & Redirect to login page.
+
+
+\\ \hline
+\textbf{Dependncies}           & FR03
 \\ \hline
 \end{tabular}
 \end{table}
 
-\FloatBarrier
-\begin{table}[h]
-\caption{ - }
-\label{tab:my-table}
-\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-\hline
-\textbf{Function:} & Send message.
-\\ \hline
-\textbf{ID}  & FR20           
-
-\\ \hline
-\textbf{Description}    & The function for sending messages between the users                                                                    
-\\ \hline
-\textbf{Type}    & Void        
-
-\\ \hline
-\textbf{Input}        & Array of users
-
-
-\\ \hline
-\textbf{Action}            & Check if the array of users is not empty then send the message
-
-\\ \hline
-\textbf{Output}            & The desired message appears
-
-\\ \hline
-\textbf{Pre condition}           & The user send the message  
-
-\\ \hline
-\textbf{Post condition}           & Messages are sent
-
-
-\\ \hline
-\textbf{Dependncies}           & FR20
-\\ \hline
-\end{tabular}
-\end{table}
 
 
 
 \FloatBarrier
-\begin{table}[h]
-\caption{ }
-\label{tab:my-table}
-\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-\hline
-\textbf{Function:} & Create Report
-\\ \hline
-\textbf{ID}  & FR22           
-
-\\ \hline
-\textbf{Description}    & This functions allows the Doctor to create or write reports to his patients if needed                                                                    
-\\ \hline
-\textbf{Type}    & Boolean        
-
-\\ \hline
-\textbf{Input}        & Doctor specified and wrote a Diagnosis
-
-\\ \hline
-\textbf{Action}            & If the report is created successfully, it gets recorded in the database. else, it returns an error message  
-
-\\ \hline
-\textbf{Output}            & Report created successfully
-
-\\ \hline
-\textbf{Precondition}           & Doctor examines his patient and makes a Diagnosis
-
-\\ \hline
-\textbf{Post-condition}           & A new report is made for the patient and is successfully recorded in the database
-
-
-\\ \hline
-\textbf{Dependencies}           & FR03, FR06, FR15
-\\ \hline
-\end{tabular}
-\end{table}
-
-\FloatBarrier
-\begin{table}[h]
-\caption{ - }
-\label{tab:my-table}
-\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-\hline
-\textbf{Function:} & Print Receipt
-\\ \hline
-\textbf{ID}  &  FR23        
-
-\\ \hline
-\textbf{Description}    &  This function prints a receipt for the patient of his booking fee and injection fee, if he needed any.                                                          
-\\ \hline
-\textbf{Type}    & float        
-
-\\ \hline
-\textbf{Input}  & Booking and/or injection fees
-
-
-\\ \hline
-\textbf{Action}            & If any payment is required, the function returns the overall fee for the patient if there is any. else, it returns an error message 
-
-\\ \hline
-\textbf{Output}            & Receipt containing the overall fee for the patient  
-
-\\ \hline
-\textbf{Precondition}           &  Patient books an appointment and/or uses an injection  
-
-\\ \hline
-\textbf{Post-condition}           & Printing successfully a receipt for the patient to review
-
-
-\\ \hline
-\textbf{Dependencies}           & FR03, FR15 
-\\ \hline
-\end{tabular}
-\end{table}
-
-\FloatBarrier
-\begin{table}[h]
-\caption{ - }
-\label{tab:my-table}
-\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-\hline
-\textbf{Function:} & Add Operation
-\\ \hline
-\textbf{ID}  & FR24         
-
-\\ \hline
-\textbf{Description}    &  This function adds an operation by getting the operation ID according to which operation is being inserted and inserting it in the database                                                               
-\\ \hline
-\textbf{Type}    & void    
-
-\\ \hline
-\textbf{Input}        & The information needed for the operation such as, the operation's ID, location, date, hospital name, etc.
-
-
-\\ \hline
-\textbf{Action}            &  If the operation is added successfully, it is recorded in the database. else, it returns an error message
-
-\\ \hline
-\textbf{Output}            & New operation added to the database
-
-\\ \hline
-\textbf{Precondition}           &  Doctor examines the patient and determines that an operation must be made
-
-\\ \hline
-\textbf{Post-condition}           & An operation has been successfully recorded for the Doctor to perform
-
-
-\\ \hline
-\textbf{Dependencies}           & FR03, FR05, FR15
-\\ \hline
-\end{tabular}
-\end{table}
-
-\FloatBarrier
-\begin{table}[h]
-\caption{ - }
-\label{tab:my-table}
-\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-\hline
-\textbf{Function:} & Edit Operation
-\\ \hline
-\textbf{ID}  &  FR25
-
-\\ \hline
-\textbf{Description}    &   This function updates the operation data in the database according to the operation ID                                                                  
-\\ \hline
-\textbf{Type}    &  Boolean       
-
-\\ \hline
-\textbf{Input}        & Operation ID to the operation to be updated
-
-
-\\ \hline
-\textbf{Action}            & Checks if the operation data has been updated. If yes, it returns true. else, it returns an error message 
-
-\\ \hline
-\textbf{Output}            & Operation's data updated
-
-\\ \hline
-\textbf{Precondition}           & Checks if the operation exists  
-
-\\ \hline
-\textbf{Post-condition}           & Update in the operation table the wanted operation
-
-
-\\ \hline
-\textbf{Dependencies}           & FR24
-\\ \hline
-\end{tabular}
-\end{table}
-
-\FloatBarrier
-\begin{table}[h]
-\caption{ - }
-\label{tab:my-table}
-\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
-\hline
-\textbf{Function:} & Delete Operation
-\\ \hline
-\textbf{ID}  &   FR26        
-
-\\ \hline
-\textbf{Description}    &  This function selects a specific row from the operation table and removes it.                                   
-\\ \hline
-\textbf{Type}    &   Boolean      
-
-\\ \hline
-\textbf{Input}        &  ID for the desired operation to be deleted 
-
-
-\\ \hline
-\textbf{Action}            & Checks if the operation exists in the database. If yes, removes it. else, returns an error message
-
-\\ \hline
-\textbf{Output}            & Operation deleted successfully 
-
-\\ \hline
-\textbf{Precondition}           & Checks if the operation exists and selects it
-
-\\ \hline
-\textbf{Post-condition}           & Updating the database by removing the operation row from the operation table
-
-
-\\ \hline
-\textbf{Dependencies}           &  FR24
-\\ \hline
-\end{tabular}
-\end{table}
-
-
 \FloatBarrier
 \section{Interface Requirements}
 \bigskip
