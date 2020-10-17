@@ -757,7 +757,6 @@ uses the input data to insert a new row in users table in the system database   
 
 
 \FloatBarrier
-\FloatBarrier
 \section{Interface Requirements}
 \bigskip
 \subsection{User Interfaces}
