@@ -69,7 +69,7 @@ Casual users: Users can post a various recipes. They can search for a desired re
 
 \subsection{ User Problem Statement}
 In various social media platforms, the user finds it difficult to determine if a recipe is worth trying, as there are a lot of recipes placed upon him. Moreover, the recipes and the information relevant to the user are sometimes unclear due to the disorganization of the system. To solve this problem, this application is user friendly and offers the information desired by the user in an effortless and more organized way.
-
+\newpage
 \section{Functional Requirements}
 
 \FloatBarrier
