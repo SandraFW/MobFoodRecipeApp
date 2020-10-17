@@ -836,11 +836,11 @@ Good validations of user inputs will be done to avoid incorrect storage of recor
 \bigskip
 
 \subsection {Maintainability}
-The software system should be designed to be easily to maintain and improved by software developers through the implementation of MCV 
+The software system should be designed to be easily  maintained and improved by software developers through the implementation of MCV 
 design patterns so that helps a lot in maintaining the software system, and minimize the amount of changes that will be done in the code
 \bigskip
 \subsection {Portability}
-This system can be installed in any personal computers supporting windows operating system platform.
+This system can be installed on any smart phone supporting android and IOS platforms.
 \bigskip
 \subsection {Flexibility}
 The system keeps on updating the data according to the transactions that takes place.
@@ -851,47 +851,9 @@ The system keeps on updating the data according to the transactions that takes p
 
 
 
-\section{Operational Scenarios}
 
-The following is a brief explanation for some of the scenarios that present in our system:
 
-\subsection{Login and Registration System}
-\begin{itemize}
-\item All Patients should view and edit their information including their medical description and personal habits
-\item Doctor can view patient's information but only can edit their medical history and his reports.
-\end{itemize}
 
-\subsection{Appointment System}
-
-\begin{itemize}
-  \item Patients have the ability to choose the time of appointment they want to reserve . Moreover, they can edit or delete them and they can choose the branch(Location of the clinic) they want to book at.
-  \item  Receptionists have the ability to see the appointment's schedule for every day.
-  \end{itemize}
-
-\subsection{Chatting System}
-
-\begin{itemize}
-\item Receptionists and assistants are responsible for managing the chatting system.
-\item Patients have the ability to send messages to the clinic to ask for anything and the assistant is responsible for handling their questions and requests.
-\item Patients can view their history messages .
-
-\item Admin has the ability to select specific patients to broadcast the message to them.
-  
-\item Receptionists send notification either by mail or SMS to the patient to inform them if the doctor cancelled any reservations.
-  \end{itemize}
-  
-\subsection{Operation System}
-\begin{itemize}
-  \item The doctor has the ability to add operation to the patient if needed.
-  \item The assistant can view the operations and add or edit anything in them.
- 
-  \end{itemize}
-  
-\subsection{Administrator System}
-\begin{itemize}
-\item The Admin can view everything in the system and has the authority to do all the staff's functions .   
-\end{itemize}
-\newpage
 \FloatBarrier
 \section{Project Plan}
 \FloatBarrier
