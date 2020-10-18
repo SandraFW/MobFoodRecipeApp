@@ -871,8 +871,6 @@ The system keeps on updating the data according to the transactions that takes p
 {|p{0.5\textwidth}|p{0.5\textwidth}|}
 \hline
 \textbf{Task} & \textbf{End Date}
-\\ \hline
-\textbf{}  & 22/10/2020            
 
 \\ \hline
 \textbf{phase 1 }  &  7/11/2020                          
@@ -886,16 +884,7 @@ The system keeps on updating the data according to the transactions that takes p
 \end{table}
 
 \FloatBarrier
-\section{ Abbreviations}
-\begin{itemize}
 
-\item SMS = Short Message Service
-\item ER=Entity Relationship diagram
-
-\end{itemize}
-
-
-\FloatBarrier
 \section {References}
 
 \bibliographystyle{IEEEtranS}
