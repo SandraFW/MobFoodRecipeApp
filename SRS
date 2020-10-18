@@ -766,17 +766,17 @@ uses the input data to insert a new row in users table in the system database   
 \begin{figure}[h]
   \centering
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{1.jpg}
+    \includegraphics[width=\textwidth]{a.jpg}
     \caption{main one.}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{2.jpg}
+    \includegraphics[width=\textwidth]{b.jpg}
     \caption{main two.}
      
       \end{minipage}
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{3.jpg}
+    \includegraphics[width=\textwidth]{c.jpg}
     \caption{main three.}
   \end{minipage}
 \end{figure}
@@ -787,15 +787,15 @@ uses the input data to insert a new row in users table in the system database   
 \begin{figure}[h]
 \centering
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{4.jpg}
+    \includegraphics[width=\textwidth]{d.jpg}
     \caption{main sign in.}
   \end{minipage}
     \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{6.jpg}
+    \includegraphics[width=\textwidth]{e.jpg}
     \caption{Login in.}
   \end{minipage}
       \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{5.jpg}
+    \includegraphics[width=\textwidth]{f.jpg}
     \caption{Sign up.}
   \end{minipage}
 \label{label1}
@@ -808,12 +808,20 @@ uses the input data to insert a new row in users table in the system database   
  \begin{figure}[h]
  \subsubsection{Profile page}
  \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./7.jpg}
+  \includegraphics[width=5.0cm, height=10.0cm]{./g.jpg}
   \caption{feed page}
  \end{minipage}
   \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./8.jpg}
+  \includegraphics[width=5.0cm, height=10.0cm]{./h.jpg}
   \caption{User's profile}
+ \end{minipage}
+   \begin{minipage}{.5\textwidth}
+  \includegraphics[width=5.0cm, height=10.0cm]{./i.jpg}
+  \caption{profile settings}
+ \end{minipage}
+   \begin{minipage}{.5\textwidth}
+  \includegraphics[width=5.0cm, height=10.0cm]{./j.jpg}
+  \caption{search}
  \end{minipage}
 \end{figure}
 \FloatBarrier
