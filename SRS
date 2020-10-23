@@ -10,13 +10,26 @@
 %opening
 
 \title{Software Requirement Specification Document
-\newline V1.0 Food Recommendation Application }
+\newline Food recommendation System }
 
 \author{ Mariam Hesham,Nour Ahmed ,Samiha Hesham,Sandra Fares}
 
 \begin{document}
 
 \maketitle
+\begin{table}[htp]
+\centering
+\begin{tabular}{|l|l|}
+\hline 
+\thead{SRS Version}   & \thead{Date}  \\ \hline
+1.0 & 17-October-2020      \\ \hline
+1.1 & 23-October-2020        \\ \hline
+
+\end{tabular}
+\caption{Document version history}
+\end{table}
+\maketitle
+\newpage
 \tableofcontents
 
 \newpage
@@ -49,11 +62,7 @@ The main goal of the project is to build a well-developed mobile application for
   \item The user must be able to search for any recipe.
   \item The admin must be able to view any reports that are added by users against certain comment or post for safety.
  \item The system must observe a statistics that is based on the ratings that shows the most trending food recommendations to all the users.
-  
-  
 \end{enumerate}
-\newpage
-
 
 \subsection{Similar System Information}
 There are many similar mobile applications that provide  food recommendation as Cook Mate \cite{Cookmate} , Cook Pade \cite{Cookpad} while the most relevant application is\cite{KitchenBowl} Kitchen bowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
@@ -69,7 +78,7 @@ Casual users: Users can post a various recipes. They can search for a desired re
 
 \subsection{ User Problem Statement}
 In various social media platforms, the user finds it difficult to determine if a recipe is worth trying, as there are a lot of recipes placed upon him. Moreover, the recipes and the information relevant to the user are sometimes unclear due to the disorganization of the system. To solve this problem, this application is user friendly and offers the information desired by the user in an effortless and more organized way.
-\newpage
+
 \section{Functional Requirements}
 
 \FloatBarrier
@@ -226,7 +235,6 @@ In various social media platforms, the user finds it difficult to determine if a
 \end{tabular}
 \end{table}
 
-\FloatBarrier
 \begin{table}[h]
 \caption{}
 \label{tab:my-table}
@@ -749,20 +757,16 @@ uses the input data to insert a new row in users table in the system database   
 \end{tabular}
 \end{table}
 \FloatBarrier
-\newpage
 
-\FloatBarrier
+\clearpage
 \section{Interface Requirements}
 \bigskip
 \subsection{User Interfaces}
 \bigskip
 \subsubsection {GUI}
- \bigskip
- \bigskip
- \newpage
-
+\bigskip
 \subsubsection{Main page}
-
+\bigskip
 \begin{figure}[h]
   \centering
   \begin{minipage}[b]{0.32\textwidth}
@@ -780,31 +784,25 @@ uses the input data to insert a new row in users table in the system database   
     \caption{main three.}
   \end{minipage}
 \end{figure}
-\newpage
-\FloatBarrier
-\subsubsection{Login and sign up pages}
-\FloatBarrier
+\clearpage
 \begin{figure}[h]
-\centering
-  \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{d.jpg}
+\subsubsection{Login and sign up pages}
+  \begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=5.0cm, height=10.0cm]{d.jpg}
     \caption{main sign in.}
   \end{minipage}
-    \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{e.jpg}
+    \begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=5.0cm, height=10.0cm]{e.jpg}
     \caption{Login in.}
   \end{minipage}
-      \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{f.jpg}
+      \begin{minipage}[b]{0.5\textwidth}
+
+    \includegraphics[width=5.0cm, height=10.0cm]{f.jpg}
     \caption{Sign up.}
   \end{minipage}
 \label{label1}
 \end{figure}
 \FloatBarrier
-\newpage
-\FloatBarrier
-
-\vfill
  \begin{figure}[h]
  \subsubsection{Profile page}
  \begin{minipage}{.5\textwidth}
