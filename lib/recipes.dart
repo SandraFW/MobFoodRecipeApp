@@ -10,6 +10,49 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.person,
+              color: Colors.redAccent,
+            ),
+            onPressed: () {},
+          ),
+        ],
+        title: Container(
+            margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+            padding: const EdgeInsets.only(top: 10.0),
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            ),
+            child: Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(left: 2.0, right: 15.0),
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                ),
+                Icon(
+                  Icons.search,
+                  color: Colors.redAccent,
+                  size: 20,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 2.0, right: 15.0),
+                  padding: const EdgeInsets.all(5.0),
+                ),
+                Text(
+                  'Search for a recipe...',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            )),
+      ),
       body: SafeArea(
         child: ListView(children: <Widget>[
           Row(
