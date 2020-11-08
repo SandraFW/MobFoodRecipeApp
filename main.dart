@@ -4,6 +4,8 @@ import 'trend_page.dart';
 import 'create_account.dart';
 import 'main_page.dart';
 import 'recipes.dart';
+import 'forgetPass.dart';
+
 
 void main() {
   runApp(MyApp());
