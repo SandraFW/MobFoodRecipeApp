@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Montserrat',
-                          color: Colors.grey,
+                          color: Colors.grey, 
                           fontSize: 13.0)),
                 ),
                 Padding(
