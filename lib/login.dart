@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
       children: <Widget>[
         FlatButton(
           onPressed: () {},
-          child: Text("Forgot Password"),
+          child: Text("Forgot Password?"),
         ),
       ],
     );
