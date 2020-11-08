@@ -4,10 +4,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(OneRecipe());
 }
 
-class MyApp extends StatelessWidget {
+class OneRecipe extends StatelessWidget {
   /* This widget is the root
       of your application.*/
   @override
