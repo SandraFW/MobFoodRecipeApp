@@ -1,98 +1,136 @@
 import 'package:flutter/material.dart';
-import 'trend_page.dart';
 
-class CompleteProfile extends StatefulWidget {
-  static String tag = 'complete-page';
-  @override
-  _CompleteProfileState createState() => new _CompleteProfileState();
+class Food {
+  final String title;
+  final String image;
+  final String likes;
+  bool fav = false;
+  Food({this.title, this.image, this.likes, this.fav});
+
+  static List<Food> allFood() {
+    var lstOfFoods = new List<Food>();
+    lstOfFoods.add(new Food(
+        title: "Egyptian Wark Ainab",
+        likes: "500",
+        image: "5.jpg",
+        fav: false));
+    lstOfFoods.add(new Food(
+        title: "Turkey Tetrazzini",
+        likes: "300",
+        image: "1.jpeg", 
+        fav: false));
+    lstOfFoods.add(new Food(
+        title: "Lasagna",
+        likes: "280",
+        image: "2.jpg",
+        fav: false));
+    lstOfFoods.add(new Food(
+        title: "Honey Garlic Chicken",
+        likes: "280",
+        image: "3.jpg",
+        fav: false));
+    lstOfFoods.add(new Food(
+        title: "Overnight Oats",
+        likes: "279",
+        image: "4.jpg",
+        fav: false));
+    lstOfFoods.add(new Food(
+        title: "Grilled Salmon",
+        likes: "278",
+        image: "6.jpg",
+        fav: false));
+    return lstOfFoods;
+  }
 }
 
-class _CompleteProfileState extends State<CompleteProfile> {
+class TrendPage extends StatefulWidget {
+  static String tag = 'trend-page';
+  @override
+  _TrendPagetState createState() => _TrendPagetState();
+}
+
+class _TrendPagetState extends State<TrendPage> {
+  final List<Food> _allFood = Food.allFood();
+  final _saved = Set<Food>();
+  //bool _isFavorited = false;
   @override
   Widget build(BuildContext context) {
-    final welcome = Padding(
-      padding: EdgeInsets.all(10.0),
-      child: Text(
-        'Create your Profile',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black),
-      ),
-    );
-
-    final logo = Center(
-      child: CircleAvatar(
-        //backgroundColor: Colors.transparent,
-        radius: 60.0,
-        child: Image.asset('images/logo.png'),
-      ),
-    );
-
-    final firstname = TextFormField(
-      keyboardType: TextInputType.name,
-      autofocus: true,
-      decoration: InputDecoration(
-        hintText: 'First Name',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-      ),
-    );
-
-    final lastname = TextFormField(
-      keyboardType: TextInputType.name,
-      autofocus: true,
-      decoration: InputDecoration(
-        hintText: 'Last Name',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-      ),
-    );
-
-    final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
-      child: RaisedButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text(
+            "Our Popular recipes",
+            style: new TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87),
+          ),
         ),
-        onPressed: () {
-          Navigator.of(context).pushNamed(TrendPage.tag);
-        },
-        padding: EdgeInsets.all(15.0),
-        color: Colors.deepOrangeAccent,
-        child: Text('Done', style: TextStyle(color: Colors.white)),
-      ),
-    );
+        body: new Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+            child: getHomePageBody(context)));
+  }
 
-    final forgotLabel = Text(
-      " By signing up you agree to our Terms of Use and Privacy Policy ",
-      style: TextStyle(fontSize: 12.0, color: Colors.grey),
+  getHomePageBody(BuildContext context) {
+    return ListView.builder(
+      itemCount: _allFood.length,
+      itemBuilder: _getItemUI,
+      padding: EdgeInsets.all(10.0),
     );
+  }
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: ListView(
-          shrinkWrap: true,
-          padding: EdgeInsets.only(left: 24.0, right: 24.0),
+  Widget _getItemUI(BuildContext context, int index) {
+    return new Card(
+        child: new Column(
+      children: <Widget>[
+        new ListTile(
+          leading: new Image.asset(
+            "images/" + _allFood[index].image,
+            fit: BoxFit.fill,
+            width: 100.0,
+            height: 100.0,
+          ),
+          title: new Text(
+            _allFood[index].title,
+            style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+          ),
+          subtitle: new Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    Text('Likes: ${_allFood[index].likes}',
+                        style: new TextStyle(
+                            fontSize: 13.0, fontWeight: FontWeight.normal)),
+                  ],
+                )
+              ]),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            new IconButton(
-              icon: new Icon(Icons.arrow_back),
-              alignment: Alignment.topLeft,
-              onPressed: () => Navigator.of(context).pop(null),
+            IconButton(
+              icon: (_allFood[index].fav
+                  ? Icon(Icons.favorite)
+                  : Icon(Icons.favorite_border)),
+              color: Colors.red[500],
+              onPressed: () {
+                setState(() {
+                  if (_allFood[index].fav == false) {
+                    _allFood[index].fav = true;
+                  } else {
+                    _allFood[index].fav = false;
+                  }
+                });
+              },
             ),
-            welcome,
-            SizedBox(height: 8.0),
-            logo,
-            SizedBox(height: 8.0),
-            firstname,
-            SizedBox(height: 8.0),
-            lastname,
-            SizedBox(height: 24.0),
-            loginButton,
-            forgotLabel
           ],
         ),
-      ),
-    );
+      ],
+    ));
   }
 }
