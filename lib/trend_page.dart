@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
-import 'complete_profile.dart';
 
 class Food {
-  //--- title Of Food
   final String title;
-  //-- image
   final String image;
-  //--- icon
   final String likes;
-  //--- likes
-
-  Food({this.title, this.image, this.likes});
+  bool fav = false;
+  Food({this.title, this.image, this.likes, this.fav});
 
   static List<Food> allFood() {
     var lstOfFoods = new List<Food>();
+    lstOfFoods.add(new Food(
+        title: "Egyptian Wark Ainab",
+        likes: "500",
+        image: "5.jpg",
+        fav: false));
+    lstOfFoods.add(new Food(
+        title: "Turkey Tetrazzini", likes: "300", image: "1.jpeg", fav: false));
     lstOfFoods.add(
-        new Food(title: "Egyptian Wark Ainab", likes: "500", image: "5.jpg"));
-    lstOfFoods.add(
-        new Food(title: "Turkey Tetrazzini", likes: "300", image: "1.jpeg"));
-    lstOfFoods.add(new Food(title: "Lasagna", likes: "280", image: "2.jpg"));
-    lstOfFoods.add(
-        new Food(title: "Honey Garlic Chicken", likes: "280", image: "3.jpg"));
-    lstOfFoods
-        .add(new Food(title: "Overnight Oats", likes: "279", image: "4.jpg"));
-    lstOfFoods
-        .add(new Food(title: "Grilled Salmon", likes: "278", image: "6.jpg"));
+        new Food(title: "Lasagna", likes: "280", image: "2.jpg", fav: false));
+    lstOfFoods.add(new Food(
+        title: "Honey Garlic Chicken",
+        likes: "280",
+        image: "3.jpg",
+        fav: false));
+    lstOfFoods.add(new Food(
+        title: "Overnight Oats", likes: "279", image: "4.jpg", fav: false));
+    lstOfFoods.add(new Food(
+        title: "Grilled Salmon", likes: "278", image: "6.jpg", fav: false));
     return lstOfFoods;
   }
 }
@@ -37,7 +39,8 @@ class TrendPage extends StatefulWidget {
 
 class _TrendPagetState extends State<TrendPage> {
   final List<Food> _allFood = Food.allFood();
-  bool _isFavorited = false;
+  final _saved = Set<Food>();
+  //bool _isFavorited = false;
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -52,7 +55,7 @@ class _TrendPagetState extends State<TrendPage> {
         ),
         body: new Padding(
             padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-          //  child: getHomePageBody(context)));
+            child: getHomePageBody(context)));
   }
 
   getHomePageBody(BuildContext context) {
@@ -82,25 +85,33 @@ class _TrendPagetState extends State<TrendPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Text('Likes: ${_allFood[index].likes}',
-                    style: new TextStyle(
-                        fontSize: 13.0, fontWeight: FontWeight.normal)),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    Text('Likes: ${_allFood[index].likes}',
+                        style: new TextStyle(
+                            fontSize: 13.0, fontWeight: FontWeight.normal)),
+                  ],
+                )
               ]),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             IconButton(
-              icon: (_isFavorited
+              icon: (_allFood[index].fav
                   ? Icon(Icons.favorite)
                   : Icon(Icons.favorite_border)),
               color: Colors.red[500],
               onPressed: () {
                 setState(() {
-                  if (_isFavorited == false) {
-                    _isFavorited = true;
+                  if (_allFood[index].fav == false) {
+                    _allFood[index].fav = true;
                   } else {
-                    _isFavorited = false;
+                    _allFood[index].fav = false;
                   }
                 });
               },
