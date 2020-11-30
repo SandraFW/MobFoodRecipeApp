@@ -73,43 +73,24 @@ class Create extends StatelessWidget {
           ],
           title: Container(
             margin: const EdgeInsets.only(left:15.0, right: 15.0),
-            padding: const EdgeInsets.only(top:10.0),
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.all(Radius.circular(5.0)),
-            ),
-            child:  Row(
-            children: [
-             Container(
-              margin: const EdgeInsets.only(left:2.0, right: 15.0),
-              padding: const EdgeInsets.only(bottom: 10.0),
-             ),
-              Icon(
+            padding: const EdgeInsets.only(top:5.0),
+            
+            child: TextField(
+             decoration: InputDecoration(
+                hintText: "Search..",
+                fillColor: Colors.white,
+                suffixIcon:  Icon(
                 Icons.search,
-                color: Colors.deepOrange[200],
+                color: Colors.redAccent,
                 size: 20,    
               ),
-              Container(
-              margin: const EdgeInsets.only(left:2.0, right: 15.0),
-              padding: const EdgeInsets.all(5.0),
-            
-              child: Text(
-                'Search for a recipe...',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 15,
 
-                  ),
-                
-              ),
-            ),
-            ],
-           
-            ),
-           
-            
-          ),
-         ),
+             ),
+             
+            )
+
+          )
+        ),
 
          backgroundColor: Colors.white,
          
@@ -133,41 +114,6 @@ class Create extends StatelessWidget {
   }
 }
 
-/*
-Column CustomNavigationBar(){
-  return Column(
-    children: [
-      Container(
-        margin: const EdgeInsets.only(left:2.0, right: 15.0),
-        padding: const EdgeInsets.only(bottom: 10.0),
-      child: Row(
-        children: [
-          Icon(
-            Icons.home,
-            color: Colors.deepOrange[200],
-          ),
-          Icon(
-            Icons.search,
-            color: Colors.deepOrange[200],
-          ),
-          Icon(
-            Icons.save,
-            color: Colors.deepOrange[200],
-          ),
-          Icon(
-            Icons.person,
-            color: Colors.deepOrange[200],
-          ),
-
-
-        ],
-      ),
-      ),
-      
-  ],
-  );
-}
-*/
 
 Widget RecipesColumn(String images, String txt1, String txt2, IconData icon, String label){
   return  Container(
