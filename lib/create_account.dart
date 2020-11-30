@@ -1,6 +1,33 @@
 import 'package:flutter/material.dart';
 import 'complete_profile.dart';
 import 'package:email_validator/email_validator.dart';
+import 'Animation/FadeAnimation.dart';
+
+class IsHidden extends StatefulWidget{
+  _IsHidden createState() => _IsHidden();
+}
+
+class _IsHidden extends State<IsHidden>{
+  bool _obsecureText = true;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: (_obsecureText ? Icon(Icons.visibility) : Icon(Icons.visibility_off)),
+      onPressed: (){
+      setState(() {
+      if(_obsecureText){
+        _obsecureText = true;
+      }
+      else{
+        _obsecureText = false;
+      }    
+    });
+      },
+    );
+  }
+}
 
 class Create extends StatefulWidget{
  _Create createState() => _Create();
@@ -9,12 +36,11 @@ class Create extends StatefulWidget{
 
 class _Create extends State<Create> {
   // This widget is the root of your application.
-  final _formKey1 = GlobalKey<FormState>();
-  final _formKey2 = GlobalKey<FormState>();
-  final _formKey3 = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   String _email;
   final TextEditingController _password = TextEditingController();
   final TextEditingController _confirmpassword = TextEditingController();
+  bool _obsecureText = true;
 
   
   @override
@@ -54,7 +80,7 @@ class _Create extends State<Create> {
               Padding(padding: const EdgeInsets.only(top: 20.0)),
 
            
-                   CreateAccount(_formKey1),
+                   CreateAccount(_formKey),
                   
               Container(
                 margin: const EdgeInsets.only(top: 20.0),
@@ -62,7 +88,7 @@ class _Create extends State<Create> {
                 height: 50.0,
                 child: RaisedButton(
                   onPressed: () {
-                    if(_formKey1.currentState.validate()){
+                    if(_formKey.currentState.validate()){
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return CompleteProfile();
@@ -103,6 +129,7 @@ class _Create extends State<Create> {
   Column CreateAccount(key) {
   return Column(
     children: [
+      FadeAnimation(3, 
       Container(
         margin: const EdgeInsets.only(left: 50.0, right: 50.0, top: 15.0),
         padding: const EdgeInsets.only(top: 10.0),
@@ -141,6 +168,9 @@ class _Create extends State<Create> {
           if(value.isEmpty){
             return "This Field is Empty";
           }
+          else if(value.length < 6){
+            return "your password should have at least 6 characters";
+          }
           return null;
         },
         onSaved: (String password){
@@ -148,15 +178,18 @@ class _Create extends State<Create> {
         },
         decoration: InputDecoration(
           hintText: "Password",
+          suffixIcon: IsHidden(),
           fillColor: Colors.grey[50],
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
+        obscureText: _obsecureText,
         ),
          Container(
            padding: const EdgeInsets.only(top: 15.0),
         ),
 
          TextFormField(
+       
         autofocus: true,
         controller: _confirmpassword,
         validator: (value) {
@@ -173,13 +206,16 @@ class _Create extends State<Create> {
         },
         decoration: InputDecoration(
           hintText: "Confirm Password",
+           suffixIcon: IsHidden(),
           fillColor: Colors.grey[50],
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
+        obscureText: _obsecureText,
         ),
         ],
         ),
         ),
+      ),
       ),
     ],
   );
