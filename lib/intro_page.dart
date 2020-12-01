@@ -44,11 +44,6 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
             ),
            
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-            Container(padding: EdgeInsets.only(right:500.0,top: 20.0)),
            
            ClipRRect(
            child: RotationTransition( 
@@ -60,11 +55,14 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
            ),
          ),
             ),
-                  Container(
-                  padding: EdgeInsets.all(220.0),
-                   ),
-                
-              RaisedButton(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:[
+                Container(
+                  padding: EdgeInsets.only(left:100.0, top:510.0),
+                ),
+                RaisedButton(
                 onPressed: (){
                    Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
@@ -75,7 +73,8 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
                   color: Colors.transparent,
                   textColor: Colors.white,
                   child: Container(
-                
+                    
+                   
                     child: Text('Sign up with email', style: TextStyle(fontSize: 20)),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(
@@ -87,13 +86,14 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
                     ),
                   
                   ),
+              ],
+            ),
                    
                 
 
                
 
-              ],
-            )
+           
             ], 
         ),
       ),
