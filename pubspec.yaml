@@ -61,6 +61,16 @@ flutter:
     - images/food1.jpeg
     - images/classicburger.jpeg
     - images/fluffypancakes.jpeg
+    - images/fb.png
+    - images/insta.png
+    - images/profileimg.png
+    - images/burger.jpg
+    - images/taco.jpg
+    - images/french.jpg
+    - images/meat.jpg
+    - images/cake.jpg
+    - images/chicken.jpg
+    - images/macroni.jpg
    
   # To add assets to your application, add an assets section, like this:
   # assets:
