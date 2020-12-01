@@ -147,7 +147,7 @@ class _ProfileFirstState extends State<ProfileFirst> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "Following",
+                            "Liked Posts",
                             style: TextStyle(
                               color: Colors.white70,
                               fontSize: 1.9 * SizeConfig.textMultiplier,
@@ -230,7 +230,7 @@ class _ProfileFirstState extends State<ProfileFirst> {
                       child: Row(
                         children: <Widget>[
                           Text(
-                            "Favourite Posts",
+                            "Liked Posts",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
