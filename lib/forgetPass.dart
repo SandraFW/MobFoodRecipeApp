@@ -1,23 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
+import 'reset_password.dart';
+import 'login.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+
+class ForgetPass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home: ForgetPassword(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+// ignore: camel_case_types
+class ForgetPassword extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _ForgetPassState createState() => _ForgetPassState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+// ignore: camel_case_types
+class _ForgetPassState extends State<ForgetPassword> {
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
+  void validate() {
+    if (formkey.currentState.validate()) {
+      print('Validated');
+    }
+    print('Not validated');
+  }
+
+  String EmailValidation(value) {
+    if (value.isEmpty) {
+      return 'Please enter your email';
+    } else if (!EmailValidator.validate(value)) {
+      return 'Please insert a valid email';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 IconButton(
                   icon: Icon(Icons.arrow_back_ios),
                   color: Colors.black,
-                  onPressed: () {},
+                  onPressed: () {
+                    if (formkey.currentState.validate()) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Login();
+                      }));
+                    }
+                  },
                 ),
                 Container(
                     width: 125.0,
@@ -61,28 +91,58 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Text(
-                      'please enter your email to receive the instruction to reset your password',
+                      'please enter your email to receive the instruction to reset your password.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Montserrat',
-                          color: Colors.grey, 
+                          color: Colors.grey,
                           fontSize: 13.0)),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    keyboardType: TextInputType.name,
-                    autofocus: true,
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: InputBorder.none,
-                      hintText: 'First Name',
-                      contentPadding:
-                          EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  padding: const EdgeInsets.all(15.0),
+                  child: Center(
+                    child: Form(
+                      // ignore: deprecated_member_use
+                      autovalidate: true,
+                      key: formkey,
+                      child: Column(
+                        children: <Widget>[
+                          TextFormField(
+                              validator: EmailValidation,
+                              keyboardType: TextInputType.name,
+                              autofocus: true,
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                border: InputBorder.none,
+                                hintText: 'Enter you email..',
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                              ))
+                        ],
+                      ),
                     ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 290,
+                    height: 50,
+                    child: RaisedButton(
+                        onPressed: () {
+                          if (formkey.currentState.validate()) {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Reset();
+                            }));
+                          }
+                        },
+                        color: Colors.red[400],
+                        child: Text("Send Now",
+                            style: TextStyle(color: Colors.white))),
+                  ),
+                )
               ],
             ),
           ),
