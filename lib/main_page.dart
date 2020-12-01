@@ -1,12 +1,17 @@
 
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
+import 'trend_page.dart';
+import 'package:get/get.dart';
+import 'one_recipe.dart';
 
-class FavoriteWidget extends StatefulWidget{
-_FavoriteWidgetState createState() => _FavoriteWidgetState();
+class SavedWidget extends StatefulWidget{
+_SavedWidgetState createState() => _SavedWidgetState();
 }
 
-class _FavoriteWidgetState extends State<FavoriteWidget> {
-bool _isFavorited = false;
+class _SavedWidgetState extends State<SavedWidget> {
+bool _isSaved = false;
+
 
 Widget build(BuildContext context) {
 return Row(
@@ -17,9 +22,9 @@ return Row(
   
 //padding: EdgeInsets.all(0),
 //alignment: Alignment.centerRight,
-icon: (_isFavorited ? Icon(Icons.favorite) : Icon(Icons.favorite_outline)),
+icon: (_isSaved ? Icon(Icons.turned_in) : Icon(Icons.turned_in_not_outlined)),
 color: Colors.redAccent,
-onPressed: _toggleFavorite,
+onPressed: _toggleSaved,
 ),
    ),
   ],
@@ -27,22 +32,22 @@ onPressed: _toggleFavorite,
 
 } 
               
-void _toggleFavorite() {
+void _toggleSaved() {
 setState(() {
-if (_isFavorited) {
-_isFavorited = false;
+if (_isSaved) {
+_isSaved = false;
 } else {
-_isFavorited = true;
+_isSaved = true;
 }
 });
 }
 }
 
-class Create extends StatelessWidget {
+class MainPage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: "Screen One",
       home: Scaffold(
         appBar: AppBar(
@@ -57,6 +62,10 @@ class Create extends StatelessWidget {
                 color: Colors.deepOrangeAccent[400],
               ),
               onPressed: (){
+                Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return TrendPage();
+                    }));
                 
                },
             ),
@@ -99,10 +108,10 @@ class Create extends StatelessWidget {
                 child: ListView(
              children: [
 
-                RecipesColumn('images/classicburger.jpeg', 'Classic Burger', 'Homemade Classic Burger', Icons.star, '100'),
-                RecipesColumn('images/fluffypancakes.jpeg', 'Fluffy Pancakes', 'Homemade Fluffy Pancakes', Icons.star, '50'),
-                RecipesColumn('images/salmonwithnaan.jpg', 'Salmon with Grilled Naan', 'Homemade Salmon with Grilled Naan', Icons.star, '70'),
-                RecipesColumn('images/sushi.jpeg', 'Vegan Sushi', 'Homemade Sushi Vegan', Icons.star, '100'),
+                RecipesColumn('images/classicburger.jpeg', 'Classic Burger', 'Homemade Classic Burger',  100),
+                RecipesColumn('images/fluffypancakes.jpeg', 'Fluffy Pancakes', 'Homemade Fluffy Pancakes', 50),
+                RecipesColumn('images/salmonwithnaan.jpg', 'Salmon with Grilled Naan', 'Homemade Salmon with Grilled Naan',  70),
+                RecipesColumn('images/sushi.jpeg', 'Vegan Sushi', 'Homemade Sushi Vegan', 100),
 
                ],
 
@@ -115,7 +124,7 @@ class Create extends StatelessWidget {
 }
 
 
-Widget RecipesColumn(String images, String txt1, String txt2, IconData icon, String label){
+Widget RecipesColumn(String images, String txt1, String txt2,  int label){
   return  Container(
     child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -123,8 +132,12 @@ Widget RecipesColumn(String images, String txt1, String txt2, IconData icon, Str
     children: [
     
       Padding(padding: const EdgeInsets.only(top: 15.0)),
-      
-     ClipRRect(
+     InkWell(
+       onTap: (){
+         Get.to(OneRecipe());
+       },
+      child: Container(
+     child:ClipRRect(
        borderRadius: BorderRadius.circular(8.0),
        child: Image.asset(
         images,
@@ -133,7 +146,8 @@ Widget RecipesColumn(String images, String txt1, String txt2, IconData icon, Str
         fit: BoxFit.fitWidth,
       ),
       ),
-    
+      ),
+     ),
       Container(
         margin: const EdgeInsets.only(left:30.0),
         padding: const EdgeInsets.only(top: 10.0),
@@ -163,44 +177,46 @@ Widget RecipesColumn(String images, String txt1, String txt2, IconData icon, Str
              
              
               Row(
-                //mainAxisAlignment: MainAxisAlignment.center,
+                
                 crossAxisAlignment: CrossAxisAlignment.center,
               children: [ 
                  Container(
                 padding: const EdgeInsets.all(0.0),
                  margin: const EdgeInsets.all(0.0),
               ),
-                Icon(
-                icon,
-                color: Colors.redAccent,
-              ),
-              Text(label),
-               Container(
-                   margin: const EdgeInsets.only(right:220.0),
+               LikeButton(
+                  likeCount: label,
+                  likeBuilder: (bool isLiked){
+                    return Icon(
+                      Icons.favorite,
+                      size: 25,
+                      color: isLiked ? Colors.redAccent : Colors.blueGrey[200],
+                    );
+                  },
+                  countBuilder: (int count, bool isLiked, String text){
+                    var color = isLiked ? Colors.redAccent : Colors.blueGrey;
+                    Widget result;
+                    if(count == 0){
+                      result = Text(
+                        "love",
+                         style: TextStyle(color: color),
+                      );
+                    }
+                    else{
+                     result = Text(
+                     text,
+                     style: TextStyle(color: color),
+                     );
+                    }
+                    return result;
+                  },
                 ),
-              IconButton(
-               
-              icon: Icon(
-                Icons.turned_in_not_outlined,
-                color: Colors.redAccent,
-               
-              ),
-               onPressed: (){
-                
-               },
-            ), 
-             
                Container(
-                margin: const EdgeInsets.only(right: 0.0),
+                   margin: const EdgeInsets.only(right:250.0),
                 ),
-             FavoriteWidget(),
+                 SavedWidget(),
              
-              /*
-               Icon(
-                Icons.favorite_outline,
-                color: Colors.deepOrange[200],
-              ),
-            */
+              
               ],
               ), 
         
