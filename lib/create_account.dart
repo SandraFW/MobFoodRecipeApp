@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'complete_profile.dart';
 import 'package:email_validator/email_validator.dart';
 import 'Animation/FadeAnimation.dart';
+import 'intro_page.dart';
 
 class IsHidden extends StatefulWidget{
   _IsHidden createState() => _IsHidden();
@@ -61,9 +62,17 @@ class _Create extends State<Create> {
               
               Container(
                 margin: const EdgeInsets.only(right: 330.0, top: 20.0),
-                child: Icon(
+                child: IconButton(
+                  onPressed: (){
+                     Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return IntroPage();
+                    }));
+                  },
+                  icon: Icon(
                   Icons.arrow_back,
                   color: Colors.black,
+                ),
                 ),
               ),
               Container(
