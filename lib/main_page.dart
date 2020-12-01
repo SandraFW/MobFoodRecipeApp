@@ -4,6 +4,7 @@ import 'package:like_button/like_button.dart';
 import 'trend_page.dart';
 import 'package:get/get.dart';
 import 'one_recipe.dart';
+import 'profile_main.dart';
 
 class SavedWidget extends StatefulWidget{
 _SavedWidgetState createState() => _SavedWidgetState();
@@ -15,13 +16,12 @@ bool _isSaved = false;
 
 Widget build(BuildContext context) {
 return Row(
-  //mainAxisSize: MainAxisSize.min,
+  
   children: [
    Container(
   child: IconButton(
   
-//padding: EdgeInsets.all(0),
-//alignment: Alignment.centerRight,
+
 icon: (_isSaved ? Icon(Icons.turned_in) : Icon(Icons.turned_in_not_outlined)),
 color: Colors.redAccent,
 onPressed: _toggleSaved,
@@ -44,7 +44,7 @@ _isSaved = true;
 }
 
 class MainPage extends StatelessWidget {
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -76,6 +76,10 @@ class MainPage extends StatelessWidget {
                 color: Colors.redAccent,
               ),
               onPressed: (){
+                 Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Profile();
+                    }));
                 
                },
             ),
@@ -216,7 +220,7 @@ Widget RecipesColumn(String images, String txt1, String txt2,  int label){
                 ),
                  SavedWidget(),
              
-              
+            
               ],
               ), 
         
