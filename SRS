@@ -24,8 +24,10 @@
 \thead{SRS Version}   & \thead{Date}  \\ \hline
 1.0 & 17-October-2020      \\ \hline
 1.1 & 23-October-2020        \\ \hline
-
+1.2 & 08-November-2020        \\ \hline
+1.3 & 01-December-2020        \\ \hline
 \end{tabular}
+
 \caption{Document version history}
 \end{table}
 \maketitle
@@ -65,7 +67,7 @@ The main goal of the project is to build a well-developed mobile application for
 \end{enumerate}
 
 \subsection{Similar System Information}
-There are many similar mobile applications that provide  food recommendation as Cook Mate \cite{Cookmate} , Cook Pade \cite{Cookpad} while the most relevant application is\cite{KitchenBowl} Kitchen bowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
+There are many similar mobile applications that provide  food recommendation as Cookmate \cite{Cookmate} , Cook Pade \cite{Cookpad} while the most relevant application is\cite{KitchenBowl} Kitchen bowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
 \clearpage
 \begin{figure}[h]
   \begin{minipage}[b]{0.5\textwidth}
@@ -94,8 +96,11 @@ In various social media platforms, the user finds it difficult to determine if a
 \section{Functional Requirements}
 
 \FloatBarrier
+
 \begin{table}[h]
+
 \caption{ }
+
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
@@ -550,7 +555,7 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{ID}  & FR14           
 
 \\ \hline
-\textbf{Description}    & The function for sending the notification to the patient                                                                 
+\textbf{Description}    & The function for sending the notification to the user                                                                 
 \\ \hline
 \textbf{Type}    &  Boolean       
 
@@ -777,62 +782,76 @@ uses the input data to insert a new row in users table in the system database   
 \bigskip
 \subsubsection {GUI}
 \bigskip
-\subsubsection{Main page}
+
 \bigskip
 \begin{figure}[h]
   \centering
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{a.jpg}
-    \caption{main one.}
+    \includegraphics[width=\textwidth]{a.jpeg}
+    \caption{Introductory page}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{b.jpg}
-    \caption{main two.}
+    \includegraphics[width=\textwidth]{b.jpeg}
+    \caption{Log in Page}
      
       \end{minipage}
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{c.jpg}
-    \caption{main three.}
+    \includegraphics[width=\textwidth]{c.jpeg}
+    \caption{Sign Up}
   \end{minipage}
 \end{figure}
 \clearpage
 \begin{figure}[h]
-\subsubsection{Login and sign up pages}
+
   \begin{minipage}[b]{0.5\textwidth}
-    \includegraphics[width=5.0cm, height=10.0cm]{d.jpg}
-    \caption{main sign in.}
+    \includegraphics[width=5.0cm, height=10.0cm]{f.jpeg}
+   \caption{Complete Profile}
   \end{minipage}
     \begin{minipage}[b]{0.5\textwidth}
-    \includegraphics[width=5.0cm, height=10.0cm]{e.jpg}
-    \caption{Login in.}
+    \includegraphics[width=5.0cm, height=10.0cm]{e.jpeg}
+    \caption{Forget Password}
   \end{minipage}
       \begin{minipage}[b]{0.5\textwidth}
 
-    \includegraphics[width=5.0cm, height=10.0cm]{f.jpg}
-    \caption{Sign up.}
+    \includegraphics[width=5.0cm, height=10.0cm]{d.jpeg}
+    \caption{Reset Password}
   \end{minipage}
+  
 \label{label1}
 \end{figure}
 \FloatBarrier
  \begin{figure}[h]
- \subsubsection{Profile page}
+ \subsubsection{Profile pages}
  \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./g.jpg}
-  \caption{feed page}
+  \includegraphics[width=5.0cm, height=10.0cm]{./g.jpeg}
+   \caption{profile page}
  \end{minipage}
   \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./h.jpg}
-  \caption{User's profile}
+  \includegraphics[width=5.0cm, height=10.0cm]{./h.jpeg}
+  \caption{Drawer}
  \end{minipage}
    \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./i.jpg}
-  \caption{profile settings}
+  \includegraphics[width=5.0cm, height=10.0cm]{./k.jpeg}
+ \caption{main page}
  \end{minipage}
    \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./j.jpg}
-  \caption{search}
+  \includegraphics[width=5.0cm, height=10.0cm]{./i.jpeg}
+  \caption{trending page}
  \end{minipage}
+
+\end{figure}
+\clearpage
+\begin{figure}{}
+   \begin{minipage}{.5\textwidth}
+  \includegraphics[width=5.0cm, height=10.0cm]{./j.jpeg}
+ \caption{one of the recipes page}
+ \end{minipage}
+   \begin{minipage}{.5\textwidth}
+  \includegraphics[width=5.0cm, height=10.0cm]{./l.jpeg}
+  \caption{search results}
+ \end{minipage}
+
 \end{figure}
 \FloatBarrier
 \newpage
@@ -861,14 +880,6 @@ This system can be installed on any smart phone supporting android and IOS platf
 \bigskip
 \subsection {Flexibility}
 The system keeps on updating the data according to the transactions that takes place.
-\newpage
-
-
-
-
-
-
-
 
 
 \FloatBarrier
@@ -893,6 +904,13 @@ The system keeps on updating the data according to the transactions that takes p
 \end{tabular}
 \end{table}
 
+\FloatBarrier
+\newpage
+\section{Github Contribution}
+\begin{figure}[!h]
+\includegraphics[width=13cm]{10.png}
+\caption{Github Contribution}
+\end{figure}
 \FloatBarrier
 
 \section {References}
