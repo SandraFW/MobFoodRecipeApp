@@ -10,9 +10,8 @@ class IntroPage extends StatefulWidget{
 
 class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
   Animation animation;
-  Animation animationButton;
   Animation animationController;
-  Animation animationControllerButton;
+  
 
 
   @override
