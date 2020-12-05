@@ -1,32 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 
 class Food {
   final String title;
   final String image;
-  final String likes;
+  final int likes;
   bool fav = false;
   Food({this.title, this.image, this.likes, this.fav});
 
   static List<Food> allFood() {
     var lstOfFoods = new List<Food>();
     lstOfFoods.add(new Food(
-        title: "Egyptian Wark Ainab",
-        likes: "500",
-        image: "5.jpg",
-        fav: false));
+        title: "Egyptian Wark Ainab", likes: 500, image: "5.jpg", fav: false));
     lstOfFoods.add(new Food(
-        title: "Turkey Tetrazzini", likes: "300", image: "1.jpeg", fav: false));
+        title: "Turkey Tetrazzini", likes: 300, image: "1.jpeg", fav: false));
     lstOfFoods.add(
-        new Food(title: "Lasagna", likes: "280", image: "2.jpg", fav: false));
+        new Food(title: "Lasagna", likes: 280, image: "2.jpg", fav: false));
     lstOfFoods.add(new Food(
-        title: "Honey Garlic Chicken",
-        likes: "280",
-        image: "3.jpg",
-        fav: false));
+        title: "Honey Garlic Chicken", likes: 280, image: "3.jpg", fav: false));
     lstOfFoods.add(new Food(
-        title: "Overnight Oats", likes: "279", image: "4.jpg", fav: false));
+        title: "Overnight Oats", likes: 279, image: "4.jpg", fav: false));
     lstOfFoods.add(new Food(
-        title: "Grilled Salmon", likes: "278", image: "6.jpg", fav: false));
+        title: "Grilled Salmon", likes: 278, image: "6.jpg", fav: false));
     return lstOfFoods;
   }
 }
@@ -40,6 +35,7 @@ class TrendPage extends StatefulWidget {
 class _TrendPagetState extends State<TrendPage> {
   final List<Food> _allFood = Food.allFood();
   final _saved = Set<Food>();
+
   //bool _isFavorited = false;
   @override
   Widget build(BuildContext context) {
@@ -67,53 +63,47 @@ class _TrendPagetState extends State<TrendPage> {
   }
 
   Widget _getItemUI(BuildContext context, int index) {
+    final label = _allFood[index].likes;
     return new Card(
         child: new Column(
       children: <Widget>[
-        new ListTile(
-          leading: new Image.asset(
-            "images/" + _allFood[index].image,
-            fit: BoxFit.fill,
-            width: 100.0,
-            height: 100.0,
-          ),
-          title: new Text(
-            _allFood[index].title,
-            style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-          ),
-          subtitle: new Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                    ),
-                    Text('Likes: ${_allFood[index].likes}',
-                        style: new TextStyle(
-                            fontSize: 13.0, fontWeight: FontWeight.normal)),
-                  ],
-                )
-              ]),
+        Image.asset(
+          "images/" + _allFood[index].image,
+          fit: BoxFit.fill,
+          width: 300.0,
+          height: 200.0,
+        ),
+        new Text(
+          _allFood[index].title,
+          style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            IconButton(
-              icon: (_allFood[index].fav
-                  ? Icon(Icons.favorite)
-                  : Icon(Icons.favorite_border)),
-              color: Colors.red[500],
-              onPressed: () {
-                setState(() {
-                  if (_allFood[index].fav == false) {
-                    _allFood[index].fav = true;
-                  } else {
-                    _allFood[index].fav = false;
-                  }
-                });
+            LikeButton(
+              likeCount: label,
+              likeBuilder: (bool isLiked) {
+                return Icon(
+                  Icons.favorite,
+                  size: 25,
+                  color: isLiked ? Colors.redAccent : Colors.blueGrey[200],
+                );
+              },
+              countBuilder: (int count, bool isLiked, String text) {
+                var color = isLiked ? Colors.redAccent : Colors.blueGrey;
+                Widget result;
+                if (count == 0) {
+                  result = Text(
+                    "love",
+                    style: TextStyle(color: color),
+                  );
+                } else {
+                  result = Text(
+                    text,
+                    style: TextStyle(color: color),
+                  );
+                }
+                return result;
               },
             ),
           ],
