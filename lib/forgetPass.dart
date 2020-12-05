@@ -15,13 +15,13 @@ class ForgetPass extends StatelessWidget {
   }
 }
 
-// ignore: camel_case_types
+
 class ForgetPassword extends StatefulWidget {
   @override
   _ForgetPassState createState() => _ForgetPassState();
 }
 
-// ignore: camel_case_types
+
 class _ForgetPassState extends State<ForgetPassword> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
