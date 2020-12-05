@@ -42,7 +42,7 @@ class ImageCarousel extends StatelessWidget{
               margin: EdgeInsets.only(top:30.0, left: 135.0),
               child: FadeAnimation(4,  
               Text(
-                'Discover outstanding Recipes',
+                'Discover outstanding recipes',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'SourceSansPro',
@@ -94,7 +94,7 @@ class ImageCarousel extends StatelessWidget{
               margin: EdgeInsets.only(top:100.0, left: 220.0),
               child: FadeAnimation(4,  
               Text(
-                'Share your \n Recipes with \n others!',
+                'Share your \n recipes with \n others!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'SourceSansPro',
