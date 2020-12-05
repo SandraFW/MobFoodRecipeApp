@@ -39,6 +39,36 @@ class InkWellDrawer extends StatelessWidget {
                             builder: (ctxt) => new ProfileFirst()))
                   }),
           CustomListTile(
+              Icons.post_add,
+              'Add new Post',
+              () => {
+                    Navigator.pop(ctxt),
+                    Navigator.push(
+                        ctxt,
+                        new MaterialPageRoute(
+                            builder: (ctxt) => new ProfileFirst()))
+                  }),
+          CustomListTile(
+              Icons.list,
+              'My Posts',
+              () => {
+                    Navigator.pop(ctxt),
+                    Navigator.push(
+                        ctxt,
+                        new MaterialPageRoute(
+                            builder: (ctxt) => new ProfileFirst()))
+                  }),
+          CustomListTile(
+              Icons.save,
+              'Saved Posts',
+              () => {
+                    Navigator.pop(ctxt),
+                    Navigator.push(
+                        ctxt,
+                        new MaterialPageRoute(
+                            builder: (ctxt) => new ProfileFirst()))
+                  }),
+          CustomListTile(
               Icons.notifications,
               'Notification',
               () => {
