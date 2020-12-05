@@ -11,9 +11,7 @@ class IntroPage extends StatefulWidget{
 class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
   Animation animation;
   Animation animationController;
-  
-
-
+ 
   @override
   void initState(){
     super.initState();
@@ -36,17 +34,20 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
       title: "Introduction Page" ,
       home: Scaffold(
         body: Stack(
-            children: [
+          children: [
+            Opacity(
+            opacity: 1,
+          child:
             Container(
-              
-            decoration: BoxDecoration(
+           decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/summerfruit.jpg'),
+                image: AssetImage('images/flowercake.jpg'),
                 fit: BoxFit.cover,
+                
               ),
             ),
-           
-            ),
+           ),
+              ),
            Container(
              margin: EdgeInsets.only(top: 30.0),
            child:ClipRRect(
@@ -60,32 +61,15 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
          ),
             ),
            ),
-           Container(
-          margin: EdgeInsets.only(left:330.0, top: 20.0),
-           child: TextButton(
-             onPressed: (){
-               Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Login();
-                    }));
-             }, 
-             child: Text('Login',
-             style: TextStyle(
-               color: Colors.red[900],
-               fontWeight: FontWeight.bold,
-               fontSize: 20.5,
-             ),
-             ),
-             ),
-           ),
+
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children:[
                 Container(
-                  padding: EdgeInsets.only(left:100.0, top:490.0),
+                  padding: EdgeInsets.only(left:100.0, top:500.0),
                 ),
-                FlatButton(
+               FlatButton(
                 onPressed: (){
                    Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
@@ -93,24 +77,62 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
                     }));
                 },
               
-                  color: Colors.white.withOpacity(0.7),
-                  textColor: Colors.red[900],
+                  color: Colors.white.withOpacity(0.4),
+                  textColor: Colors.grey[800],
                    child: Container(
                      child: Text(
                      'Sign up with email', 
                      style: TextStyle(
+                       fontFamily: 'SourceSansPro',
                        fontSize: 20,
                       fontWeight: FontWeight.bold)
                      ),
-                     margin: EdgeInsets.all(18.0),
+                     margin: EdgeInsets.all(12.0),
                      padding: EdgeInsets.only(left: 30.0, right: 30.0),
                      ),
                     shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.red[900], width: 3.5 ),
+                    side: BorderSide(color: Colors.grey[700], width: 2.5 ),
                     ),
                 ),
-              
+                Container(margin: EdgeInsets.only(top:0.0)),
+                Row(
+                children: [ 
+                Container(
+                  margin: EdgeInsets.only(left: 100.0),
+                child: Text('Already have an account?', style: TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 15.0,
+                color: Colors.grey[800],
+                fontWeight: FontWeight.bold,
+               
+              ),
+              ),
+                ),
+              Container(
+                margin: EdgeInsets.only(),
+              child: TextButton(
+             onPressed: (){
+                Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Login();
+                    }));
+             }, 
+             child: Text('Login',
+             style: TextStyle(
+               fontFamily: 'SourceSansPro',
+               color: Colors.red[600],
+               fontWeight: FontWeight.bold,
+               fontSize: 18.5,
+               
+             ),
+             ),
+             ),
+                ),
+              ],
+              )
+               
+                
               ],
             ),
             ], 
