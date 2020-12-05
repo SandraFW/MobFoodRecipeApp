@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'drawer.dart';
 import 'my_posts_page.dart';
+import 'saved_page.dart';
 
 class ProfileFirst extends StatefulWidget {
   ProfileFirst({Key key, this.title}) : super(key: key);
@@ -269,12 +270,12 @@ class _ProfileFirstState extends State<ProfileFirst> {
                                     fontWeight: FontWeight.bold),
                               ),
                               borderSide: BorderSide(color: Colors.transparent),
-                              //color: Colors.white10,
+                              
                               onPressed: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => MyPostsPage()),
+                                      builder: (context) => SavedPage()),
                                 );
                               },
                               shape: new RoundedRectangleBorder(
