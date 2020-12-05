@@ -72,7 +72,7 @@ class Logout extends StatelessWidget{
           child:
            FlatButton(
                 onPressed: (){
-                   Navigator.pop(context, false);
+                   Navigator.pop(context);
                 },
               
                   color: Colors.white.withOpacity(1),
