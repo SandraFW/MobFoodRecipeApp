@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ink_drawer/my_posts_page.dart';
 import 'profile_view.dart';
+import 'my_posts_page.dart';
 import 'notification.dart';
 import 'login.dart';
-import 'saved_page.dart';
 
 class InkWellDrawer extends StatelessWidget {
   @override
@@ -57,7 +58,7 @@ class InkWellDrawer extends StatelessWidget {
                     Navigator.push(
                         ctxt,
                         new MaterialPageRoute(
-                            builder: (ctxt) => new ProfileFirst()))
+                            builder: (ctxt) => new MyPostsPage()))
                   }),
           CustomListTile(
               Icons.save,
@@ -67,7 +68,7 @@ class InkWellDrawer extends StatelessWidget {
                     Navigator.push(
                         ctxt,
                         new MaterialPageRoute(
-                            builder: (ctxt) => new SavedPage()))
+                            builder: (ctxt) => new ProfileFirst()))
                   }),
           CustomListTile(
               Icons.notifications,
