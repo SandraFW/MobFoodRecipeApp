@@ -16,10 +16,10 @@ class OneRecipe extends StatelessWidget {
       title: 'Recipe',
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.orange[100],
+          backgroundColor: Colors.white,
           title: Text('Recipe'),
         ),
-        backgroundColor: Colors.orange[100],
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(
             children: [
