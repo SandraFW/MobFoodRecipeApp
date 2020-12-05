@@ -26,7 +26,7 @@ class Posts {
         title: "oasta with meatballs ",
         time: "10/11/2020 17:00",
         likes: "500",
-        image: "macroni.jpg"));
+        image: "meat.jpg"));
     lstOfPostss.add(new Posts(
         title: "French Toasts",
         time: "5/10/2020 11:00",
