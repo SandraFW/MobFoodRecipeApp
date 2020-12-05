@@ -29,6 +29,9 @@ dependencies:
   email_validator: '^1.0.5'
   like_button: ^1.0.4
   get: ^3.21.2
+  carousel_slider: ^2.3.1
+  carousel_pro: ^1.0.0
+  carousel_extended: ^1.0.0+1
 
 
   # The following adds the Cupertino Icons font to your application.
