@@ -8,7 +8,7 @@ import 'forgetPass.dart';
 import 'One_recipe.dart';
 import 'login.dart';
 import 'intro_page.dart';
-
+import 'detail_page.dart';
 
 
 void main() {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Food recommendation",
-      home: IntroPage(),
+      home: Detail(),
       routes: routes,
     );
 
