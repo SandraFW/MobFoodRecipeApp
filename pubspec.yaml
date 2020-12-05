@@ -53,6 +53,17 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+   - family: SourceSansPro
+     fonts:
+       - asset: fonts/SourceSansPro-Light.ttf
+   - family: NerkoOne
+     fonts:
+       - asset: fonts/NerkoOne-Regular.ttf
+   - family: OpenSans
+     fonts:
+       - asset: fonts/OpenSans-Regular.ttf
+
   assets:
     - images/logo.png
     - images/1.jpeg
