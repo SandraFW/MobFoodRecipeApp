@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'drawer.dart';
+import 'my_posts_page.dart';
 
 class ProfileFirst extends StatefulWidget {
   ProfileFirst({Key key, this.title}) : super(key: key);
@@ -147,7 +148,7 @@ class _ProfileFirstState extends State<ProfileFirst> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "Liked Posts",
+                            "Following",
                             style: TextStyle(
                               color: Colors.white70,
                               fontSize: 1.9 * SizeConfig.textMultiplier,
@@ -195,14 +196,37 @@ class _ProfileFirstState extends State<ProfileFirst> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(
-                          left: 30.0, top: 3 * SizeConfig.heightMultiplier),
-                      child: Text(
-                        "My Posts",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 2.2 * SizeConfig.textMultiplier),
+                      padding: EdgeInsets.only(left: 30.0, right: 30.0),
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            "My Posts",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 2.2 * SizeConfig.textMultiplier),
+                          ),
+                          Spacer(),
+                          new OutlineButton(
+                              child: new Text(
+                                "view all",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              borderSide: BorderSide(color: Colors.transparent),
+                              //color: Colors.white10,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyPostsPage()),
+                                );
+                              },
+                              shape: new RoundedRectangleBorder(
+                                  borderRadius:
+                                      new BorderRadius.circular(30.0))),
+                        ],
                       ),
                     ),
                     SizedBox(
@@ -230,19 +254,32 @@ class _ProfileFirstState extends State<ProfileFirst> {
                       child: Row(
                         children: <Widget>[
                           Text(
-                            "Liked Posts",
+                            "Saved Posts",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 2.2 * SizeConfig.textMultiplier),
                           ),
                           Spacer(),
-                          Text(
-                            "View All",
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 1.7 * SizeConfig.textMultiplier),
-                          ),
+                          new OutlineButton(
+                              child: new Text(
+                                "view all",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              borderSide: BorderSide(color: Colors.transparent),
+                              //color: Colors.white10,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MyPostsPage()),
+                                );
+                              },
+                              shape: new RoundedRectangleBorder(
+                                  borderRadius:
+                                      new BorderRadius.circular(30.0))),
                         ],
                       ),
                     ),
