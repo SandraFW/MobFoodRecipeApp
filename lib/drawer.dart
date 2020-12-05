@@ -4,6 +4,7 @@ import 'profile_view.dart';
 import 'my_posts_page.dart';
 import 'notification.dart';
 import 'login.dart';
+import 'logout.dart';
 
 class InkWellDrawer extends StatelessWidget {
   @override
@@ -89,7 +90,7 @@ class InkWellDrawer extends StatelessWidget {
                     Navigator.push(
                         ctxt,
                         new MaterialPageRoute(
-                            builder: (ctxt) => new LoginPage()))
+                            builder: (ctxt) => new Logout()))
                   }),
         ],
       ),
