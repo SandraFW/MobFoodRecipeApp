@@ -4,36 +4,10 @@ import 'package:email_validator/email_validator.dart';
 import 'Animation/FadeAnimation.dart';
 import 'intro_page.dart';
 
-class IsHidden extends StatefulWidget{
-  _IsHidden createState() => _IsHidden();
-}
-
-class _IsHidden extends State<IsHidden>{
-  bool _obsecureText = true;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: (_obsecureText ? Icon(Icons.visibility) : Icon(Icons.visibility_off)),
-      onPressed: (){
-      setState(() {
-      if(_obsecureText){
-        _obsecureText = true;
-      }
-      else{
-        _obsecureText = false;
-      }    
-    });
-      },
-    );
-  }
-}
 
 class Create extends StatefulWidget{
  _Create createState() => _Create();
 }
-
 
 class _Create extends State<Create> {
   // This widget is the root of your application.
@@ -41,8 +15,38 @@ class _Create extends State<Create> {
   String _email;
   final TextEditingController _password = TextEditingController();
   final TextEditingController _confirmpassword = TextEditingController();
-  bool _obsecureText = true;
+  bool _obscureText = true; 
+  bool _obscureTextConfirm = true;
+  
+ void _toggle(){
+     setState(() {
+      _obscureText = !_obscureText;
+     
+       if(_obscureText){
+        _obscureText = true;
+        
+      }
+      else{
+        _obscureText = false;
+       
+      }   
+    });
+ }
 
+ void _toggleConfirm(){
+     setState(() {
+      _obscureTextConfirm = !_obscureTextConfirm;
+       if(_obscureTextConfirm){
+        _obscureTextConfirm = true;
+        
+      }
+      else{
+        _obscureTextConfirm = false;
+       
+      }  
+
+    });
+ }
   
   @override
   Widget build(BuildContext context) {
@@ -187,11 +191,16 @@ class _Create extends State<Create> {
         },
         decoration: InputDecoration(
           hintText: "Password",
-          suffixIcon: IsHidden(),
+          suffixIcon: IconButton(
+          icon: _obscureText ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
+          onPressed: _toggle,
+
+
+          ), 
           fillColor: Colors.grey[50],
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
-        obscureText: _obsecureText,
+         obscureText: _obscureText,
         ),
          Container(
            padding: const EdgeInsets.only(top: 15.0),
@@ -215,11 +224,15 @@ class _Create extends State<Create> {
         },
         decoration: InputDecoration(
           hintText: "Confirm Password",
-           suffixIcon: IsHidden(),
+           suffixIcon: IconButton(
+          icon: _obscureTextConfirm ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
+          onPressed: _toggleConfirm,
+          ),
+          
           fillColor: Colors.grey[50],
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
-        obscureText: _obsecureText,
+        obscureText: _obscureTextConfirm,
         ),
         ],
         ),
