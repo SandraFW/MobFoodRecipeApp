@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'profile_view.dart';
 import 'notification.dart';
 import 'login.dart';
+import 'saved_page.dart';
 
 class InkWellDrawer extends StatelessWidget {
   @override
@@ -66,7 +67,7 @@ class InkWellDrawer extends StatelessWidget {
                     Navigator.push(
                         ctxt,
                         new MaterialPageRoute(
-                            builder: (ctxt) => new ProfileFirst()))
+                            builder: (ctxt) => new SavedPage()))
                   }),
           CustomListTile(
               Icons.notifications,
