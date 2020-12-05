@@ -68,10 +68,7 @@ class _Create extends State<Create> {
                 margin: const EdgeInsets.only(right: 330.0, top: 20.0),
                 child: IconButton(
                   onPressed: (){
-                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return IntroPage();
-                    }));
+                     Navigator.pop(context);
                   },
                   icon: Icon(
                   Icons.arrow_back,
@@ -139,6 +136,7 @@ class _Create extends State<Create> {
     ),
     );
   }
+  
   Column CreateAccount(key) {
   return Column(
     children: [
