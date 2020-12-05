@@ -16,25 +16,47 @@ class OneRecipe extends StatelessWidget {
       title: 'Recipe',
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text('Recipe'),
-        ),
+            backgroundColor: Colors.white,
+            title: const Text('Recipe'),
+            actions: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.local_fire_department,
+                    color: Colors.redAccent,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.person,
+                    color: Colors.redAccent,
+                  ),
+                ),
+              ),
+            ]),
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: Column(
+          child: ListView(
             children: [
-              Image.asset(
-                'images/classicburger.jpeg',
-                width: 430,
-                height: 250,
-                fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(
+                  'images/classicburger.jpeg',
+                  width: 150,
+                  height: 350,
+                  fit: BoxFit.cover,
+                ),
               ),
               TitleSection(),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                 BuildButtonColumn(
-                    Colors.black, Icons.add_comment, 'Add comment'),
-                BuildButtonColumn(Colors.black, Icons.favorite, 'Like'),
-                BuildButtonColumn(Colors.black, Icons.share, 'SHARE'),
+                    Colors.redAccent, Icons.add_comment, 'Add comment'),
+                BuildButtonColumn(Colors.redAccent, Icons.share, 'SHARE'),
+                BuildButtonColumn(Colors.redAccent, Icons.star, '5.0'),
               ]),
               text(),
             ],
@@ -126,16 +148,13 @@ class FavoriteWidget extends StatefulWidget {
 }
 
 class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
-  int _favoriteCount = 99;
+  bool _isFavorited = false;
 
   void _toggleFavorite() {
     setState(() {
       if (_isFavorited) {
-        _favoriteCount -= 1;
         _isFavorited = false;
       } else {
-        _favoriteCount += 1;
         _isFavorited = true;
       }
     });
@@ -147,19 +166,14 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: EdgeInsets.all(0),
           child: IconButton(
             padding: EdgeInsets.all(0),
             alignment: Alignment.centerRight,
-            icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
-            color: Colors.red[500],
+            icon: (_isFavorited
+                ? Icon(Icons.favorite)
+                : Icon(Icons.favorite_outline)),
+            color: Colors.redAccent,
             onPressed: _toggleFavorite,
-          ),
-        ),
-        SizedBox(
-          width: 20,
-          child: Container(
-            child: Text('$_favoriteCount'),
           ),
         ),
       ],
