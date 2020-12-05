@@ -8,20 +8,20 @@ class Reset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: resetPass(),
+      home: ResetPass(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-// ignore: camel_case_types
-class resetPass extends StatefulWidget {
+
+class ResetPass extends StatefulWidget {
   @override
-  _resetPassState createState() => _resetPassState();
+  _ResetPassState createState() => _ResetPassState();
 }
 
-// ignore: camel_case_types
-class _resetPassState extends State<resetPass> {
+
+class _ResetPassState extends State<ResetPass> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   void validate() {
@@ -31,12 +31,11 @@ class _resetPassState extends State<resetPass> {
     print('Not validated');
   }
 
-  // ignore: non_constant_identifier_names
-  String EmailValidation(value) {
+  String emailValidation(value) {
     if (value.isEmpty) {
       return 'Please enter the code';
-    }
-    return null;
+    } 
+      return null;
   }
 
   @override
@@ -105,7 +104,7 @@ class _resetPassState extends State<resetPass> {
                       child: Column(
                         children: <Widget>[
                           TextFormField(
-                              validator: EmailValidation,
+                              validator: emailValidation,
                               keyboardType: TextInputType.name,
                               autofocus: true,
                               decoration: InputDecoration(
@@ -129,7 +128,7 @@ class _resetPassState extends State<resetPass> {
                     child: RaisedButton(
                         onPressed: () {
                           if (formkey.currentState.validate()) {
-                                   Navigator.push(context,
+                            Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
                               return MainPage();
                             }));
