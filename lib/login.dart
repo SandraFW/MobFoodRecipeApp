@@ -153,7 +153,9 @@ class _LoginPageState extends State<LoginPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                if (_formkey.currentState.validate()) {
+            Navigator.of(context).pushNamed(TrendPage.tag);},
                 child: Text(
                   "Login",
                   style: TextStyle(
