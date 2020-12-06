@@ -117,7 +117,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     onPressed: () {},
                     color: Colors.redAccent,
                     padding: EdgeInsets.symmetric(horizontal: 50),
-                    elevation: 2,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     child: Text(
