@@ -22,25 +22,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  GlobalKey<FormState> formkey =GlobalKey<FormState>();
+  GlobalKey<FormState> _formkey =GlobalKey<FormState>();
   
-  void validate(){
-    if(formkey.currentState.validate()){
-      print('validated');
-    }
-    print('Not validated');
-  }
-  String EmailValidation(value){
-    if(value.isEmpty){
-      return 'please enter your email';
-    }
-    else if(!EmailValidator.validate(value)){
-      return 'please insert a valid email';
-    }
-    return null;
-  }
+   String _email;
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmpassword = TextEditingController();
   
-  String email, password;
+  
   
   Widget _buildLogo() {
     return Row(
