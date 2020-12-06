@@ -171,7 +171,7 @@ class _ProfileFirstState extends State<ProfileFirst> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ProfileFirst()),
+                                    builder: (context) => EditProfilePage()),
                               );
                             },
                             shape: new RoundedRectangleBorder(
