@@ -22,6 +22,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  GlobalKey<FormState> formkey =GlobalKey<FormState>();
+  
   String email, password;
   Widget _buildLogo() {
     return Row(
