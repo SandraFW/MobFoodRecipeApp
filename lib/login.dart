@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   
    String _email;
   final TextEditingController _password = TextEditingController();
-  final TextEditingController _confirmpassword = TextEditingController();
+  
   
   
   
