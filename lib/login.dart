@@ -24,7 +24,24 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> formkey =GlobalKey<FormState>();
   
+  void validate(){
+    if(formkey.currentState.validate()){
+      print('validated');
+    }
+    print('Not validated');
+  }
+  String EmailValidation(value){
+    if(value.isEmpty){
+      return 'please enter your email';
+    }
+    else if(!EmailValidator.validate(value)){
+      return 'please insert a valid email';
+    }
+    return null;
+  }
+  
   String email, password;
+  
   Widget _buildLogo() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +109,18 @@ class _LoginPageState extends State<LoginPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         FlatButton(
-          onPressed: () {},
+          onPressed: () {
+          if(_formkey.currentstate.validate()){
+          Navigator.push(context,
+                         MaterialPgeRoute(builder:(context){
+                         return ForegtPaswword();
+                         
+                         })),
+          }
+            else{
+              return"unsuccessful";
+            }
+          },
           child: Text("Forgot Password?"),
         ),
       ],
@@ -221,7 +249,10 @@ class _LoginPageState extends State<LoginPage> {
         Padding(
           padding: EdgeInsets.only(top: 40),
           child: FlatButton(
-            onPressed: () {},
+            onPressed: () {
+            
+            
+            },
             child: RichText(
               text: TextSpan(children: [
                 TextSpan(
