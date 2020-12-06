@@ -900,7 +900,7 @@ Food studio application will be user friendly and easy to understand.The system 
 06-November-2020 & 17-November-2020   & \makecell{Creating Login,signUp,forget password,reset password pages }   \\ 
 \hline
 10-November-2020  & 17-November-2020   & \makecell{Creating One recipe,create recipe,search results pages}   \\ \hline
-17-November-2020 & 05-December-2020   & \makecell{Creating User profile,drawer,trending page,logout pages}   \\ \hline
+17-November-2020 & 05-December-2020   & \makecell{Creating User profile,drawer,trending,logout pages}   \\ \hline
 \end{tabular}
 \caption{Project plan}
 \end{table}
