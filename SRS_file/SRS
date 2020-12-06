@@ -20,7 +20,7 @@
 \begin{table}[htp]
 \begin{tabular}{|l|l|l|}
 \hline 
-\thead{Proposal Version}    & \thead{Date} & \thead{Reason for Change}  \\
+\thead{SRS Version}    & \thead{Date} & \thead{Reason for Change}  \\
 \hline
 1.0 & 08-October-2020   & \makecell{first version created}   \\ 
 \hline
@@ -871,7 +871,7 @@ This system is provided with authentication without which no user can pass. So o
 \bigskip
 
 \subsection {Reliability}
-Good validations(as shown in tables[2-5]) of user inputs will be done to avoid incorrect storage of records.
+Good validations(as shown in tables[2-5]) for user inputs will be applied to avoid incorrect storage of records.
 \bigskip
 
 \subsection {Maintainability}
@@ -891,23 +891,20 @@ Food studio application will be user friendly and easy to understand.The system 
 
 
 \begin{table}[h]
-\caption{}
-\label{tab:my-table}
-\begin{tabular}
-{|p{0.5\textwidth}|p{0.5\textwidth}|}
+\begin{tabular}{|l|l|l|}
+\hline 
+\thea{Start Date}    & \thead{End Date} & \thead{Task}  \\
 \hline
-\textbf{Task} & \textbf{End Date}
-
-\\ \hline
-\textbf{phase 1 }  &  7/11/2020                          
-\\ \hline
-\textbf{phase 2}  &    14/11/2020
-\\ \hline
-\textbf{Final}  &  24/11/2020  
-\\ \hline
-
+06-November-2020  & 17-November-2020   & \makecell{Main page created}   \\ 
+\hline
+06-November-2020 & 17-November-2020   & \makecell{Creating Login,signUp,forget password,reset password pages }   \\ 
+\hline
+10-November-2020  & 17-November-2020   & \makecell{Creating One recipe,create recipe,search results pages}   \\ \hline
+17-November-2020 & 05-December-2020   & \makecell{Creating User profile,drawer,trending page,logout pages}   \\ \hline
 \end{tabular}
+\caption{Project plan}
 \end{table}
+
 
 \FloatBarrier
 \newpage
