@@ -65,12 +65,22 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: EdgeInsets.all(8),
       child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value) {
-          setState(() {
-            email = value;
-          });
+        autofocus: true,
+        validator: (value) {
+          if(value.isEmpty){
+            return "This Field is Empty";
+          }
+          else if(!EmailValidator.validate(value)){
+            return "The email you inserted is not valid";
+          }
+          return null;
         },
+        onSaved: (String email){
+          _email = email;
+        },
+        
+        
+        
         decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.email,
