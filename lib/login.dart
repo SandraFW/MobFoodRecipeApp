@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
+
+    [9:44 am, 06/12/2020] Nour Ghoniem🥰❤️: import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:screentwo/forget_password.dart';
 import 'constants.dart';
 import 'package:email_validator/email_validator.dart';
 import 'Animation/FadeAnimation.dart';
 import 'create_account.dart';
-import 'forgetPass.dart';
-import 'profile_view.dart;
+import 'forget_password.dart';
+import 'profile_main.dart';
 
-void main() => runApp(Login());
 
 class Login extends StatelessWidget {
   // This widget is the root of your application.
@@ -27,6 +28,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> _formkey =GlobalKey<FormState>();
+ 
   
    String _email;
   final TextEditingController _password = TextEditingController();
@@ -53,10 +55,19 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildEmailRow() {
+  
+
+  Widget _buildForm() {
     return Padding(
+
       padding: EdgeInsets.all(8),
-      child: TextFormField(
+      child: Form(
+      key: _formkey,
+      child: Column(
+
+      children:[
+         TextFormField(
+       
         autofocus: true,
         validator: (value) {
           if(value.isEmpty){
@@ -71,8 +82,6 @@ class _LoginPageState extends State<LoginPage> {
           _email = email;
         },
         
-        
-        
         decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.email,
@@ -80,13 +89,9 @@ class _LoginPageState extends State<LoginPage> {
             ),
             labelText: 'E-mail'),
       ),
-    );
-  }
 
-  Widget _buildPasswordRow() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
+         TextFormField(
+        
         autofocus: true,
         controller: _password,
         validator: (value) {
@@ -102,7 +107,6 @@ class _LoginPageState extends State<LoginPage> {
           _password.text = password;
         },
         
-    
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.lock,
@@ -110,6 +114,14 @@ class _LoginPageState extends State<LoginPage> {
           ),
           labelText: 'Password',
         ),
+      ),
+     
+
+
+
+
+      ],
+      ),
       ),
     );
   }
@@ -121,16 +133,12 @@ class _LoginPageState extends State<LoginPage> {
       children: <Widget>[
         FlatButton(
           onPressed: () {
-          if(_formkey.currentstate.validate()){
+       
           Navigator.push(context,
-                         MaterialPgeRoute(builder:(context){
-                         return ForegtPaswword();
+                         MaterialPageRoute(builder:(context){
+                         return ForgetPass();
                          
-                         })),
-          }
-            else{
-              return"unsuccessful";
-            }
+                         }));
           },
           child: Text("Forgot Password?"),
         ),
@@ -155,9 +163,13 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 onPressed: () {
-                Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return ProfileFirst();
+                if (_formkey.currentState.validate() ) {
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return Profile();
+            }));
+          
+            
+                }
                 },
                 child: Text(
                   "Login",
@@ -243,8 +255,8 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[],
                 ),
-                _buildEmailRow(),
-                _buildPasswordRow(),
+              
+                _buildForm(),
                 _buildForgetPasswordButton(),
                 _buildLoginButton(),
                 _buildOrRow(),
@@ -262,24 +274,9 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(top: 40),
+          padding: EdgeInsets.only(left: 0.0, top: 20),
           child: FlatButton(
-            onPressed: () {
-              if(_formkey.currentstate.validate()){
-          Navigator.push(context,
-                         MaterialPgeRoute(builder:(context){
-                         return Create();
-                         
-                         })),
-          }
-            else{
-              return"unsuccessful";
-            }
-          },
-            
-            
-            },
-            child: RichText(
+           child:  RichText(
               text: TextSpan(children: [
                 TextSpan(
                   text: 'Dont have an account? ',
@@ -296,14 +293,28 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: MediaQuery.of(context).size.height / 40,
                     fontWeight: FontWeight.bold,
                   ),
-                )
-              ]),
-            ),
+                ),
+              ],
+              ),
+        ),
+            onPressed: () {
+           
+          Navigator.push(context,
+                         MaterialPageRoute(builder:(context){
+                         return Create();
+                         
+                         }));
+          
+          },
+            
           ),
         ),
+       
       ],
     );
-  }
+        }
+            
+          
 
   @override
   Widget build(BuildContext context) {
@@ -340,3 +351,8 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+
+
+
