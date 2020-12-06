@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:login_page/constants.dart';
 import 'package:login_page/Animation/FadeAnimation.dart';
 import 'create_account.dart';
+import 'forgetPass.dart';
 
 void main() => runApp(Login());
 
