@@ -3,8 +3,9 @@ import 'package:email_validator/email_validator.dart';
 import 'reset_password.dart';
 import 'login.dart';
 
-
-
+void main() {
+  runApp(ForgetPass());
+}
 class ForgetPass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,6 @@ class ForgetPass extends StatelessWidget {
     );
   }
 }
-
 
 class ForgetPassword extends StatefulWidget {
   @override
@@ -63,17 +63,12 @@ class _ForgetPassState extends State<ForgetPassword> {
                     }
                   },
                 ),
-                Container(
-                    width: 125.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    ))
               ],
             ),
           ),
           SizedBox(height: 25.0),
           Padding(
-            padding: EdgeInsets.only(left: 40.0),
+            padding: EdgeInsets.only(left: 10.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
