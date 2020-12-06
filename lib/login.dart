@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: () {
                 if (_formkey.currentState.validate()) {
-            Navigator.of(context).pushNamed(TrendPage.tag);},
+            Navigator.of(context).pushNamed(ProfileFirst.tag);},
                 child: Text(
                   "Login",
                   style: TextStyle(
