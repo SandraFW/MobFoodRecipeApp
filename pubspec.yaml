@@ -93,6 +93,8 @@ flutter:
     - images/sashimi.jpg
     - images/shish.jpg
     - images/steak.jpg
+    - images/chef.jpg
+
    
   # To add assets to your application, add an assets section, like this:
   # assets:
