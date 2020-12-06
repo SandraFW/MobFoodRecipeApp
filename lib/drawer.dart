@@ -5,6 +5,7 @@ import 'my_posts_page.dart';
 import 'notification.dart';
 import 'login.dart';
 import 'logout.dart';
+import '';
 
 class InkWellDrawer extends StatelessWidget {
   @override
@@ -49,7 +50,7 @@ class InkWellDrawer extends StatelessWidget {
                     Navigator.push(
                         ctxt,
                         new MaterialPageRoute(
-                            builder: (ctxt) => new ProfileFirst()))
+                            builder: (ctxt) => new AddNewRecipe()))
                   }),
           CustomListTile(
               Icons.list,
