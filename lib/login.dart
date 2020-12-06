@@ -95,13 +95,22 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: EdgeInsets.all(8),
       child: TextFormField(
-        keyboardType: TextInputType.text,
-        obscureText: true,
-        onChanged: (value) {
-          setState(() {
-            password = value;
-          });
+        autofocus: true,
+        controller: _password,
+        validator: (value) {
+          if(value.isEmpty){
+            return "This Field is Empty";
+          }
+          else if(value.length < 6){
+            return "your password should have at least 6 characters";
+          }
+          return null;
         },
+        onSaved: (String password){
+          _password.text = password;
+        },
+        
+    
         decoration: InputDecoration(
           prefixIcon: Icon(
             Icons.lock,
