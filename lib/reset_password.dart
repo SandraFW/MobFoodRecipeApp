@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'forget_password.dart';
 import 'main_page.dart';
 
-void main() => runApp(Reset());
-
 class Reset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -60,17 +58,12 @@ class _ResetPassState extends State<ResetPass> {
                     }
                   },
                 ),
-                Container(
-                    width: 125.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    ))
               ],
             ),
           ),
           SizedBox(height: 25.0),
           Padding(
-            padding: EdgeInsets.only(left: 40.0),
+            padding: EdgeInsets.only(left: 10.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -105,7 +98,6 @@ class _ResetPassState extends State<ResetPass> {
                         children: <Widget>[
                           TextFormField(
                               validator: emailValidation,
-                              keyboardType: TextInputType.name,
                               autofocus: true,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
