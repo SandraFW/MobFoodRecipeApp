@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:like_button/like_button.dart';
 import 'one_recipe.dart';
 import 'trend_page.dart';
 import 'package:get/get.dart';
-import 'complete_profile.dart';
 import 'profile_main.dart';
 
+void main() {
+  runApp(Recipes());
+}
 
 class FavoriteWidget extends StatefulWidget {
   _FavoriteWidgetState createState() => _FavoriteWidgetState();
@@ -41,7 +42,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   }
 }
 
-Widget RecipesData(
+Widget recipesData(
     String images, String mainText, String detailText, String rate) {
   return Container(
       child: Padding(
@@ -106,11 +107,10 @@ Widget RecipesData(
           )));
 }
 
-// ignore: camel_case_types
 class Recipes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'project',
         home: Scaffold(
@@ -182,39 +182,39 @@ class Recipes extends StatelessWidget {
                   )
                 ],
               ),
-              RecipesData(
+              recipesData(
                   "images/roastedVegetables.jpg",
                   "Roasted Vegetables",
                   "A casserole dish of seasonal vegetables that is so easy to prepare.",
                   "4.7"),
-              RecipesData("images/steak.jpg", "Steak",
+              recipesData("images/steak.jpg", "Steak",
                   "Is there anything better than a well-cooked steak?", "4.2"),
-              RecipesData(
+              recipesData(
                   "images/sashimi.jpg",
                   "Sashimi",
                   "Sashimi is made from fresh fish that you slice into delicate",
                   "5.0"),
-              RecipesData(
+              recipesData(
                   "images/shish.jpg",
                   "Shish",
                   " perfectly tender chicken that’s been marinating in earthy spices.",
                   "3.9"),
-              RecipesData(
+              recipesData(
                   "images/pizza.jpg",
                   "Pizza",
                   "Making pizza can be a time-consuming process, but the taste is worth.",
                   "4.3"),
-              RecipesData(
+              recipesData(
                   "images/pasta.jpg",
                   "Pasta",
                   "These baked pasta recipes are relatively inexpensive.",
                   "4.9"),
-              RecipesData(
+              recipesData(
                   "images/burger.jpg",
                   "Burger",
                   "Homemade hamburgers are a delicious treat for lunch or dinner.",
                   "5.0"),
-              RecipesData(
+              recipesData(
                   "images/grilledBarbecue.jpg",
                   "Grilled Barbecue",
                   "BBQ Chicken cooked on the grill,with your favorite barbecue sauce.",
