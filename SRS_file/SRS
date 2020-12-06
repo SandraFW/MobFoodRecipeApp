@@ -9,27 +9,30 @@
 \usepackage{wrapfig}
 %opening
 
-\title{Software Requirement Specification Document
-\newline Food recommendation System }
+\title{Software Requirement Specification Document 
+\newline For Food Studio Application }
 
-\author{ Mariam Hesham,Nour Ahmed ,Samiha Hesham,Sandra Fares}
+\author{ Mariam Hesham, Nour Ahmed, Samiha Hesham, Sandra Fares}
 
 \begin{document}
 
 \maketitle
 \begin{table}[htp]
-\centering
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|l|l|}
 \hline 
-\thead{SRS Version}   & \thead{Date}  \\ \hline
-1.0 & 17-October-2020      \\ \hline
-1.1 & 23-October-2020        \\ \hline
-1.2 & 08-November-2020        \\ \hline
-1.3 & 01-December-2020        \\ \hline
+\thead{Proposal Version}    & \thead{Date} & \thead{Reason for Change}  \\
+\hline
+1.0 & 08-October-2020   & \makecell{first version created}   \\ 
+\hline
+2.0 & 08-November-2020   & \makecell{UI created }   \\ 
+\hline
+2.1 & 15-November-2020   & \makecell{User interface' images are modified}   \\ \hline
+3.0 & 06-December-2020   & \makecell{Non functional requirements are updated }   \\ \hline
 \end{tabular}
-
 \caption{Document version history}
 \end{table}
+
+
 \maketitle
 \newpage
 \tableofcontents
@@ -868,23 +871,25 @@ This system is provided with authentication without which no user can pass. So o
 \bigskip
 
 \subsection {Reliability}
-Good validations of user inputs will be done to avoid incorrect storage of records.
+Good validations(as shown in tables[2-5]) of user inputs will be done to avoid incorrect storage of records.
 \bigskip
 
 \subsection {Maintainability}
-The software system should be designed to be easily  maintained and improved by software developers through the implementation of MCV 
-design patterns so that helps a lot in maintaining the software system, and minimize the amount of changes that will be done in the code
+The software system should be designed to be easily  maintained and improved by software developers so that helps a lot in maintaining the software system, and minimize the amount of changes that will be done in the code
 \bigskip
 \subsection {Portability}
-This system can be installed on any smart phone supporting android and IOS platforms.
+This system is implemented using flutter cross platform that can be installed on any smart phone supporting android and IOS software.
 \bigskip
-\subsection {Flexibility}
-The system keeps on updating the data according to the transactions that takes place.
+\subsection {Usability}
+Food studio application will be user friendly and easy to understand.The system consists if flexible and usable User interface.
+
 
 
 \FloatBarrier
 \section{Project Plan}
 \FloatBarrier
+
+
 \begin{table}[h]
 \caption{}
 \label{tab:my-table}
