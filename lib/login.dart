@@ -5,6 +5,7 @@ import 'package:email_validator/email_validator.dart';
 import 'Animation/FadeAnimation.dart';
 import 'create_account.dart';
 import 'forgetPass.dart';
+import 'profile_view.dart;
 
 void main() => runApp(Login());
 
