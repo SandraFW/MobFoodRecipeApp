@@ -31,6 +31,11 @@
 \end{tabular}
 \caption{Document version history}
 \end{table}
+\begin{table}[ht]
+\begin{tabular}{cc}
+\thead{GitHub:}    & {https://github.com/SandraFW/MobFoodRecipeApp}   
+\end{tabular}
+\end{table}
 
 
 \maketitle
@@ -759,7 +764,7 @@ uses the input data to insert a new row in users table in the system database   
 
 
 \\ \hline
-\textbf{Action}            & A user logs out from the application.
+\textbf{Action}            & User logs out from the application.
 
 \\ \hline
 \textbf{Output}            & Logout from the account is done successfully. 
@@ -790,13 +795,13 @@ uses the input data to insert a new row in users table in the system database   
 \begin{figure}[h]
   \centering
   \begin{minipage}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{a.jpeg}
+    \includegraphics[width=\textwidth]{21.jpeg}
     \caption{Introductory page}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.32\textwidth}
     \includegraphics[width=\textwidth]{b.jpeg}
-    \caption{Log in Page}
+    \caption{Log in Page\cite{c}}
      
       \end{minipage}
   \begin{minipage}[b]{0.32\textwidth}
@@ -820,6 +825,10 @@ uses the input data to insert a new row in users table in the system database   
     \includegraphics[width=5.0cm, height=10.0cm]{d.jpeg}
     \caption{Reset Password}
   \end{minipage}
+  \begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=5.0cm, height=10.0cm]{24.jpeg}
+   \caption{editing profile\cite{b}}
+  \end{minipage}
   
 \label{label1}
 \end{figure}
@@ -828,7 +837,7 @@ uses the input data to insert a new row in users table in the system database   
  \subsubsection{Profile pages}
  \begin{minipage}{.5\textwidth}
   \includegraphics[width=5.0cm, height=10.0cm]{./g.jpeg}
-   \caption{profile page}
+   \caption{profile page\cite{d}}
  \end{minipage}
   \begin{minipage}{.5\textwidth}
   \includegraphics[width=5.0cm, height=10.0cm]{./h.jpeg}
@@ -850,10 +859,19 @@ uses the input data to insert a new row in users table in the system database   
   \includegraphics[width=5.0cm, height=10.0cm]{./j.jpeg}
  \caption{one of the recipes page}
  \end{minipage}
-   \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./l.jpeg}
+ \begin{minipage}{.5\textwidth}
+  \includegraphics[width=5.0cm, height=10.0cm]{./22.jpeg}
   \caption{search results}
  \end{minipage}
+ \begin{minipage}{.5\textwidth}
+  \includegraphics[width=5.0cm, height=10.0cm]{./i.jpeg}
+  \caption{trending page}
+  \end{minipage}
+  \begin{minipage}{.5\textwidth}
+  \includegraphics[width=5.0cm, height=10.0cm]{./23.jpeg}
+  \caption{adding new recipe page}
+  \end{minipage}
+   
 
 \end{figure}
 \FloatBarrier
@@ -871,7 +889,7 @@ This system is provided with authentication without which no user can pass. So o
 \bigskip
 
 \subsection {Reliability}
-Good validations(as shown in tables[2-5]) for user inputs will be applied to avoid incorrect storage of records.
+Proper validations for user inputs will be applied to avoid incorrect storage of records or any invalid inputs.
 \bigskip
 
 \subsection {Maintainability}
@@ -910,7 +928,7 @@ Food studio application will be user friendly and easy to understand.The system 
 \newpage
 \section{Github Contribution}
 \begin{figure}[!h]
-\includegraphics[width=13cm]{10.png}
+\includegraphics[width=13cm]{10.jpeg}
 \caption{Github Contribution}
 \end{figure}
 \FloatBarrier
