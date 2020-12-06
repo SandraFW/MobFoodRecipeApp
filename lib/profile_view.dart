@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'drawer.dart';
 import 'my_posts_page.dart';
 import 'saved_page.dart';
+import 'EditProfile.dart';
 
 class ProfileFirst extends StatefulWidget {
   ProfileFirst({Key key, this.title}) : super(key: key);
