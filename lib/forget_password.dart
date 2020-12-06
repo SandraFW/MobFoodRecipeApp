@@ -104,7 +104,6 @@ class _ForgetPassState extends State<ForgetPassword> {
                         children: <Widget>[
                           TextFormField(
                               validator: EmailValidation,
-                              keyboardType: TextInputType.name,
                               autofocus: true,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
