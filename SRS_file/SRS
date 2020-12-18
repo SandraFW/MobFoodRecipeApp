@@ -559,7 +559,7 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           & FR03
 \\ \hline
 \end{tabular}
-\caption{ - }
+\caption{ }
 \label{tab:my-table}
 \end{table}
 
@@ -636,7 +636,7 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           & FR03 
 \\ \hline
 \end{tabular}
-\caption{ - }
+\caption{ }
 \label{tab:my-table}
 \end{table}
 
@@ -676,7 +676,7 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           &FR03,FR15 
 \\ \hline
 \end{tabular}
-\caption{ - }
+\caption{ }
 \label{tab:my-table}
 \end{table}
 
@@ -714,7 +714,7 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           & FR03,FR15
 \\ \hline
 \end{tabular}
-\caption{ - }
+\caption{ }
 \label{tab:my-table}
 \end{table}
 
@@ -754,7 +754,7 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependncies}           & FR03,FR09,FR15
 \\ \hline
 \end{tabular}
-\caption{ - }
+\caption{ }
 \label{tab:my-table}
 \end{table}
 
@@ -794,7 +794,7 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependncies}           & FR03
 \\ \hline
 \end{tabular}
-\caption{ - }
+\caption{ }
 \label{tab:my-table}
 \end{table}
 \FloatBarrier
