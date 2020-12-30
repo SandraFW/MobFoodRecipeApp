@@ -7,8 +7,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
-\bibliographystyle{unsrtnat}
-\usepackage[numbers,sort&compress]{natbib}
 %opening
 
 \title{Software Requirement Specification Document 
@@ -30,6 +28,7 @@
 \hline
 2.1 & 15-November-2020   & \makecell{User interface' images are modified}   \\ \hline
 3.0 & 06-December-2020   & \makecell{Non functional requirements are updated }   \\ \hline
+
 \end{tabular}
 \caption{Document version history}
 \end{table}
@@ -105,9 +104,13 @@ In various social media platforms, the user finds it difficult to determine if a
 
 \section{Functional Requirements}
 
-
+\FloatBarrier
 
 \begin{table}[h]
+
+\caption{ }
+
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Check email validation.
@@ -140,12 +143,12 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Dependencies}           & FR03.
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
+\caption{ }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Check password validation
@@ -159,6 +162,7 @@ In various social media platforms, the user finds it difficult to determine if a
 
 \\ \hline
 \textbf{Input}        & Password
+
 
 \\ \hline
 \textbf{Action}            & Checks if the password is in a valid format. If yes, it returns true.
@@ -177,13 +181,12 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Dependencies}           & FR03
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
 
 \begin{table}[h]
-
+\caption{ }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Login.
@@ -216,15 +219,14 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Dependencies}           & FR00, FR01
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
 
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{ }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Forget Password
@@ -257,12 +259,11 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Dependencies}           & FR00, FR14
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Create User.
@@ -286,13 +287,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies} & FR00 , FR01 , FR02  
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Delete User.
@@ -315,13 +315,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}  &FR05 
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Search Recipe.
@@ -347,13 +346,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies} & -- 
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Update User
@@ -379,14 +377,13 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}    & -- 
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
 
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Comment or review
@@ -415,13 +412,11 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies} & FR03-FR05
 \\ \hline
 \end{tabular}
+\end{table}
+\FloatBarrier
+\begin{table}[h]
 \caption{}
 \label{tab:my-table}
-\end{table}
-
-
-\begin{table}[h]
-
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Rate
@@ -448,12 +443,11 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}  & FR03-FR05
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
 
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & save
@@ -484,13 +478,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}    & FR03-FR05
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Report.
@@ -520,13 +513,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}   & FR03-FR05
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{ - }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & view notification.
@@ -559,13 +551,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           & FR03
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{}
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Send Notification.
@@ -598,12 +589,11 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           & FR09
 \\ \hline
 \end{tabular}
-\caption{}
-\label{tab:my-table}
 \end{table}
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{ - }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Create post
@@ -636,13 +626,13 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           & FR03 
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
 
+\FloatBarrier
 \begin{table}[h]
-
+\caption{ - }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Update post
@@ -676,13 +666,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           &FR03,FR15 
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{ - }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Delete post.
@@ -714,13 +703,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependencies}           & FR03,FR15
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{ - }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Delete comment.
@@ -754,13 +742,12 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependncies}           & FR03,FR09,FR15
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 
-
+\FloatBarrier
 \begin{table}[h]
-
+\caption{ - }
+\label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
 \textbf{Function:} & Logout.
@@ -794,8 +781,6 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Dependncies}           & FR03
 \\ \hline
 \end{tabular}
-\caption{ }
-\label{tab:my-table}
 \end{table}
 \FloatBarrier
 
@@ -817,7 +802,7 @@ uses the input data to insert a new row in users table in the system database   
   \hfill
   \begin{minipage}[b]{0.32\textwidth}
     \includegraphics[width=\textwidth]{b.jpeg}
-    \caption{Log in Page}
+    \caption{Log in Page\cite{c}}
      
       \end{minipage}
   \begin{minipage}[b]{0.32\textwidth}
@@ -843,7 +828,7 @@ uses the input data to insert a new row in users table in the system database   
   \end{minipage}
   \begin{minipage}[b]{0.5\textwidth}
     \includegraphics[width=5.0cm, height=10.0cm]{24.jpeg}
-   \caption{editing profile}
+   \caption{editing profile\cite{b}}
   \end{minipage}
   
 \label{label1}
@@ -853,7 +838,7 @@ uses the input data to insert a new row in users table in the system database   
  \subsubsection{Profile pages}
  \begin{minipage}{.5\textwidth}
   \includegraphics[width=5.0cm, height=10.0cm]{./g.jpeg}
-   \caption{profile page}
+   \caption{profile page\cite{d}}
  \end{minipage}
   \begin{minipage}{.5\textwidth}
   \includegraphics[width=5.0cm, height=10.0cm]{./h.jpeg}
@@ -920,7 +905,6 @@ Food studio application will be user friendly and easy to understand.The system 
 
 
 \FloatBarrier
-\newpage
 \section{Project Plan}
 \FloatBarrier
 
@@ -936,13 +920,18 @@ Food studio application will be user friendly and easy to understand.The system 
 \hline
 10-November-2020  & 17-November-2020   & \makecell{Creating One recipe,create recipe,search results pages}   \\ \hline
 17-November-2020 & 05-December-2020   & \makecell{Creating User profile,drawer,trending,logout pages}   \\ \hline
+10-December-2020 & 31-December-2020   & \makecell{Creating database and linking it to front end}   \\ \hline
+11-December-2020 & 02-January-2021   & \makecell{Creating and handling backend functionality }   \\ \hline
 \end{tabular}
-
 \caption{Project plan}
 \end{table}
+
+
+\FloatBarrier
+\newpage
 \section{Github Contribution}
 \begin{figure}[!h]
-\includegraphics[width=12cm]{10.jpeg}
+\includegraphics[width=13cm]{10.jpeg}
 \caption{Github Contribution}
 \end{figure}
 \FloatBarrier
