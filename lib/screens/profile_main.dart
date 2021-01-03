@@ -14,7 +14,7 @@ class Profile extends StatelessWidget {
         return OrientationBuilder(
           builder: (context, orientation) {
             SizeConfig().init(constraints, orientation);
-            return MaterialApp(
+            return Scaffold(
               debugShowCheckedModeBanner: false,
               title: 'ProfileScreen ',
               home: ProfileFirst(),
