@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:screentwo/intro_page.dart';
-import 'Animation/FadeAnimation.dart';
+import 'package:screentwo/screens/intro_page.dart';
+import '../Animation/FadeAnimation.dart';
 import 'complete_profile.dart';
 import 'login.dart';
 import 'intro_page.dart';
@@ -10,10 +10,8 @@ class Detail extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         body: ImageCarousel(),
-      ),
     );
 
   }
