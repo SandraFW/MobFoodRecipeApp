@@ -30,9 +30,7 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
   }
 
   Widget build (BuildContext context){
-    return MaterialApp(
-      title: "Introduction Page" ,
-      home: Scaffold(
+    return Scaffold(
         body: Stack(
           children: [
             Opacity(
@@ -137,7 +135,7 @@ class _IntroPage extends State<IntroPage> with SingleTickerProviderStateMixin{
             ),
             ], 
         ),
-      ),
+     
     );
 
   }
