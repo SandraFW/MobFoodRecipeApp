@@ -1,30 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
-
-class Food {
-  final String title;
-  final String image;
-  final int likes;
-  bool fav = false;
-  Food({this.title, this.image, this.likes, this.fav});
-
-  static List<Food> allFood() {
-    var lstOfFoods = new List<Food>();
-    lstOfFoods.add(new Food(
-        title: "Egyptian Wark Ainab", likes: 500, image: "5.jpg", fav: false));
-    lstOfFoods.add(new Food(
-        title: "Turkey Tetrazzini", likes: 300, image: "1.jpeg", fav: false));
-    lstOfFoods.add(
-        new Food(title: "Lasagna", likes: 280, image: "2.jpg", fav: false));
-    lstOfFoods.add(new Food(
-        title: "Honey Garlic Chicken", likes: 280, image: "3.jpg", fav: false));
-    lstOfFoods.add(new Food(
-        title: "Overnight Oats", likes: 279, image: "4.jpg", fav: false));
-    lstOfFoods.add(new Food(
-        title: "Grilled Salmon", likes: 278, image: "6.jpg", fav: false));
-    return lstOfFoods;
-  }
-}
+import 'lib/models/Posts.dart';
 
 class TrendPage extends StatefulWidget {
   static String tag = 'trend-page';
