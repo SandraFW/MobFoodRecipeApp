@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'complete_profile.dart';
 import 'package:email_validator/email_validator.dart';
-import 'Animation/FadeAnimation.dart';
+import '../Animation/FadeAnimation.dart';
 import 'intro_page.dart';
 
 
@@ -50,11 +50,7 @@ class _Create extends State<Create> {
   
   @override
   Widget build(BuildContext context) {
-    
-
-    return MaterialApp(
-      title: "screen two",
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
           child: ListView( 
@@ -90,7 +86,7 @@ class _Create extends State<Create> {
               Padding(padding: const EdgeInsets.only(top: 20.0)),
 
            
-                   CreateAccount(_formKey),
+              CreateAccount(_formKey),
                   
               Container(
                 margin: const EdgeInsets.only(top: 20.0),
@@ -133,7 +129,6 @@ class _Create extends State<Create> {
           ],
           ),
       ),
-    ),
     );
   }
   
