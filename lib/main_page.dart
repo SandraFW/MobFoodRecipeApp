@@ -1,10 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:like_button/like_button.dart';
 import 'trend_page.dart';
-import 'package:get/get.dart';
-import 'one_recipe.dart';
 import 'profile_main.dart';
+import 'package:screentwo/widgets/view_recipes.dart';
 
 class SavedWidget extends StatefulWidget{
 _SavedWidgetState createState() => _SavedWidgetState();
@@ -47,11 +45,8 @@ class MainPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: "Screen One",
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-         
           toolbarHeight: 40,
           backgroundColor: Colors.white,
           actions: <Widget> [
@@ -69,7 +64,6 @@ class MainPage extends StatelessWidget {
                 
                },
             ),
-
             IconButton(
               icon: Icon(
                 Icons.person,
@@ -91,7 +85,8 @@ class MainPage extends StatelessWidget {
             child: TextField(
              decoration: InputDecoration(
                 hintText: "Search..",
-                fillColor: Colors.white,
+                fillColor: Colors.grey[100],
+                filled: true,
                 suffixIcon:  Icon(
                 Icons.search,
                 color: Colors.redAccent,
@@ -121,118 +116,9 @@ class MainPage extends StatelessWidget {
 
            ),
          ),
-         
-      ), 
     );
   }
 }
 
 
-Widget RecipesColumn(String images, String txt1, String txt2,  int label){
-  return  Container(
-    child: Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-    
-      Padding(padding: const EdgeInsets.only(top: 15.0)),
-     InkWell(
-       onTap: (){
-         Get.to(OneRecipe());
-       },
-      child: Container(
-     child:ClipRRect(
-       borderRadius: BorderRadius.circular(8.0),
-       child: Image.asset(
-        images,
-        width: 350,
-        height: 200,
-        fit: BoxFit.fitWidth,
-      ),
-      ),
-      ),
-     ),
-      Container(
-        margin: const EdgeInsets.only(left:30.0),
-        padding: const EdgeInsets.only(top: 10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          
-          children: [
-              Container(
-              padding: const EdgeInsets.only(bottom: 5.0),
-              child: Text(
-                txt1,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18, 
-                ),
-              ),
-              ),
-             Text(
-                txt2,
-                style: TextStyle(
-                  color: Colors.grey[500],
-                  fontSize: 15,
-                   ),
-
-              ),
-             
-             
-              Row(
-                
-                crossAxisAlignment: CrossAxisAlignment.center,
-              children: [ 
-                 Container(
-                padding: const EdgeInsets.all(0.0),
-                 margin: const EdgeInsets.all(0.0),
-              ),
-               LikeButton(
-                  likeCount: label,
-                  likeBuilder: (bool isLiked){
-                    return Icon(
-                      Icons.favorite,
-                      size: 25,
-                      color: isLiked ? Colors.redAccent : Colors.blueGrey[200],
-                    );
-                  },
-                  countBuilder: (int count, bool isLiked, String text){
-                    var color = isLiked ? Colors.redAccent : Colors.blueGrey;
-                    Widget result;
-                    if(count == 0){
-                      result = Text(
-                        "love",
-                         style: TextStyle(color: color),
-                      );
-                    }
-                    else{
-                     result = Text(
-                     text,
-                     style: TextStyle(color: color),
-                     );
-                    }
-                    return result;
-                  },
-                ),
-               Container(
-                   margin: const EdgeInsets.only(right:250.0),
-                ),
-                 SavedWidget(),
-             
-            
-              ],
-              ), 
-        
-          ],
-        ),
-        
-
-      ),
-  
-    ],
-    ),
-   
-  );
-}
 
