@@ -3,10 +3,13 @@
 %Image-related packages
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{adjustbox}
 \usepackage{subcaption}
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
 \usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{tabularx}
 %opening
 
 \title{Software Requirement Specification Document 
@@ -51,32 +54,32 @@
 The purpose of this document is to elucidate the requirements to build a food recommendations system. These requirements include adding food recipes, viewing them, and rating them based on their quality. The aim of this project is to offer an easier and more organized way for people to share a variety of food recipes with each other. Depending on the reviews given to each recipe, the application will keep the user updated with the finest recipes and the latest food trends. Moreover, the user can view a dish of his choice and choose his desired recipe based on the reviews shown.
 
 \subsection{ Scope of this document}
-The scope of this document is to show the basic outlines of our system requirements in order to understand our system and the issues we may face . Requirements outlined in this document are subject to change. 
+The scope of this document is to show the basic outlines of our system requirements in order to understand our system and the issues we may face. Requirements outlined in this document are subject to change. 
 
 
 \subsection{Overview}
-The Food recommendation system is developed to predict the preferences of users to certain recipes. We will design a  recommendation system based on a novel model that captures correlations between hidden aspects in reviews and numeric ratings \cite{a}. It is motivated by observing the user’s preference against an item is affected by different aspects discussed in reviews.The software would be managed by two the admins  and the users. The admin can view all user's details and will be in charge to control everything in the system including banning any user for any misbehave comment or any problem in the system . The user can post a new recipe,rate any new post and comment on them.The system also offers the user to save any post to their favourite panel.
+The Food recommendation system is developed to predict the preferences of users to certain recipes. We will design a  recommendation system based on a novel model \cite{a} that captures correlations between hidden aspects in reviews and numeric ratings. It is motivated by observing the user’s preference against an item is affected by different aspects discussed in reviews. The software will be managed by the admins and the users. The admin can view all user's details and will be in charge to control everything in the system including banning any user for any misbehave comment or any problem in the system. The user can post a new recipe, rate any new post and comment on it. The system also offers the user the ability to save any post to their favourite panel.
 \subsection{Business Context}
 
-The main goal of the project is to build a well-developed mobile application for managing and organizing food recipe recommendations system. The system aim to reduce time and complexities for the users, by making it much easier to find and save a desired recipe. Moreover the system saves user time by making him able to view the reviews and rates for each recipe to choose a well-cooked food.
+The main goal of the project is to build a well-developed mobile application for managing and organizing food recipe recommendation systems. The system aims to reduce time and complexities for the users, by making it much easier to find and save desired recipes. Moreover, the system saves users' time by making them able to view the reviews and rates for each recipe to choose well-cooked food.
 
 \section{General description}
 
 \subsection{Product Functions}
 
 \begin{enumerate}
-  \item The system must be fully dynamic,in which the admin is fully controlling the system
-  \item The users must be able to control their information 
-  \item The user must be able to post the recipe he/she want to share on his/her profile.
-  \item The user must be able to comment,rate and save any post.
+  \item The system shall be fully dynamic, in which the admin fully controls the system.
+  \item The users should be able to control their information.
+  \item The user should be able to post the recipe he/she want to share on his/her profile.
+  \item The user shall be able to comment, rate and save any post.
   \item The user should be able to report any post.
-  \item The user must be able to search for any recipe.
-  \item The admin must be able to view any reports that are added by users against certain comment or post for safety.
- \item The system must observe a statistics that is based on the ratings that shows the most trending food recommendations to all the users.
+  \item The user shall be able to search for any recipe.
+  \item The admin should be able to view any reports that are added by users against certain comment or post for safety.
+ \item The system should observe a statistics that is based on the ratings that shows the most trending food recommendations to all the users.
 \end{enumerate}
 
 \subsection{Similar System Information}
-There are many similar mobile applications that provide  food recommendation as Cookmate \cite{Cookmate} , Cook Pade \cite{Cookpad} while the most relevant application is\cite{KitchenBowl} Kitchen bowl Recipes & Cookbook. This application is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking where they can create and share their favorite recipes, follow family ,friends, and the featured cooks, they can also search for dishes and discover new food ideas , just like our application is intended to do. 
+Many similar mobile applications provide food recommendation services such as Cookmate \cite{Cookmate}, Cook Pade \cite{Cookpad}, and Cookbook \cite{KitchenBowl} (which is the most relevant one). Cookbook is available for installation by any user in need through the apple store. It is a platform for people who are passionate about cooking. It is a place where they can create and share their favorite recipes, follow family, friends, and the featured cooks. Moreover, they can search for dishes and discover new food ideas, just like our application intended to do.
 \clearpage
 \begin{figure}[h]
   \begin{minipage}[b]{0.5\textwidth}
@@ -92,10 +95,9 @@ There are many similar mobile applications that provide  food recommendation as 
 
 
 \subsection{ User Characteristics}
-There are two main users in the system.
-
+\\  \\
 Admin: The main role of the admin is controlling the whole project. He is able to view the shared recipes and delete the unwanted posts or comments. Moreover the admin can ban any user after being reported for his unacceptable behavior. 
-
+\\ \\
 Casual users: Users can post a various recipes. They can search for a desired recipe, rate it and  save it.
 
 
@@ -116,29 +118,20 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Function:} & Check email validation.
 \\ \hline
 \textbf{ID}  &      FR00     
-
 \\ \hline
-\textbf{Description}    &    This Function checks if an email address is valid.                                                                 
+\textbf{Description}    &    This Function checks if an email address is valid.                     
 \\ \hline
 \textbf{Type}    &         Boolean
-
 \\ \hline
 \textbf{Input}        & Email
-
-
 \\ \hline
 \textbf{Action}            & Checks if the email entered by the user is in the proper format. if it is, the function returns true.
-
 \\ \hline
 \textbf{Output}            & Boolean if email is valid
-
 \\ \hline
 \textbf{Precondition}           &   User entered email into the required text field.
-
 \\ \hline
 \textbf{Post-condition}          & return to login function (FR03)  
-
-
 \\ \hline
 \textbf{Dependencies}           & FR03.
 \\ \hline
@@ -154,29 +147,20 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Function:} & Check password validation
 \\ \hline
 \textbf{ID}  &     FR01       
-
 \\ \hline
-\textbf{Description}    &      This function checks if the password is valid before inserting it in the database.                                                              
+\textbf{Description}    &      This function checks if the password is valid before inserting it in the database.                               
 \\ \hline
 \textbf{Type}    &         Boolean
-
 \\ \hline
 \textbf{Input}        & Password
-
-
 \\ \hline
 \textbf{Action}            & Checks if the password is in a valid format. If yes, it returns true.
-
 \\ \hline
 \textbf{Output}            & Boolean if password valid
-
 \\ \hline
 \textbf{Precondition}           &   User entered password into the required text field
-
 \\ \hline
 \textbf{Post-condition}           & Return to login function (FR03)
-
-
 \\ \hline
 \textbf{Dependencies}           & FR03
 \\ \hline
@@ -192,29 +176,20 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Function:} & Login.
 \\ \hline
 \textbf{ID}  &    FR03        
-
 \\ \hline
-\textbf{Description}    &       This Function is for the user to login into the system using his/her account.                                                              
+\textbf{Description}    &       This Function is for the user to login into the system using his/her account.                               
 \\ \hline
 \textbf{Type}    &         Boolean
-
 \\ \hline
 \textbf{Input}        & Email and Password
-
-
 \\ \hline
 \textbf{Action}            & Checks if the data are filled correctly. If yes, the function returns true. otherwise, it returns false.
-
 \\ \hline
 \textbf{Output}            & Boolean acceptance login.
-
 \\ \hline
 \textbf{Precondition}           &   The user needs to input his email and password into the Text fields. (FR00, FR01)
-
 \\ \hline
 \textbf{Post-condition}           & Redirect to the home page
-
-
 \\ \hline
 \textbf{Dependencies}           & FR00, FR01
 \\ \hline
@@ -232,29 +207,20 @@ In various social media platforms, the user finds it difficult to determine if a
 \textbf{Function:} & Forget Password
 \\ \hline
 \textbf{ID}  &            FR04
-
 \\ \hline
-\textbf{Description}    &        If the user forgets his password, this function gets generated. It helps the user to insert a new password so that he login successfully again.                                                               
+\textbf{Description}    &        If the user forgets his password, this function gets generated. It helps the user to insert a new password so that he login successfully again.    
 \\ \hline
 \textbf{Type}    &       Boolean  
-
 \\ \hline
 \textbf{Input}        & Email
-
-
 \\ \hline
 \textbf{Action}            & First, the email is checked using FR00 then if the email exists in the database, the function sends email FR14 with the new password generated.
-
 \\ \hline
 \textbf{Output}            & password updated
-
 \\ \hline
 \textbf{Precondition}           &   The user enters his email in the Text field.
-
 \\ \hline
 \textbf{Post-condition}     & Notification is sent to the user with new password.
-
-
 \\ \hline
 \textbf{Dependencies}           & FR00, FR14
 \\ \hline
@@ -389,21 +355,16 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Comment or review
 \\ \hline
 \textbf{ID}  & FR09           
-
 \\ \hline
-\textbf{Description}  & this function is to add a new comment on a certain post to the system in the database                                                                     
+\textbf{Description}  & this function is to add a new comment on a certain post to the system in the database.                                      
 \\ \hline
 \textbf{Type}   & Boolean     
-
 \\ \hline
 \textbf{Input}  & User's comment
-
 \\ \hline
 \textbf{Action}  &  If the user's comment is created successfully,it gets recorded in the database else,it returns an error message.
-
 \\ \hline
 \textbf{Output}  & comment created successfully.
-
 \\ \hline
 \textbf{Precondition}  & Check if user's comment is. not empty. 
 \\ \hline
@@ -422,10 +383,8 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Rate
 \\ \hline
 \textbf{ID}  & FR10          
-
 \\ \hline
 \textbf{Description} & This function is to store the rating every user will give to a any post that are ranged from one to five stars and according to this stars the trending statistics will be generated.
-
 \\ \hline
 \textbf{Type}    &  Boolean   
 \\ \hline
@@ -436,7 +395,6 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Output}  & New rating is added to the database
 \\ \hline
 \textbf{Precondition}  & --   
-
 \\ \hline
 \textbf{Post-condition} & --  
 \\ \hline
@@ -450,30 +408,23 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & save
+\textbf{Function:} & Save
 \\ \hline
 \textbf{ID}  & FR11          
-
 \\ \hline
-\textbf{Description}  & This function is save a certain post to the favourite panel for every user.                                                                    
+\textbf{Description}  & This function is save a certain post to the favourite panel for every user.     
 \\ \hline
 \textbf{Type}   & Returns array         
-
 \\ \hline
 \textbf{Input}  & --
-
 \\ \hline
 \textbf{Action} & if the post is added successfully it gets recorded in the favorites database table. 
-
 \\ \hline
 \textbf{Output}  & new post is added to the favourites.
-
 \\ \hline
 \textbf{Precondition}   & --
-
 \\ \hline
 \textbf{Post-condition}  & check the existence of the saved posts.
-
 \\ \hline
 \textbf{Dependencies}    & FR03-FR05
 \\ \hline
@@ -489,19 +440,14 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Report.
 \\ \hline
 \textbf{ID}  & FR12           
-
 \\ \hline
-\textbf{Description}    & User can report any post or misbehaved comment in any post.                                                       
+\textbf{Description}    & User can report any post or misbehaved comment in any post.               
 \\ \hline
 \textbf{Type}    & Boolean  
-
 \\ \hline
 \textbf{Input}   & report Type ID
-
-
 \\ \hline
 \textbf{Action}  & If report is updated return true, else return false and show error message.
-
 \\ \hline
 \textbf{Output} & The report is successfully sent to the admin.
 \\ \hline
@@ -521,32 +467,23 @@ uses the input data to insert a new row in users table in the system database   
 \label{tab:my-table}
 \begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
 \hline
-\textbf{Function:} & view notification.
+\textbf{Function:} & View Notification.
 \\ \hline
 \textbf{ID}  & FR13          
-
 \\ \hline
-\textbf{Description}    & viewing all the notification in the database                                                                    
+\textbf{Description}    & viewing all the notification in the database                      
 \\ \hline
 \textbf{Type}    & return array       
-
 \\ \hline
 \textbf{Input}        & 
-
-
 \\ \hline
 \textbf{Action}            & fetching all the notifications in the database
-
 \\ \hline
 \textbf{Output}            & array of notifications
-
 \\ \hline
 \textbf{Pre condition}           & check the existence of notifications 
-
 \\ \hline
 \textbf{Post condition}           & 
-
-
 \\ \hline
 \textbf{Dependencies}           & FR03
 \\ \hline
@@ -562,29 +499,20 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Send Notification.
 \\ \hline
 \textbf{ID}  & FR14           
-
 \\ \hline
-\textbf{Description}    & The function for sending the notification to the user                                                                 
+\textbf{Description}    & The function for sending the notification to the user                      
 \\ \hline
 \textbf{Type}    &  Boolean       
-
 \\ \hline
 \textbf{Input}        & Notification object
-
-
 \\ \hline
-\textbf{Action}            & Check for receiving the notificatin 
-
+\textbf{Action}            & Check for receiving the notification.
 \\ \hline
-\textbf{Output}            & If true string notification, if false there will be an error message 
-
+\textbf{Output}            & If true string notification, if false there will be an error message.
 \\ \hline
-\textbf{Precondition}           & The user must be existed in the database  
-
+\textbf{Precondition}           & The user must be existed in the database.
 \\ \hline
 \textbf{Post-condition}           & The user will receive the notification, the notification is filled in the database
-
-
 \\ \hline
 \textbf{Dependencies}           & FR09
 \\ \hline
@@ -599,29 +527,20 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Create post
 \\ \hline
 \textbf{ID}  &   FR15         
-
 \\ \hline
-\textbf{Description}    & This function is for the user to post a recipe on the application and share it with the other users.                                                                  
+\textbf{Description}    & This function is for the user to post a recipe on the application and share it with the other users.                          
 \\ \hline
 \textbf{Type}    &   Boolean      
-
 \\ \hline
 \textbf{Input}        & User ID. Recipe ingredients and steps to be added to the post
-
-
 \\ \hline
 \textbf{Action}            & If the post is added successfully ,it gets recorded in the database. else, it returns an error message.
-
 \\ \hline
 \textbf{Output}            & New post is added. 
-
 \\ \hline
 \textbf{Precondition}           &  Users must login first and create a new post to add the recipe.
-
 \\ \hline
 \textbf{Post-condition}           & Creating a new record in the database table with a new post ID. 
-
-
 \\ \hline
 \textbf{Dependencies}           & FR03 
 \\ \hline
@@ -638,30 +557,20 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Update post
 \\ \hline
 \textbf{ID}  & FR16    
-
 \\ \hline
-\textbf{Description}    & This function is for the user to modify the recipe and save the new post 
-                                                                  
+\textbf{Description}    & This function is for the user to modify the recipe and save the new post.
 \\ \hline
 \textbf{Type}    &  Boolean       
-
 \\ \hline
 \textbf{Input}        & Post ID. New recipe to be updated.
-
-
 \\ \hline
 \textbf{Action}            & Check if the recipe data has been updated. If yes, it returns true. else, it returns an error message.
-
 \\ \hline
 \textbf{Output}            & Updated post is added.
-
 \\ \hline
 \textbf{Precondition}           &   Check if the post exists in database.
-
 \\ \hline
 \textbf{Post-condition}           & Record in the database is updated.
-
-
 \\ \hline
 \textbf{Dependencies}           &FR03,FR15 
 \\ \hline
@@ -677,28 +586,20 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Delete post.
 \\ \hline
 \textbf{ID}  &   FR17    
-
 \\ \hline
-\textbf{Description}    &   This function is for deleting a specific post whether by the admin or the user.                                                               
+\textbf{Description}    &   This function is for deleting a specific post whether by the admin or the user.                                       
 \\ \hline
 \textbf{Type}    &     Boolean    
-
 \\ \hline
 \textbf{Input}        & Post ID to be deleted.
-
-
 \\ \hline
 \textbf{Action}            & Check if the post exists in the database. If yes, removes it. else, returns an error message.
-
 \\ \hline
 \textbf{Output}            & The post is deleted successfully.
-
 \\ \hline
 \textbf{Precondition}           &   The post needed to be selected from the list.
-
 \\ \hline
 \textbf{Post-condition}           & Record is deleted from database.
-
 \\ \hline
 \textbf{Dependencies}           & FR03,FR15
 \\ \hline
@@ -714,32 +615,22 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Delete comment.
 \\ \hline
 \textbf{ID}  & FR18           
-
-
 \\ \hline
-\textbf{Description}    & This function is for deleting a specific comment whether by the admin or the user.                                                                    
+\textbf{Description}    & This function is for deleting a specific comment whether by the admin or the user.                                      
 \\ \hline
 \textbf{Type}    & Boolean      
-
 \\ \hline
 \textbf{Input}        & Comment ID to be deleted.
-
-
 \\ \hline
 \textbf{Action}            & Check if the comment exists in the database. If yes, removes it. else, returns an error message.
-
 \\ \hline
 \textbf{Output}            & The comment is deleted successfully.
-
 \\ \hline
 \textbf{Pre condition}           & The comment needed to be selected from the list. 
-
 \\ \hline
 \textbf{Post condition}           & Record is deleted from database.
-
-
 \\ \hline
-\textbf{Dependncies}           & FR03,FR09,FR15
+\textbf{Dependencies}           & FR03,FR09,FR15
 \\ \hline
 \end{tabular}
 \end{table}
@@ -753,32 +644,22 @@ uses the input data to insert a new row in users table in the system database   
 \textbf{Function:} & Logout.
 \\ \hline
 \textbf{ID}  & FR19
-
-
 \\ \hline
-\textbf{Description}    & This function is for all users to logout from their accounts                                                                    
+\textbf{Description}    & This function is for all users to logout from their accounts              
 \\ \hline
 \textbf{Type}    &  void       
-
 \\ \hline
 \textbf{Input}        & User ID
-
-
 \\ \hline
 \textbf{Action}            & User logs out from the application.
-
 \\ \hline
 \textbf{Output}            & Logout from the account is done successfully. 
-
 \\ \hline
 \textbf{Pre condition}           & The user must login first. 
-
 \\ \hline
 \textbf{Post condition}           & Redirect to login page.
-
-
 \\ \hline
-\textbf{Dependncies}           & FR03
+\textbf{Dependencies}           & FR03
 \\ \hline
 \end{tabular}
 \end{table}
@@ -857,7 +738,7 @@ uses the input data to insert a new row in users table in the system database   
 \clearpage
 \begin{figure}{}
    \begin{minipage}{.5\textwidth}
-  \includegraphics[width=5.0cm, height=10.0cm]{./j.jpeg}
+  \includegraphics[width=5.0cm, height=10.0cm]{j.png}
  \caption{one of the recipes page}
  \end{minipage}
  \begin{minipage}{.5\textwidth}
@@ -904,25 +785,36 @@ Food studio application will be user friendly and easy to understand.The system 
 
 
 
-\FloatBarrier
+\newpage
 \section{Project Plan}
-\FloatBarrier
+
 
 
 \begin{table}[h]
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline 
-\thea{Start Date}    & \thead{End Date} & \thead{Task}  \\
+\thea{Start Date}    & \thead{End Date} & \thead{Task} & \thead{Team members}  \\
 \hline
-06-November-2020  & 17-November-2020   & \makecell{Main page created}   \\ 
+06-November-2020  & 17-November-2020 (frontend) - 15-January-2020 (backend) & Login and recipe detail (one recipe) pages & Mariam \\ 
 \hline
-06-November-2020 & 17-November-2020   & \makecell{Creating Login,signUp,forget password,reset password pages }   \\ 
+06-November-2020 & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Forget password and search pages & Samiha \\ 
 \hline
-10-November-2020  & 17-November-2020   & \makecell{Creating One recipe,create recipe,search results pages}   \\ \hline
-17-November-2020 & 05-December-2020   & \makecell{Creating User profile,drawer,trending,logout pages}   \\ \hline
-10-December-2020 & 31-December-2020   & \makecell{Creating database and linking it to front end}   \\ \hline
-11-December-2020 & 02-January-2021   & \makecell{Creating and handling backend functionality }   \\ \hline
+06-November-2020 & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Trending and create profile pages & Sandra \\ 
+\hline
+06-November-2020 & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Main page (view all recipes) and create account & Nour \\ 
+\hline
+10-November-2020  & 17-November-2020 (frontend) - 15-January-2020 (backend)  & Add new post, edit profile, reset password & Samiha   \\
+\hline
+10-November-2020  & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Intro page and detail page (slider page and welcome page) & Nour
+\\
+\hline
+10-November-2020  & 17-November-2020 (frontend) - 15-January-2020 (backend)   & User profile and drawer & Sandra
+\\
+\hline
+17-November-2020 & 05-December-2020 (frontend) - 15-January-2020 (backend)  & Saved and logout pages & Nour \\ \hline
 \end{tabular}
+
+
 \caption{Project plan}
 \end{table}
 
@@ -935,7 +827,7 @@ Food studio application will be user friendly and easy to understand.The system 
 \caption{Github Contribution}
 \end{figure}
 \FloatBarrier
-
+\newpage
 \section {References}
 
 \bibliographystyle{IEEEtranS}
