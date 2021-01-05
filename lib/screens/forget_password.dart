@@ -9,9 +9,8 @@ void main() {
 class ForgetPass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ForgetPassword(),
-      debugShowCheckedModeBanner: false,
+    return Scaffold(
+      body: ForgetPassword(),
     );
   }
 }
