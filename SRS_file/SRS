@@ -759,9 +759,7 @@ uses the input data to insert a new row in users table in the system database   
 \FloatBarrier
 \newpage
 \section{Design Constraints}
-The system should be adaptable to be vied from different kinds of devices
-either tablets, laptops... etc. Also we had a constrain with which is the
-internet speed it varies from one user to another. 
+The system should be adaptable, to be viewed from different kinds of devices like tablets, laptops... etc. Also, we had a constrain with which the internet speed varies from one user to another. The Android SDK version required by the system is Android 11.0 (R). Moreover, camera sensors are needed for the user to easily post recipes of his choice. Some of the packages used in our system to assist with the quality of the UI include the like button package (version 1.0.4), the carousel pro package (version 1.0.0), and the simple animation package (version 1.3.3). Additionally, the Get package (version 3.21.2) is used to easily navigate through screens. Furthermore, the provider package (version 4.3.2+3) is utilized for effortless state management for our system. 
 
 
 \section{Other non-functional attributes}
