@@ -759,7 +759,9 @@ uses the input data to insert a new row in users table in the system database   
 \FloatBarrier
 \newpage
 \section{Design Constraints}
-The system should be adaptable, to be viewed from different kinds of devices like tablets, laptops... etc. Also, we had a constrain with which the internet speed varies from one user to another. The Android SDK version required by the system is Android 11.0 (R). Moreover, camera sensors are needed for the user to easily post recipes of his choice. Some of the packages used in our system to assist with the quality of the UI include the like button package (version 1.0.4), the carousel pro package (version 1.0.0), and the simple animation package (version 1.3.3). Additionally, the Get package (version 3.21.2) is used to easily navigate through screens. Furthermore, the provider package (version 4.3.2+3) is utilized for effortless state management for our system. 
+The system should be adaptable to be vied from different kinds of devices
+either tablets, laptops... etc. Also we had a constrain with which is the
+internet speed it varies from one user to another. 
 
 
 \section{Other non-functional attributes}
@@ -781,13 +783,16 @@ This system is implemented using flutter cross platform that can be installed on
 \subsection {Usability}
 Food studio application will be user friendly and easy to understand.The system consists if flexible and usable User interface.
 
-
+\newpage
+\section{Object Oriented Analysis}
+\begin{figure}[!h]
+\includegraphics[width=16cm \textwidth]{SRS-2/Data Model.png}
+\caption{Data Model}
+\end{figure}
+\FloatBarrier
 
 \newpage
 \section{Project Plan}
-
-
-
 \begin{table}[h]
 \resizebox{\textwidth}{60}
 {\begin{tabular}{|l|l|l|l|}
@@ -819,14 +824,10 @@ Food studio application will be user friendly and easy to understand.The system 
 
 
 \FloatBarrier
-\newpage
-\section{Object-Oriented Analysis}
-\subsection{Class Diagram}
-\subsection{Widget Tree}
-\subsection{Data Model}
+
 \section{Github Contribution}
 \begin{figure}[!h]
-\includegraphics[width=13cm]{10.jpeg}
+\includegraphics[width=10cm]{10.jpeg}
 \caption{Github Contribution}
 \end{figure}
 \FloatBarrier
