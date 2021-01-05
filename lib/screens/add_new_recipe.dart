@@ -41,7 +41,7 @@ class _CupertinoSwitchWidgetState extends State<CupertinoSwitchWidget> {
 class NewRecipe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Add New Recipe', home: AddNewRecipe());
+    return Scaffold(body: AddNewRecipe());
   }
 }
 
