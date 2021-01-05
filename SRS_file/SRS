@@ -820,6 +820,10 @@ Food studio application will be user friendly and easy to understand.The system 
 
 \FloatBarrier
 \newpage
+\section{Object-Oriented Analysis}
+\subsection{Class Diagram}
+\subsection{Widget Tree}
+\subsection{Data Model}
 \section{Github Contribution}
 \begin{figure}[!h]
 \includegraphics[width=13cm]{10.jpeg}
