@@ -110,10 +110,7 @@ Widget recipesData(
 class Recipes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'project',
-        home: Scaffold(
+    return Scaffold(
           appBar: AppBar(
               backgroundColor: Colors.white,
               actions: <Widget>[
