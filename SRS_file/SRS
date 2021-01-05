@@ -785,6 +785,7 @@ Food studio application will be user friendly and easy to understand.The system 
 
 \newpage
 \section{Object Oriented Analysis}
+\subsection {Data Model }
 \begin{figure}[!h]
 \includegraphics[width=16cm \textwidth]{SRS-2/Data Model.png}
 \caption{Data Model}
