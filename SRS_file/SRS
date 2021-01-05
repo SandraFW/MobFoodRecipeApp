@@ -797,7 +797,7 @@ Food studio application will be user friendly and easy to understand.The system 
 \subsection{Widget Tree}
 \begin{figure}[h]
   \begin{minipage}[b]{0.5\textwidth}
-    \includegraphics[width=15.0cm, height=10.0cm]{Screenshot (328).png}
+    \includegraphics[width=15.0cm, height=10.0cm]{Widget Tree.png}
     \centering
     \caption {Widget Tree}
   \end{minipage}
