@@ -5,9 +5,8 @@ import 'main_page.dart';
 class Reset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ResetPass(),
-      debugShowCheckedModeBanner: false,
+    return Scaffold(
+      body: ResetPass(),
     );
   }
 }
