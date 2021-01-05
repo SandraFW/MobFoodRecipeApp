@@ -31,6 +31,7 @@
 \hline
 2.1 & 15-November-2020   & \makecell{User interface' images are modified}   \\ \hline
 3.0 & 06-December-2020   & \makecell{Non functional requirements are updated }   \\ \hline
+4.0 & 05-January-2021   & \makecell{Object-Oriented Analysis is added, Design Constraints are updated}   \\ \hline
 
 \end{tabular}
 \caption{Document version history}
@@ -759,9 +760,7 @@ uses the input data to insert a new row in users table in the system database   
 \FloatBarrier
 \newpage
 \section{Design Constraints}
-The system should be adaptable to be vied from different kinds of devices
-either tablets, laptops... etc. Also we had a constrain with which is the
-internet speed it varies from one user to another. 
+The system should be adaptable, to be viewed from different kinds of devices like tablets, laptops... etc. Also, we had a constrain with which the internet speed varies from one user to another. The Android SDK version required by the system is Android 11.0 (R). Moreover, camera sensors are needed for the user to easily post recipes of his choice. Some of the packages used in our system to assist with the quality of the UI include the like button package (version 1.0.4), the carousel pro package (version 1.0.0), and the simple animation package (version 1.3.3). Additionally, the Get package (version 3.21.2) is used to easily navigate through screens. Furthermore, the provider package (version 4.3.2+3) is utilized for effortless state management for our system.
 
 
 \section{Other non-functional attributes}
@@ -782,41 +781,66 @@ This system is implemented using flutter cross platform that can be installed on
 \bigskip
 \subsection {Usability}
 Food studio application will be user friendly and easy to understand.The system consists if flexible and usable User interface.
-
 \newpage
 \section{Object Oriented Analysis}
-\subsection {Data Model }
+
+\subsection{Class Diagram}
+\begin{figure}[h]
+  \begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=15.0cm, height=10.0cm]{FoodStudio classdiagram.png}
+    \centering
+    \caption {Class Diagram}
+  \end{minipage}
+\label{label1}
+\end{figure}
+\newpage
+\subsection{Widget Tree}
+\begin{figure}[h]
+  \begin{minipage}[b]{0.5\textwidth}
+    \includegraphics[width=15.0cm, height=10.0cm]{Screenshot (328).png}
+    \centering
+    \caption {Widget Tree}
+  \end{minipage}
+\label{label1}
+\end{figure}
+\newpage
+\subsection{Data Model}
 \begin{figure}[!h]
-\includegraphics[width=16cm \textwidth]{SRS-2/Data Model.png}
+\includegraphics[width=16cm \textwidth]{Data Model.png}
 \caption{Data Model}
 \end{figure}
 \FloatBarrier
 
-\newpage
+
+
+
 \section{Project Plan}
+
+
+
 \begin{table}[h]
 \resizebox{\textwidth}{60}
 {\begin{tabular}{|l|l|l|l|}
 \hline 
 \thea{Start Date}    & \thead{End Date} & \thead{Task} & \thead{Team members}  \\
 \hline
-06-November-2020  & 17-November-2020 (frontend)  -  15-January-2020 (backend) & Login and recipe detail (one recipe) pages & Mariam \\ 
+06-November-2020  & 17-November-2020 (frontend)  -  15-January-2021 (backend) & Login and recipe detail (one recipe) pages & Mariam \\ 
 \hline
-06-November-2020 & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Forget password and search pages & Samiha \\ 
+06-November-2020 & 17-November-2020 (frontend) - 15-January-2021 (backend)   & Forget password and search pages & Samiha \\ 
 \hline
-06-November-2020 & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Trending and create profile pages & Sandra \\ 
+06-November-2020 & 17-November-2020 (frontend) - 15-January-2021 (backend)   & Trending and create profile pages & Sandra \\ 
 \hline
-06-November-2020 & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Main page (view all recipes) and create account & Nour \\ 
+06-November-2020 & 17-November-2020 (frontend) - 15-January-2021 (backend)   & Main page (view all recipes) and create account & Nour \\ 
 \hline
-10-November-2020  & 17-November-2020 (frontend) - 15-January-2020 (backend)  & Add new post, edit profile, reset password & Samiha   \\
+10-November-2020  & 17-November-2020 (frontend) - 15-January-2021 (backend)  & Add new post, edit profile, reset password & Samiha   \\
 \hline
-10-November-2020  & 17-November-2020 (frontend) - 15-January-2020 (backend)   & Intro page and detail page (slider page and welcome page) & Nour
+10-November-2020  & 17-November-2020 (frontend) - 15-January-2021 (backend)   & Intro page and detail page (slider page and welcome page) & Nour
 \\
 \hline
-10-November-2020  & 17-November-2020 (frontend) - 15-January-2020 (backend)   & User profile and drawer & Sandra
+10-November-2020  & 17-November-2020 (frontend) - 15-January-2021 (backend)   & User profile and drawer & Sandra
 \\
 \hline
-17-November-2020 & 05-December-2020 (frontend) - 15-January-2020 (backend)  & Saved and logout pages & Nour \\ \hline
+17-November-2020 & 05-December-2020 (frontend) - 15-January-2021 (backend)  & Saved and logout pages & Nour \\ \hline
 \end{tabular}}
 
 
@@ -826,13 +850,14 @@ Food studio application will be user friendly and easy to understand.The system 
 
 \FloatBarrier
 
+\newpage
 \section{Github Contribution}
 \begin{figure}[!h]
-\includegraphics[width=10cm]{10.jpeg}
+\includegraphics[width=13cm]{Screenshot (329).png}
 \caption{Github Contribution}
 \end{figure}
 \FloatBarrier
-\newpage
+
 \section {References}
 
 \bibliographystyle{IEEEtranS}
