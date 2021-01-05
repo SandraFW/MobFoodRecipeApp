@@ -860,7 +860,7 @@ Food studio application will be user friendly and easy to understand.The system 
 
 \section {References}
 
-\bibliographystyle{unsrt}
+\bibliographystyle{IEEEtran}
 
 \bibliography{b2.bib}
 
