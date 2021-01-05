@@ -6,7 +6,7 @@ import 'profile_main.dart';
 class EditProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Edit Profile', home: EditProfilePage());
+    return Scaffold (body: EditProfilePage());
   }
 }
 
