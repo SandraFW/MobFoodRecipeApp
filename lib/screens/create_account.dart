@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:screentwo/services/auth.dart';
 import 'complete_profile.dart';
 import 'package:email_validator/email_validator.dart';
 import '../Animation/FadeAnimation.dart';
-import 'intro_page.dart';
+import 'package:get/get.dart';
 
 
 class Create extends StatefulWidget{
@@ -11,8 +12,10 @@ class Create extends StatefulWidget{
 
 class _Create extends State<Create> {
   // This widget is the root of your application.
+  final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-  String _email;
+  //String _email;
+  final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final TextEditingController _confirmpassword = TextEditingController();
   bool _obscureText = true; 
@@ -47,7 +50,8 @@ class _Create extends State<Create> {
 
     });
  }
-  
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +68,7 @@ class _Create extends State<Create> {
                 margin: const EdgeInsets.only(right: 330.0, top: 20.0),
                 child: IconButton(
                   onPressed: (){
-                     Navigator.pop(context);
+                     Get.back();
                   },
                   icon: Icon(
                   Icons.arrow_back,
@@ -93,12 +97,28 @@ class _Create extends State<Create> {
                 width: 200.0,
                 height: 50.0,
                 child: RaisedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if(_formKey.currentState.validate()){
+                     // print(_email);
+                     // print(_password.text);
+                      
+                      dynamic result = await _auth.register(_email.text, _password.text);
+                      if(result == null){
+                        return 'error occurred';
+                      }
+                      else{
+                          Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                          return CompleteProfile();
+                    }));
+
+                      }
+                      /*
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return CompleteProfile();
                     }));
+                    */
                     }
                     else {
                       return "unsuccessful";
@@ -131,7 +151,7 @@ class _Create extends State<Create> {
       ),
     );
   }
-  
+
   Column CreateAccount(key) {
   return Column(
     children: [
@@ -144,6 +164,7 @@ class _Create extends State<Create> {
         child: Column(
         children: [
         TextFormField(
+        controller: _email,
         autofocus: true,
         validator: (value) {
           if(value.isEmpty){
@@ -155,7 +176,7 @@ class _Create extends State<Create> {
           return null;
         },
         onSaved: (String email){
-          _email = email;
+          _email.text = email;
         },
         decoration: InputDecoration(
           hintText: "Email",
@@ -238,3 +259,7 @@ class _Create extends State<Create> {
 
 }
 
+
+  
+
+ 
