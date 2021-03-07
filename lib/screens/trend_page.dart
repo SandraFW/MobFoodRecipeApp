@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import 'lib/models/Posts.dart';
 
+
 class TrendPage extends StatefulWidget {
   static String tag = 'trend-page';
   @override
@@ -9,8 +10,8 @@ class TrendPage extends StatefulWidget {
 }
 
 class _TrendPagetState extends State<TrendPage> {
-  final List<Food> _allFood = Food.allFood();
-  final _saved = Set<Food>();
+  //final List<Posts> _allPosts = Posts.allPosts();
+  final _saved = Set<Posts>();
 
   //bool _isFavorited = false;
   @override
@@ -31,60 +32,84 @@ class _TrendPagetState extends State<TrendPage> {
   }
 
   getHomePageBody(BuildContext context) {
-    return ListView.builder(
-      itemCount: _allFood.length,
-      itemBuilder: _getItemUI,
-      padding: EdgeInsets.all(10.0),
+    return StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance
+          .collection('Posts')
+          .orderBy('like', descending: true)
+          .limit(30)
+          .snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return LinearProgressIndicator();
+
+        return _buildList(context, snapshot.data.documents);
+      },
     );
   }
 
-  Widget _getItemUI(BuildContext context, int index) {
-    final label = _allFood[index].likes;
+  Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
+    return ListView(
+      padding: const EdgeInsets.only(top: 20.0),
+      children: snapshot.map((data) => _buildListItem(context, data)).toList(),
+    );
+  }
+
+  Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
+    final document = Posts.fromSnapshot(data);
+    Future<bool> onLikeButtonTapped(bool isLiked) async {
+      /// send your request here
+      //final bool success= await sendRequest();
+
+      Firestore.instance.runTransaction((transaction) async {
+        final freshSnapshot = await transaction.get(document.reference);
+        final fresh = Posts.fromSnapshot(freshSnapshot);
+
+        await transaction
+            .update(document.reference, {'like': fresh.like + 1});
+      });
+
+      /// if failed, you can do nothing
+      //return success? !isLiked:isLiked;
+    }
+
     return new Card(
-        child: new Column(
-      children: <Widget>[
-        Image.asset(
-          "images/" + _allFood[index].image,
-          fit: BoxFit.fill,
-          width: 300.0,
-          height: 200.0,
-        ),
-        new Text(
-          _allFood[index].title,
-          style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            LikeButton(
-              likeCount: label,
-              likeBuilder: (bool isLiked) {
-                return Icon(
-                  Icons.favorite,
-                  size: 25,
-                  color: isLiked ? Colors.redAccent : Colors.blueGrey[200],
-                );
-              },
-              countBuilder: (int count, bool isLiked, String text) {
-                var color = isLiked ? Colors.redAccent : Colors.blueGrey;
-                Widget result;
-                if (count == 0) {
-                  result = Text(
-                    "love",
-                    style: TextStyle(color: color),
+      child: new Column(
+        children: <Widget>[
+          Image.asset(
+            "images/" + document.image,
+            fit: BoxFit.fill,
+            width: 300.0,
+            height: 200.0,
+          ),
+          new Text(
+            document.title,
+            style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              LikeButton(
+                onTap: onLikeButtonTapped,
+                size: 20,
+                circleColor: CircleColor(
+                    start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                bubblesColor: BubblesColor(
+                  dotPrimaryColor: Color(0xff33b5e5),
+                  dotSecondaryColor: Color(0xff0099cc),
+                ),
+                likeBuilder: (bool isLiked) {
+                  return Icon(
+                    Icons.favorite,
+                    color: isLiked ? Colors.red : Colors.grey,
+                    size: 20,
                   );
-                } else {
-                  result = Text(
-                    text,
-                    style: TextStyle(color: color),
-                  );
-                }
-                return result;
-              },
-            ),
-          ],
-        ),
-      ],
-    ));
+                },
+                likeCount: document.like,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
+
