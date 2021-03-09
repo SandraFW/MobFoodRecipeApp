@@ -3,45 +3,39 @@ import 'package:flutter/material.dart';
 import 'trend_page.dart';
 import 'profile_main.dart';
 import 'package:screentwo/widgets/view_recipes.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:screentwo/models/recipe.dart';
 
-class SavedWidget extends StatefulWidget{
-_SavedWidgetState createState() => _SavedWidgetState();
+
+addData(){
+  Map<String,dynamic> demoData = {"image":"images/pizza.jpg", "title": "Shrimp Pizza",
+  "subtitle": "Homemade Shrimp Pizza", "likes": 90, "saved": true};
+  CollectionReference collectionReference = FirebaseFirestore.instance.collection('Posts');
+  collectionReference.add(demoData);
 }
 
-class _SavedWidgetState extends State<SavedWidget> {
-bool _isSaved = false;
 
-
-Widget build(BuildContext context) {
-return Row(
-  
-  children: [
-   Container(
-  child: IconButton(
-  
-
-icon: (_isSaved ? Icon(Icons.turned_in) : Icon(Icons.turned_in_not_outlined)),
-color: Colors.redAccent,
-onPressed: _toggleSaved,
-),
-   ),
-  ],
-);
-
-} 
-              
-void _toggleSaved() {
-setState(() {
-if (_isSaved) {
-_isSaved = false;
-} else {
-_isSaved = true;
-}
-});
-}
+class MainPage extends StatefulWidget{
+_MainPage createState() => _MainPage();
 }
 
-class MainPage extends StatelessWidget {
+class _MainPage extends State<MainPage> {
+ 
+ /*
+  fetchData(){
+  CollectionReference collectionReference = FirebaseFirestore.instance.collection('Posts');
+  collectionReference.snapshots().listen((snapshot) { 
+    List documents;
+    setState(() {
+
+      documents = snapshot.docs;
+
+    });
+
+
+  });
+}
+  */
   
   @override
   Widget build(BuildContext context) {
@@ -70,12 +64,14 @@ class MainPage extends StatelessWidget {
                 color: Colors.redAccent,
               ),
               onPressed: (){
-                 Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
+                addData();
+                
+                /*
+                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                       return Profile();
                     }));
-                
-               },
+                 */
+                    },
             ),
           ],
           title: Container(
@@ -104,18 +100,9 @@ class MainPage extends StatelessWidget {
          
          
          body: SafeArea(
-                child: ListView(
-             children: [
-
-                RecipesColumn('images/classicburger.jpeg', 'Classic Burger', 'Homemade Classic Burger',  100),
-                RecipesColumn('images/fluffypancakes.jpeg', 'Fluffy Pancakes', 'Homemade Fluffy Pancakes', 50),
-                RecipesColumn('images/salmonwithnaan.jpg', 'Salmon with Grilled Naan', 'Homemade Salmon with Grilled Naan',  70),
-                RecipesColumn('images/sushi.jpeg', 'Vegan Sushi', 'Homemade Sushi Vegan', 100),
-
-               ],
-
+                child: 
+                  SaveWidget(),
            ),
-         ),
     );
   }
 }
