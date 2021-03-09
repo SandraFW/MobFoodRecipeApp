@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:screentwo/services/auth.dart';
+import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:screentwo/screens/forget_password.dart';
+import 'forget_password.dart';
 import 'constants.dart';
 import 'package:email_validator/email_validator.dart';
 import '../Animation/FadeAnimation.dart';
 import 'create_account.dart';
-import 'forget_password.dart';
 import 'profile_main.dart';
-
+import 'package:get/get.dart';
 
 class Login extends StatelessWidget {
   // This widget is the root of your application.
@@ -26,15 +27,23 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  GlobalKey<FormState> _formkey =GlobalKey<FormState>();
- 
-  
-   String _email;
+  final AuthService _auth = AuthService();
+  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
-  
-  
-  
-  
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+
+      if (_obscureText) {
+        _obscureText = true;
+      } else {
+        _obscureText = false;
+      }
+    });
+  }
+
   Widget _buildLogo() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -54,73 +63,58 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  
-
   Widget _buildForm() {
     return Padding(
-
       padding: EdgeInsets.all(8),
       child: Form(
-      key: _formkey,
-      child: Column(
-
-      children:[
-         TextFormField(
-       
-        autofocus: true,
-        validator: (value) {
-          if(value.isEmpty){
-            return "This Field is Empty";
-          }
-          else if(!EmailValidator.validate(value)){
-            return "The email you inserted is not valid";
-          }
-          return null;
-        },
-        onSaved: (String email){
-          _email = email;
-        },
-        
-        decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.email,
-              color: mainColor,
+        key: _formkey,
+        child: Column(
+          children: [
+            TextFormField(
+              autofocus: true,
+              controller: _email,
+              validator: (value) {
+                if (value.isEmpty) {
+                  return "This Field is Empty";
+                } else if (!EmailValidator.validate(value)) {
+                  return "The email you inserted is not valid";
+                }
+                return null;
+              },
+              onSaved: (String email) {
+                _email.text = email;
+              },
+              decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: mainColor,
+                  ),
+                  labelText: 'E-mail'),
             ),
-            labelText: 'E-mail'),
-      ),
-
-         TextFormField(
-        
-        autofocus: true,
-        controller: _password,
-        validator: (value) {
-          if(value.isEmpty){
-            return "This Field is Empty";
-          }
-          else if(value.length < 6){
-            return "your password should have at least 6 characters";
-          }
-          return null;
-        },
-        onSaved: (String password){
-          _password.text = password;
-        },
-        
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.lock,
-            color: mainColor,
-          ),
-          labelText: 'Password',
+            TextFormField(
+              autofocus: true,
+              controller: _password,
+              validator: (value) {
+                if (value.isEmpty) {
+                  return "This Field is Empty";
+                } else if (value.length < 6) {
+                  return "your password should have at least 6 characters";
+                }
+                return null;
+              },
+              onSaved: (String password) {
+                _password.text = password;
+              },
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: mainColor,
+                ),
+                labelText: 'Password',
+              ),
+            ),
+          ],
         ),
-      ),
-     
-
-
-
-
-      ],
-      ),
       ),
     );
   }
@@ -132,12 +126,9 @@ class _LoginPageState extends State<LoginPage> {
       children: <Widget>[
         FlatButton(
           onPressed: () {
-       
-          Navigator.push(context,
-                         MaterialPageRoute(builder:(context){
-                         return ForgetPass();
-                         
-                         }));
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return ForgetPass();
+            }));
           },
           child: Text("Forgot Password?"),
         ),
@@ -161,14 +152,21 @@ class _LoginPageState extends State<LoginPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                onPressed: () {
-                if (_formkey.currentState.validate() ) {
-                Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return Profile();
-            }));
-          
-            
-                }
+                onPressed: () async {
+                  if (_formkey.currentState.validate()) {
+                    dynamic result = await _auth.signInWithEmailAndPassword(
+                        _email.text, _password.text);
+                    if (result == null) {
+                      return 'error occurred';
+                    } else {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Profile();
+                      }));
+                    }
+                  } else {
+                    return "unsuccessful";
+                  }
                 },
                 child: Text(
                   "Login",
@@ -254,7 +252,6 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[],
                 ),
-              
                 _buildForm(),
                 _buildForgetPasswordButton(),
                 _buildLoginButton(),
@@ -275,51 +272,44 @@ class _LoginPageState extends State<LoginPage> {
         Padding(
           padding: EdgeInsets.only(left: 0.0, top: 20),
           child: FlatButton(
-           child:  RichText(
-              text: TextSpan(children: [
-                TextSpan(
-                  text: 'Dont have an account? ',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: MediaQuery.of(context).size.height / 40,
-                    fontWeight: FontWeight.w400,
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Dont have an account? ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: MediaQuery.of(context).size.height / 40,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                ),
-                TextSpan(
-                  text: 'Sign Up',
-                  style: TextStyle(
-                    color: mainColor2,
-                    fontSize: MediaQuery.of(context).size.height / 40,
-                    fontWeight: FontWeight.bold,
+                  TextSpan(
+                    text: 'Sign Up',
+                    style: TextStyle(
+                      color: mainColor2,
+                      fontSize: MediaQuery.of(context).size.height / 40,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
               ),
-        ),
+            ),
             onPressed: () {
-           
-          Navigator.push(context,
-                         MaterialPageRoute(builder:(context){
-                         return Create();
-                         
-                         }));
-          
-          },
-            
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return Create();
+              }));
+            },
           ),
         ),
-       
       ],
     );
-        }
-            
-          
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
         backgroundColor: Color(0xFFFF9E80),
         body: Stack(
           children: <Widget>[
