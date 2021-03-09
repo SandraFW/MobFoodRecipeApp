@@ -77,7 +77,7 @@ class InkWellDrawer extends StatelessWidget {
                       Navigator.push(
                           context,
                           new MaterialPageRoute(
-                              builder: (context) => new ProfileFirst()))
+                              builder: (context) => new MyPostsPage()))
                     }),
             CustomListTile(
                 Icons.save,
@@ -138,8 +138,8 @@ class InkWellDrawer extends StatelessWidget {
                   ),
                 )),
             CustomListTile(
-                Icons.person,
-                'Profile',
+                Icons.pages,
+                'Reports',
                 () => {
                       Navigator.pop(context),
                       Navigator.push(
@@ -147,7 +147,7 @@ class InkWellDrawer extends StatelessWidget {
                           // ignore: always_specify_types
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  new ProfileFirst()))
+                                  new new ReprtPage()))
                     }),
           ],
         ),
