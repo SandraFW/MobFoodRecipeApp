@@ -1,103 +1,158 @@
 import 'package:flutter/material.dart';
-import 'package:screentwo/screens/add_new_recipe.dart';
-import 'package:screentwo/screens/saved_page.dart';
+import 'package:flutter_application_6/models/user.dart';
+import 'package:flutter_application_6/screens/add_new_recipe.dart';
+import 'package:flutter_application_6/screens/logout_page.dart';
+import 'package:flutter_application_6/screens/notification.dart';
+import 'package:flutter_application_6/screens/saved_page.dart';
+import 'package:flutter_application_6/screens/trend_page.dart';
+import 'package:provider/provider.dart';
+
 import 'profile_view.dart';
-import 'notification.dart';
-import 'login.dart';
-import 'saved_page.dart';
-import 'logout.dart';
-import 'add_new_recipe.dart';
-import 'edit_profile.dart';
 
 class InkWellDrawer extends StatelessWidget {
   @override
-  Widget build(BuildContext ctxt) {
-    return new Drawer(
-      child: ListView(
-        children: <Widget>[
-          DrawerHeader(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: <Color>[Colors.redAccent, Colors.red])),
-              child: Container(
-                child: Column(
-                  children: <Widget>[
-                    Material(
-                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      elevation: 10,
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Image.asset("images/profileimg.png",
-                            height: 90, width: 90),
+  Widget build(BuildContext context) {
+    final user = Provider.of<Users>(context);
+    if (user.uid != "qxhv60uRBTX2m8EF0SXsFH6utDs2") {
+      return Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: <Color>[Colors.redAccent, Colors.red])),
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Material(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(50.0)),
+                        elevation: 10,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset('images/profileimg.png',
+                              height: 90, width: 90),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              )),
-          CustomListTile(
-              Icons.person,
-              'Profile',
-              () => {
-                    Navigator.pop(ctxt),
-                    Navigator.push(
-                        ctxt,
-                        new MaterialPageRoute(
-                            builder: (ctxt) => new ProfileFirst()))
-                  }),
-          CustomListTile(
-              Icons.post_add,
-              'Add new Post',
-              () => {
-                    Navigator.pop(ctxt),
-                    Navigator.push(
-                        ctxt,
-                        new MaterialPageRoute(
-                            builder: (ctxt) => new AddNewRecipe()))
-                  }),
-          CustomListTile(
-              Icons.list,
-              'My Posts',
-              () => {
-                    Navigator.pop(ctxt),
-                    Navigator.push(
-                        ctxt,
-                        new MaterialPageRoute(
-                            builder: (ctxt) => new ProfileFirst()))
-                  }),
-          CustomListTile(
-              Icons.save,
-              'Saved Posts',
-              () => {
-                    Navigator.pop(ctxt),
-                    Navigator.push(
-                        ctxt,
-                        new MaterialPageRoute(
-                            builder: (ctxt) => new SavedPage()))
-                  }),
-          CustomListTile(
-              Icons.notifications,
-              'Notification',
-              () => {
-                    Navigator.pop(ctxt),
-                    Navigator.push(
-                        ctxt,
-                        new MaterialPageRoute(
-                            builder: (ctxt) => new NotificationView()))
-                  }),
-          CustomListTile(Icons.settings, 'Settings', () => {}),
-          CustomListTile(
-              Icons.lock,
-              'Log Out',
-              () => {
-                    Navigator.pop(ctxt),
-                    Navigator.push(
-                        ctxt,
-                        new MaterialPageRoute(
-                            builder: (ctxt) => new Logout()))
-                  }),
-        ],
-      ),
-    );
+                    ],
+                  ),
+                )),
+            CustomListTile(
+                Icons.person,
+                'Profile',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          // ignore: always_specify_types
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  new ProfileFirst()))
+                    }),
+            CustomListTile(
+                Icons.camera,
+                'Add new Post',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new AddNewRecipe()))
+                    }),
+            CustomListTile(
+                Icons.trending_up,
+                'Trending',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new TrendPage()))
+                    }),
+            CustomListTile(
+                Icons.list,
+                'My Posts',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new ProfileFirst()))
+                    }),
+            CustomListTile(
+                Icons.save,
+                'Saved Posts',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new SavedPage()))
+                    }),
+            CustomListTile(
+                Icons.notifications,
+                'Notification',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new NotificationView()))
+                    }),
+            CustomListTile(Icons.settings, 'Settings', () => {}),
+            CustomListTile(
+                Icons.lock,
+                'Log Out',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) => new Logout()))
+                    }),
+          ],
+        ),
+      );
+    } else {
+      return Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: <Color>[Colors.redAccent, Colors.red])),
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Material(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(50.0)),
+                        elevation: 10,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset('images/profileimg.png',
+                              height: 90, width: 90),
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+            CustomListTile(
+                Icons.person,
+                'Profile',
+                () => {
+                      Navigator.pop(context),
+                      Navigator.push(
+                          context,
+                          // ignore: always_specify_types
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  new ProfileFirst()))
+                    }),
+          ],
+        ),
+      );
+    }
   }
 }
 
