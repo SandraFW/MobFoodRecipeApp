@@ -1,5 +1,12 @@
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'trend_page.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as path;
+import 'package:provider/provider.dart';
+import 'package:screentwo/models/user.dart';
 
 class CompleteProfile extends StatefulWidget {
   static String tag = 'complete-page';
@@ -10,6 +17,11 @@ class CompleteProfile extends StatefulWidget {
 class _CompleteProfileState extends State<CompleteProfile> {
   @override
   Widget build(BuildContext context) {
+    File _image;
+    final picker = ImagePicker();
+    final user = Provider.of<Users>(context);
+    TextEditingController FirstnameController = new TextEditingController();
+    TextEditingController LastnameController = new TextEditingController();
     final welcome = Padding(
       padding: EdgeInsets.all(10.0),
       child: Text(
@@ -19,13 +31,87 @@ class _CompleteProfileState extends State<CompleteProfile> {
             fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black),
       ),
     );
+    Future _imgFromCamera() async {
+      PickedFile imageFile = await picker.getImage(source: ImageSource.camera);
+
+      if (imageFile == null) return;
+
+      File tmpFile = File(imageFile.path);
+
+      final appDir = await getApplicationDocumentsDirectory();
+      final fileName = path.basename(imageFile.path);
+      tmpFile = await tmpFile.copy('${appDir.path}/$fileName');
+
+      print('File path is :${tmpFile.path}');
+
+      setState(() {
+        _image = tmpFile;
+      });
+    }
+
+    Future _imgFromGallery() async {
+      final picker = ImagePicker();
+      final pickedFile = await picker.getImage(source: ImageSource.gallery);
+
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    }
+
+    void _showPicker(Context) {
+      showModalBottomSheet(
+          context: context,
+          builder: (BuildContext bc) {
+            return SafeArea(
+              child: Container(
+                child: new Wrap(
+                  children: <Widget>[
+                    new ListTile(
+                        leading: new Icon(Icons.photo_camera),
+                        title: new Text('Camera'),
+                        onTap: () {
+                          _imgFromCamera();
+                          Navigator.of(context).pop();
+                        }),
+                    new ListTile(
+                        leading: new Icon(Icons.photo_library),
+                        title: new Text('Photo Library'),
+                        onTap: () {
+                          _imgFromGallery();
+                          Navigator.of(context).pop();
+                        }),
+                  ],
+                ),
+              ),
+            );
+          });
+    }
 
     final logo = Center(
-      child: CircleAvatar(
-        //backgroundColor: Colors.transparent,
-        radius: 60.0,
-        child: Image.asset('images/logo.png'),
-      ),
+      child: GestureDetector(
+          onTap: () {
+            _showPicker(context);
+          },
+          child: CircleAvatar(
+              radius: 55,
+              backgroundColor: Color(0xffFDCF09),
+              child: _image != null
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.file(
+                        _image,
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.fitHeight,
+                      ),
+                    )
+                  : Container(
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(50)),
+                      width: 100,
+                      height: 100,
+                      child: Icon(Icons.camera_alt, color: Colors.grey[800])))),
     );
 
     final firstname = TextFormField(
@@ -36,6 +122,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
       ),
+      controller: FirstnameController,
     );
 
     final lastname = TextFormField(
@@ -46,6 +133,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
       ),
+      controller: LastnameController,
     );
 
     final loginButton = Padding(
@@ -55,7 +143,17 @@ class _CompleteProfileState extends State<CompleteProfile> {
           borderRadius: BorderRadius.circular(8.0),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(TrendPage.tag);
+          Map<String, dynamic> User = new Map<String, dynamic>();
+          User["Firstname"] = FirstnameController.text;
+          User["Lastname"] = LastnameController.text;
+          User["image_url"] = _image;
+          FirebaseFirestore.instance
+              .collection("Users")
+              .doc(user.uid)
+              .set(User)
+              .whenComplete(() {
+            Navigator.of(context).pushNamed(TrendPage.tag);
+          });
         },
         padding: EdgeInsets.all(15.0),
         color: Colors.deepOrangeAccent,
