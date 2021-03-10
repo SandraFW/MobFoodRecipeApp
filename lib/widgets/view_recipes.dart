@@ -32,12 +32,27 @@ class _SaveWidgetState extends State<SaveWidget>{
         return Center(child: CircularProgressIndicator(),);
       }
 
-       return ListView(
+      return Column(
+        children: [
+           Container(
+                 margin: EdgeInsets.only(left: 0.0, top:15.0),
+               child:Text(
+              'Food Studio',
+               style: TextStyle(
+                  fontFamily: 'SourceSansPro',
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red[900],
+                ),
+            ),
+               ),
+        Expanded(
+         child:
+        ListView(
       
         padding: const EdgeInsets.only(top: 0.0),
         children: snapshot.data.docs.map((document){
             final user = Provider.of<Users>(context);
-            print(user.uid);
             bool _isSaved;
             bool isLiked;
             List likedby = document["likedBy"];
@@ -142,9 +157,6 @@ class _SaveWidgetState extends State<SaveWidget>{
            }
 
 
-         
-
-          
             Future<bool> changedata() async{
             
                     if(isLiked == true) { 
@@ -314,7 +326,9 @@ class _SaveWidgetState extends State<SaveWidget>{
 
          
        }).toList(),
-       
+        ),
+        ),
+        ],
        );
     }
    ); 
