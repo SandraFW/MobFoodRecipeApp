@@ -1,19 +1,19 @@
 
 import 'package:flutter/material.dart';
 import 'trend_page.dart';
-import 'profile_main.dart';
 import 'package:screentwo/widgets/view_recipes.dart';
+import 'package:screentwo/widgets/profile_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:screentwo/models/recipe.dart';
 
-
+/*
 addData(){
   Map<String,dynamic> demoData = {"image":"images/pizza.jpg", "title": "Shrimp Pizza",
   "subtitle": "Homemade Shrimp Pizza", "likes": 90, "saved": true};
   CollectionReference collectionReference = FirebaseFirestore.instance.collection('Posts');
   collectionReference.add(demoData);
 }
-
+*/
 
 class MainPage extends StatefulWidget{
 _MainPage createState() => _MainPage();
@@ -64,13 +64,13 @@ class _MainPage extends State<MainPage> {
                 color: Colors.redAccent,
               ),
               onPressed: (){
-                addData();
+                //addData();
                 
-                /*
+                
                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return Profile();
+                      return ProfileFirst();
                     }));
-                 */
+                 
                     },
             ),
           ],
