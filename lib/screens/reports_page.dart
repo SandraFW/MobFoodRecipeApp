@@ -40,7 +40,7 @@ class ReportPage extends StatelessWidget {
               onPressed: (){
                  Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return Profile();
+                      return ProfileFirst();
                     }));
                 
                },
