@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:screentwo/widgets/recipe_details.dart';
 import 'profile_main.dart';
-import 'package:screentwo/widgets/insert_recipe.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class NewRecipe extends StatelessWidget {
@@ -21,34 +20,14 @@ class AddNewRecipe extends StatefulWidget {
 }
 
 class _AddNewRecipeState extends State<AddNewRecipe> {
-  File _imageFile;
-  final picker = ImagePicker();
-  Future pickImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
-    setState(() {
-      _imageFile = File(pickedFile.path);
-    });
-  }
-
-  /*Future uploadImageToFirebase(BuildContext context) async {
-    String fileName = basename(_imageFile.path);
-    Reference firebaseStorageRef =
-        FirebaseStorage.instance.ref().child('uploads/$fileName');
-    UploadTask uploadTask = firebaseStorageRef.putFile(_imageFile);
-    UploadTask taskSnapshot = await uploadTask.onComplete;
-    taskSnapshot.ref.getDownloadURL().then(
-          (value) => print("Done: $value"),
-        );
-  }*/
-
-  /*File _file;
+  File _file;
   String imgurl;
   Future pickerCamera() async {
     final myfile = await ImagePicker().getImage(source: ImageSource.gallery);
-    setState((){
+    setState(() {
       _file = File(myfile.path);
     });
-  }*/
+  }
 
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   void validate() {
@@ -79,18 +58,17 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
   }
 
   Widget insertRecipe() {
-    //TextEditingController newImage = new TextEditingController(); //img
-    //TextEditingController recipeName = new TextEditingController();
-    //TextEditingController ingredients = new TextEditingController();
-    //TextEditingController steps = new TextEditingController();
+    TextEditingController recipeName = new TextEditingController();
+    TextEditingController ingredients = new TextEditingController();
+    TextEditingController steps = new TextEditingController();
 
-    /*addData() async {
+    addData() async {
       var image = FirebaseStorage.instance.ref().child(_file.path);
       var uploadImage = image.putFile(_file);
       imgurl = await (await uploadImage).ref.getDownloadURL();
 
       Map<String, dynamic> demoData = {
-        "image": image.toString(),
+        "image": imgurl.toString(),
         "title": recipeName.text,
         "ingredients": ingredients.text,
         "description": steps.text,
@@ -99,7 +77,7 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
       CollectionReference collectionReference =
           FirebaseFirestore.instance.collection('Posts');
       collectionReference.add(demoData);
-    }*/
+    }
 
     return Container(
       padding: EdgeInsets.only(left: 16, top: 25, right: 16),
@@ -116,13 +94,9 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
           child: Stack(
             children: [
               Container(
-                /*child: _file == null
+                child: _file == null
                     ? text("image not selected")
                     : Image.file((_file), fit: BoxFit.fill),
-                */
-                child: _imageFile != null
-                    ? text("image not selected")
-                    : Image.file((_imageFile), fit: BoxFit.fill),
                 width: 300,
                 height: 220,
                 decoration: BoxDecoration(
@@ -155,8 +129,7 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
                         icon: Icon(Icons.image),
                         color: Colors.white,
                         onPressed: () {
-                          pickImage();
-                          //pickerCamera();
+                          pickerCamera();
                         }),
                   )),
             ],
@@ -181,7 +154,7 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
             child: Padding(
               padding: const EdgeInsets.only(left: 14),
               child: TextFormField(
-                //controller: recipeName,
+                controller: recipeName,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Recipe Name",
@@ -206,7 +179,7 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
             child: Padding(
               padding: const EdgeInsets.only(left: 14),
               child: TextFormField(
-                //controller: ingredients,
+                controller: ingredients,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Ingredients",
@@ -231,7 +204,7 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
             child: Padding(
               padding: const EdgeInsets.only(left: 14),
               child: TextFormField(
-                //controller: steps,
+                controller: steps,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -252,8 +225,7 @@ class _AddNewRecipeState extends State<AddNewRecipe> {
               // ignore: deprecated_member_use
               child: RaisedButton(
                   onPressed: () {
-                    //uploadImageToFirebase(context);
-                    //addData();
+                    addData();
                     //print(imgurl.toString());
                     //print(recipeName);
                     //print(ingredients);
