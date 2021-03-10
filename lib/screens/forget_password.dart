@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:get/get.dart';
+import 'package:screentwo/screens/intro_page.dart';
+import 'package:screentwo/screens/login_page.dart';
 import 'package:screentwo/services/auth.dart';
-import 'package:screentwo/widgets/recipe_details.dart';
-import 'reset_password.dart';
-import 'login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ForgetPass extends StatelessWidget {
@@ -33,6 +32,36 @@ class _ForgetPassState extends State<ForgetPassword> {
     print('Not validated');
   }
 
+   showAlertDialog(BuildContext context) {
+               Widget okayButton = FlatButton(
+              child: Text("Okay", style: TextStyle(color: Colors.grey[700]),),
+              onPressed: () {
+                Get.to(IntroPage());
+               },
+             );
+             
+            AlertDialog alert = AlertDialog(
+            title: Text("Password Reset", style:
+             TextStyle(
+               color: Colors.redAccent,
+
+            ),
+            ),
+            content: Text("A link was sent on your email to reset your password."),
+            actions: [
+            okayButton,
+            
+            ],
+         );
+
+           showDialog(
+          context: context,
+         builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
   String EmailValidation(value) {
     if (value.isEmpty) {
       return 'Please enter your email';
@@ -44,8 +73,7 @@ class _ForgetPassState extends State<ForgetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    //TextEditingController _email = new TextEditingController();
-    //final AuthService _auth = AuthService();
+    final AuthService _auth = AuthService();
     return Scaffold(
         backgroundColor: Colors.white,
         body: ListView(children: <Widget>[
@@ -100,7 +128,6 @@ class _ForgetPassState extends State<ForgetPassword> {
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: Form(
-                      // ignore: deprecated_member_use
                       autovalidate: true,
                       key: formkey,
                       child: Column(
@@ -133,21 +160,18 @@ class _ForgetPassState extends State<ForgetPassword> {
                     height: 50,
                     // ignore: deprecated_member_use
                     child: RaisedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (formkey.currentState.validate()) {
-                            _auth.sendPasswordResetEmail(email: _email);
-                            //Navigator.push(context,
-                            //MaterialPageRoute(builder: (context) {
-                            //return Login();
-                            print('Kindly check your Email ');
-
-                            //Navigator.push(context,
-                            //MaterialPageRoute(builder: (context) {
-                            //return Reset();
-                            //print(value);
-                            //
-                            //}));
-
+                            
+                             _auth.sendPasswordResetEmail(_email);
+                             showAlertDialog(context);
+                            
+                             
+                      
+                   
+                          }
+                          else{
+                            return ("try again later");
                           }
                         },
                         color: Colors.red[400],
