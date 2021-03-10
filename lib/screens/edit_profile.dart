@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'complete_profile.dart';
 import 'profile_main.dart';
+import 'dart:io';
+import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:screentwo/widgets/recipe_details.dart';
 
 
 class EditProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold (body: EditProfilePage());
+    return Scaffold(body: EditProfilePage());
   }
 }
 
@@ -16,9 +19,19 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  bool showPassword = false;
+  File _file;
+  String imgurl;
+  Future pickerCamera() async {
+    final myfile = await ImagePicker().getImage(source: ImageSource.gallery);
+    setState(() {
+      _file = File(myfile.path);
+    });
+  }
+
+  //bool showPassword = false;
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -28,9 +41,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
             color: Colors.redAccent,
           ),
           onPressed: () {
-            Navigator.push(context,
-            MaterialPageRoute(builder: (context) {
-             return Profile();
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return Profile();
             }));
           },
         ),
@@ -48,28 +60,29 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
               ),
               SizedBox(
-                height: 15,
+                height: 2,
               ),
               Center(
                 child: Stack(
                   children: [
                     Container(
-                        width: 130,
-                        height: 130,
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 4, color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                spreadRadius: 2,
-                                blurRadius: 10,
-                                color: Colors.grey[350],
-                              )
-                            ],
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: new AssetImage('images/profileimg.png'),
-                            ))),
+                      child: _file == null
+                          ? text("image not selected")
+                          : CircleAvatar(backgroundImage: new FileImage(_file)),
+                      width: 280,
+                      height: 340,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 4, color: Colors.white),
+                        boxShadow: [
+                          BoxShadow(
+                            spreadRadius: 2,
+                            blurRadius: 10,
+                            color: Colors.grey[350],
+                          )
+                        ],
+                        shape: BoxShape.circle,
+                      ),
+                    ),
                     Positioned(
                         bottom: 0,
                         right: 0,
@@ -87,21 +100,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           child: IconButton(
                             icon: Icon(Icons.edit),
                             color: Colors.white,
-                            onPressed: () {},
+                            onPressed: () {
+                              pickerCamera();
+                            },
                           ),
                         )),
                   ],
                 ),
               ),
-
-              buildTextField("Name", "Sanda Fares", false),
-              buildTextField(
-                  "Bio", "I'm not a chef. I'm passionate about food.", false),
-              buildTextField("E-mail", "Sandra@gmail.com", false),
-              buildTextField("Password", "••••••••••", true),
+              buildTextField("First Name", "First Name"),
+              buildTextField("Last Name", "Last Name"),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  // ignore: deprecated_member_use
                   RaisedButton(
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
@@ -113,6 +125,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
+                  // ignore: deprecated_member_use
                   RaisedButton(
                     onPressed: () {},
                     color: Colors.redAccent,
@@ -136,26 +149,25 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
-  Widget buildTextField(
-      String labelText, String placeholder, bool isPasswordTextField) {
+  Widget buildTextField(String labelText, String placeholder) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35.0),
       child: TextField(
-        obscureText: isPasswordTextField ? showPassword : false,
+        //obscureText: isPasswordTextField ? showPassword : false,
         decoration: InputDecoration(
-            suffixIcon: isPasswordTextField
-                ? IconButton(
-                    onPressed: () {
-                      setState(() {
-                        showPassword = !showPassword;
-                      });
-                    },
-                    icon: Icon(
-                      Icons.remove_red_eye,
-                      color: Colors.grey,
-                    ),
-                  )
-                : null,
+            //suffixIcon: isPasswordTextField
+            // ? IconButton(
+            // onPressed: () {
+            //setState(() {
+            //showPassword = !showPassword;
+            //});
+            //},
+            //icon: Icon(
+            //Icons.remove_red_eye,
+            //color: Colors.grey,
+            //),
+            //)
+            //: null,
             contentPadding: EdgeInsets.only(bottom: 3),
             labelText: labelText,
             floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -168,4 +180,3 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 }
-
