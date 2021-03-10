@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:get/get.dart';
+import 'package:screentwo/services/auth.dart';
+import 'package:screentwo/widgets/recipe_details.dart';
 import 'reset_password.dart';
-import 'login.dart';
+import 'login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() {
-  runApp(ForgetPass());
-}
 class ForgetPass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,9 @@ class ForgetPassword extends StatefulWidget {
   _ForgetPassState createState() => _ForgetPassState();
 }
 
-
 class _ForgetPassState extends State<ForgetPassword> {
+  String _email;
+  final _auth = FirebaseAuth.instance;
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   void validate() {
@@ -42,8 +44,10 @@ class _ForgetPassState extends State<ForgetPassword> {
 
   @override
   Widget build(BuildContext context) {
+    //TextEditingController _email = new TextEditingController();
+    //final AuthService _auth = AuthService();
     return Scaffold(
-        backgroundColor: Colors.yellow[50],
+        backgroundColor: Colors.white,
         body: ListView(children: <Widget>[
           Padding(
             padding: EdgeInsets.only(top: 15.0, left: 10.0),
@@ -102,6 +106,11 @@ class _ForgetPassState extends State<ForgetPassword> {
                       child: Column(
                         children: <Widget>[
                           TextFormField(
+                              onChanged: (value) {
+                                setState(() {
+                                  _email = value.trim();
+                                });
+                              },
                               validator: EmailValidation,
                               autofocus: true,
                               decoration: InputDecoration(
@@ -122,17 +131,27 @@ class _ForgetPassState extends State<ForgetPassword> {
                   child: Container(
                     width: 290,
                     height: 50,
+                    // ignore: deprecated_member_use
                     child: RaisedButton(
                         onPressed: () {
                           if (formkey.currentState.validate()) {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return Reset();
-                            }));
+                            _auth.sendPasswordResetEmail(email: _email);
+                            //Navigator.push(context,
+                            //MaterialPageRoute(builder: (context) {
+                            //return Login();
+                            print('Kindly check your Email ');
+
+                            //Navigator.push(context,
+                            //MaterialPageRoute(builder: (context) {
+                            //return Reset();
+                            //print(value);
+                            //
+                            //}));
+
                           }
                         },
                         color: Colors.red[400],
-                        child: Text("Send Now",
+                        child: Text("Send Request",
                             style: TextStyle(color: Colors.white))),
                   ),
                 )
