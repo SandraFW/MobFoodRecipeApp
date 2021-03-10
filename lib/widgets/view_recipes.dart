@@ -31,6 +31,9 @@ class _SaveWidgetState extends State<SaveWidget>{
       if(!snapshot.hasData){
         return Center(child: CircularProgressIndicator(),);
       }
+      if(snapshot.hasError){
+        return Text("An error occurred");
+      }
 
       return Column(
         children: [
