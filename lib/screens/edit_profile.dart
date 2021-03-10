@@ -1,13 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:screentwo/widgets/profile_view.dart';
-import 'profile_main.dart';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:screentwo/widgets/recipe_details.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:screentwo/models/user.dart';
 
@@ -36,7 +32,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
     });
   }
 
-  //bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<Users>(context);
@@ -174,9 +169,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                 ),
               ),
-
-              //buildTextField("First Name", "First Name"),
-              //buildTextField("Last Name", "Last Name"),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -194,11 +186,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                 // ignore: deprecated_member_use
+                  // ignore: deprecated_member_use
                   RaisedButton(
                     onPressed: () {
-                      FirebaseFirestore.instance.collection('Users').doc(user.uid).update({"Firstname": firstname.text, "Lastname": lastname.text});
-                  
+                      FirebaseFirestore.instance
+                          .collection('Users')
+                          .doc(user.uid)
+                          .update({
+                        "Firstname": firstname.text,
+                        "Lastname": lastname.text
+                      });
                     },
                     color: Colors.redAccent,
                     padding: EdgeInsets.symmetric(horizontal: 50),
@@ -220,36 +217,4 @@ class _EditProfilePageState extends State<EditProfilePage> {
       ),
     );
   }
-
-  /*Widget buildTextField(String labelText, String placeholder) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 35.0),
-      child: TextField(
-        //obscureText: isPasswordTextField ? showPassword : false,
-        decoration: InputDecoration(
-            //suffixIcon: isPasswordTextField
-            // ? IconButton(
-            // onPressed: () {
-            //setState(() {
-            //showPassword = !showPassword;
-            //});
-            //},
-            //icon: Icon(
-            //Icons.remove_red_eye,
-            //color: Colors.grey,
-            //),
-            //)
-            //: null,
-            contentPadding: EdgeInsets.only(bottom: 3),
-            labelText: labelText,
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: placeholder,
-            hintStyle: TextStyle(
-              fontSize: 17,
-              color: Colors.black,
-            )),
-      ),
-    );
-  }*/
-
 }
