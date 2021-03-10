@@ -1,10 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:screentwo/widgets/profile_view.dart';
 import 'profile_main.dart';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:screentwo/widgets/recipe_details.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:screentwo/models/user.dart';
 
 class EditProfile extends StatelessWidget {
   @override
@@ -19,6 +24,9 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  TextEditingController firstname = new TextEditingController();
+  TextEditingController lastname = new TextEditingController();
+
   File _file;
   String imgurl;
   Future pickerCamera() async {
@@ -31,7 +39,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   //bool showPassword = false;
   @override
   Widget build(BuildContext context) {
-    
+    final user = Provider.of<Users>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -42,7 +50,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Profile();
+              return ProfileFirst();
             }));
           },
         ),
@@ -67,7 +75,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   children: [
                     Container(
                       child: _file == null
-                          ? text("image not selected")
+                          ? Text("image not selected")
                           : CircleAvatar(backgroundImage: new FileImage(_file)),
                       width: 280,
                       height: 340,
@@ -108,8 +116,67 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ],
                 ),
               ),
-              buildTextField("First Name", "First Name"),
-              buildTextField("Last Name", "Last Name"),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey, width: 0.2),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.5), blurRadius: 7)
+                      ]),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 14),
+                    child: TextFormField(
+                      controller: firstname,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Your New First Name",
+                          hintStyle: TextStyle(
+                              color: Colors.grey,
+                              fontFamily: "Times New Roman",
+                              fontSize: 18)),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey, width: 0.2),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.5), blurRadius: 7)
+                      ]),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 14),
+                    child: TextFormField(
+                      controller: lastname,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "You New Last Name",
+                          hintStyle: TextStyle(
+                              color: Colors.grey,
+                              fontFamily: "Times New Roman",
+                              fontSize: 18)),
+                    ),
+                  ),
+                ),
+              ),
+
+              //buildTextField("First Name", "First Name"),
+              //buildTextField("Last Name", "Last Name"),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -118,16 +185,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Text("CANCEL",
                         style: TextStyle(
                             fontSize: 14,
                             letterSpacing: 2.2,
                             color: Colors.black)),
                   ),
-                  // ignore: deprecated_member_use
+                 // ignore: deprecated_member_use
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      FirebaseFirestore.instance.collection('Users').doc(user.uid).update({"Firstname": firstname.text, "Lastname": lastname.text});
+                  
+                    },
                     color: Colors.redAccent,
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
@@ -149,7 +221,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
-  Widget buildTextField(String labelText, String placeholder) {
+  /*Widget buildTextField(String labelText, String placeholder) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35.0),
       child: TextField(
@@ -178,5 +250,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
             )),
       ),
     );
-  }
+  }*/
+
 }
