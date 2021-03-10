@@ -1,7 +1,7 @@
 # MobFoodRecipeApp
 
 
-Food Studio is an social media app for all foodlovers to share their favorite recipes written in Flutter
+Food Studio is an social media app for all foodlovers to share their favorite recipes, This application is written in Flutter and cloud firestore is used
 
 # Screenshots
 
