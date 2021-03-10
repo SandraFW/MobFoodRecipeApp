@@ -54,4 +54,12 @@ Future signInWithEmailAndPassword(String email, String password) async {
 
    }
   }
+  Future sendPasswordResetEmail(String email) async {
+    try {
+      return _auth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
