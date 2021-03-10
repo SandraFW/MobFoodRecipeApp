@@ -1,42 +1,12 @@
+import 'dart:io';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:screentwo/widgets/recipe_details.dart';
 import 'profile_main.dart';
-
-
-class CupertinoSwitchWidget extends StatefulWidget {
-  @override
-  _CupertinoSwitchWidgetState createState() => _CupertinoSwitchWidgetState();
-}
-
-class _CupertinoSwitchWidgetState extends State<CupertinoSwitchWidget> {
-  var _lights = true;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: ListTile(
-        title: Text('Pubic',
-            style: TextStyle(
-              color: Colors.grey,
-              fontFamily: "Times New Roman",
-              fontSize: 18,
-            )),
-        trailing: CupertinoSwitch(
-          value: _lights,
-          onChanged: (bool value) {
-            setState(() {
-              _lights = value;
-            });
-          },
-        ),
-        onTap: () {
-          setState(() {
-            _lights = !_lights;
-          });
-        },
-      ),
-    );
-  }
-}
+import 'package:screentwo/widgets/insert_recipe.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class NewRecipe extends StatelessWidget {
   @override
@@ -51,177 +21,255 @@ class AddNewRecipe extends StatefulWidget {
 }
 
 class _AddNewRecipeState extends State<AddNewRecipe> {
+  File _imageFile;
+  final picker = ImagePicker();
+  Future pickImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      _imageFile = File(pickedFile.path);
+    });
+  }
+
+  /*Future uploadImageToFirebase(BuildContext context) async {
+    String fileName = basename(_imageFile.path);
+    Reference firebaseStorageRef =
+        FirebaseStorage.instance.ref().child('uploads/$fileName');
+    UploadTask uploadTask = firebaseStorageRef.putFile(_imageFile);
+    UploadTask taskSnapshot = await uploadTask.onComplete;
+    taskSnapshot.ref.getDownloadURL().then(
+          (value) => print("Done: $value"),
+        );
+  }*/
+
+  /*File _file;
+  String imgurl;
+  Future pickerCamera() async {
+    final myfile = await ImagePicker().getImage(source: ImageSource.gallery);
+    setState((){
+      _file = File(myfile.path);
+    });
+  }*/
+
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  void validate() {
+    if (formkey.currentState.validate()) {
+      print('Validated');
+    }
+    print('Not validated');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.white,
-            leading: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.redAccent,
-              ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Profile();
-                }));
-              },
-            )),
-        body: Container(
-          padding: EdgeInsets.only(left: 16, top: 25, right: 16),
-          child: GestureDetector(
-              child: ListView(children: [
-            Text(
-              "Add Your Favorite Recipe.",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.redAccent,
             ),
-            SizedBox(
-              height: 15,
-            ),
-            Center(
-              child: Stack(
-                children: [
-                  Container(
-                      width: 130,
-                      height: 130,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 4, color: Colors.white),
-                        boxShadow: [
-                          BoxShadow(
-                            spreadRadius: 2,
-                            blurRadius: 10,
-                            color: Colors.grey[350],
-                          )
-                        ],
-                        shape: BoxShape.rectangle,
-                      )),
-                  Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          border: Border.all(
-                            width: 4,
-                            color: Colors.white,
-                          ),
-                          color: Colors.redAccent,
-                        ),
-                        child: IconButton(
-                          icon: Icon(Icons.image),
-                          color: Colors.white,
-                          onPressed: () {},
-                        ),
-                      )),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CupertinoSwitchWidget(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
-              child: Container(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return Profile();
+              }));
+            },
+          )),
+      body: insertRecipe(),
+    );
+  }
+
+  Widget insertRecipe() {
+    //TextEditingController newImage = new TextEditingController(); //img
+    //TextEditingController recipeName = new TextEditingController();
+    //TextEditingController ingredients = new TextEditingController();
+    //TextEditingController steps = new TextEditingController();
+
+    /*addData() async {
+      var image = FirebaseStorage.instance.ref().child(_file.path);
+      var uploadImage = image.putFile(_file);
+      imgurl = await (await uploadImage).ref.getDownloadURL();
+
+      Map<String, dynamic> demoData = {
+        "image": image.toString(),
+        "title": recipeName.text,
+        "ingredients": ingredients.text,
+        "description": steps.text,
+        "likes": 0
+      };
+      CollectionReference collectionReference =
+          FirebaseFirestore.instance.collection('Posts');
+      collectionReference.add(demoData);
+    }*/
+
+    return Container(
+      padding: EdgeInsets.only(left: 16, top: 25, right: 16),
+      child: GestureDetector(
+          child: ListView(children: [
+        Text(
+          "Add Your Favorite Recipe.",
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Center(
+          child: Stack(
+            children: [
+              Container(
+                /*child: _file == null
+                    ? text("image not selected")
+                    : Image.file((_file), fit: BoxFit.fill),
+                */
+                child: _imageFile != null
+                    ? text("image not selected")
+                    : Image.file((_imageFile), fit: BoxFit.fill),
+                width: 300,
+                height: 220,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.grey, width: 0.2),
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.5), blurRadius: 7)
-                    ]),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 14),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Recipe Name",
-                        hintStyle: TextStyle(
-                            color: Colors.grey,
-                            fontFamily: "Times New Roman",
-                            fontSize: 18)),
-                  ),
+                  border: Border.all(width: 4, color: Colors.white),
+                  boxShadow: [
+                    BoxShadow(
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      color: Colors.grey[350],
+                    )
+                  ],
+                  shape: BoxShape.rectangle,
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.grey, width: 0.2),
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.5), blurRadius: 7)
-                    ]),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 14),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Ingredients",
-                        hintStyle: TextStyle(
-                            color: Colors.grey,
-                            fontFamily: "Times New Roman",
-                            fontSize: 18)),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: Colors.grey, width: 0.2),
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.5), blurRadius: 7)
-                    ]),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 14),
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Steps",
-                        hintStyle: TextStyle(
-                            color: Colors.grey,
-                            fontFamily: "Times New Roman",
-                            fontSize: 18)),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                  width: 50,
-                  height: 40,
-                  child: RaisedButton(
-                      onPressed: () {},
+              Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      border: Border.all(
+                        width: 4,
+                        color: Colors.white,
+                      ),
                       color: Colors.redAccent,
-                      padding: EdgeInsets.symmetric(horizontal: 50),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Text(
-                        "ADD",
-                        style: TextStyle(
-                            fontSize: 14,
-                            letterSpacing: 2.2,
-                            color: Colors.white),
-                      )),
-                ))
-          ])),
-        ));
+                    ),
+                    child: IconButton(
+                        icon: Icon(Icons.image),
+                        color: Colors.white,
+                        onPressed: () {
+                          pickImage();
+                          //pickerCamera();
+                        }),
+                  )),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.grey, width: 0.2),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 7)
+                ]),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 14),
+              child: TextFormField(
+                //controller: recipeName,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Recipe Name",
+                    hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: "Times New Roman",
+                        fontSize: 18)),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.grey, width: 0.2),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 7)
+                ]),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 14),
+              child: TextFormField(
+                //controller: ingredients,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Ingredients",
+                    hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: "Times New Roman",
+                        fontSize: 18)),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.grey, width: 0.2),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 7)
+                ]),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 14),
+              child: TextFormField(
+                //controller: steps,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Steps",
+                    hintStyle: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: "Times New Roman",
+                        fontSize: 18)),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+            padding: const EdgeInsets.all(8),
+            child: Container(
+              width: 50,
+              height: 40,
+              // ignore: deprecated_member_use
+              child: RaisedButton(
+                  onPressed: () {
+                    //uploadImageToFirebase(context);
+                    //addData();
+                    //print(imgurl.toString());
+                    //print(recipeName);
+                    //print(ingredients);
+                    //print(steps);
+                  },
+                  color: Colors.redAccent,
+                  padding: EdgeInsets.symmetric(horizontal: 50),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Text(
+                    "ADD",
+                    style: TextStyle(
+                        fontSize: 14, letterSpacing: 2.2, color: Colors.white),
+                  )),
+            ))
+      ])),
+    );
   }
 }
-
