@@ -14,7 +14,6 @@ class _Create extends State<Create> {
   // This widget is the root of your application.
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-  //String _email;
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final TextEditingController _confirmpassword = TextEditingController();
@@ -113,12 +112,7 @@ class _Create extends State<Create> {
                     }));
 
                       }
-                      /*
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return CompleteProfile();
-                    }));
-                    */
+                     
                     }
                     else {
                       return "unsuccessful";
